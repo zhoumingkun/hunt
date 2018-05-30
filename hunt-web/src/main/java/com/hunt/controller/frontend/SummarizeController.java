@@ -1,5 +1,10 @@
-package com.hunt.controller;
-
+package com.hunt.controller.frontend;
+/**
+ * 
+ *summarize实现类
+ * @Author: zmk
+ * @Date : 2018/5/30
+ */
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,30 +12,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Guide;
-import com.hunt.service.GuideService;
+import com.hunt.model.entity.Summarize;
+import com.hunt.service.SummarizeService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
+
 /**
  * 
- *Guide控制器
+ *Summarize控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */
 
 
-
 @Controller
-@RequestMapping("/guide")
-public class GuideController {
+@RequestMapping("/summarize")
+public class SummarizeController {
 	@Autowired
-	private GuideService guideService;
+	private SummarizeService summarizeService;
 	
 	@ResponseBody
     @RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Guide guide) {
+	public Result save(Summarize summarize) {
 		try {
-			guideService.save(guide);
+			summarizeService.save(summarize);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,7 +47,7 @@ public class GuideController {
     @RequestMapping(value = "deleteById", method = RequestMethod.POST)
     public Result deleteById(int id) {
 		try {
-			guideService.deleteById(id);
+			summarizeService.deleteById(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,9 +57,9 @@ public class GuideController {
 	
 	@ResponseBody
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public Result update(Guide guide) {
+    public Result update(Summarize summarize) {
 		try {
-			guideService.update(guide);
+			summarizeService.update(summarize);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,14 +69,14 @@ public class GuideController {
 	
 	 @ResponseBody
 	 @RequestMapping(value = "findById", method = RequestMethod.GET)
-	 public Guide findById(int id) {
-		 return guideService.findById(id);
+	 public Summarize findById(int id) {
+		 return summarizeService.findById(id);
 	 }
 	 
 	 @ResponseBody
 	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
-	 public List<Guide> findAll() {
-	        List<Guide> list = guideService.findAll();
+	 public List<Summarize> findAll() {
+	        List<Summarize> list = summarizeService.findAll();
 	        return list;
 	    }
 

@@ -1,43 +1,40 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.News;
-import com.hunt.service.NewsService;
+import com.hunt.model.entity.Proclamation;
+import com.hunt.service.ProclamationService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
-import io.swagger.annotations.ApiOperation;
-
-/**新闻控制器
+/**公告控制器
  * @author YAO
  *
  */
 @Controller
-@RequestMapping("news")
-public class NewsController{
+@RequestMapping("proclamation")
+public class ProclamationController{
 
 	@Autowired
-	private NewsService newsService;
+	private ProclamationService proclamationService;
 
 	/**
 	 * 新增
 	 * 
-	 * @param News
+	 * @param proclamation
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(News news) {
+	public Result save(Proclamation proclamation) {
 		try {
-			newsService.save(news);
+			proclamationService.save(proclamation);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,7 +52,7 @@ public class NewsController{
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public Result delete(int id) {
 		try {
-			newsService.delete(id);
+			proclamationService.delete(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,14 +63,14 @@ public class NewsController{
 	/**
 	 * 更新
 	 * 
-	 * @param News
+	 * @param proclamation
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(News news) {
+	public Result update(Proclamation proclamation) {
 		try {
-			newsService.update(news);
+			proclamationService.update(proclamation);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,12 +81,12 @@ public class NewsController{
 	/**
 	 * 查询全部
 	 * 
-	 * @param List<Culture>
+	 * @param List<Proclamation>
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
-	public List<News> findAll() {
-		return newsService.findAll();
+	public List<Proclamation> findAll() {
+		return proclamationService.findAll();
 	}
 }

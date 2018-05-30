@@ -1,4 +1,4 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 
@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Culture;
-import com.hunt.service.CultureService;
+import com.hunt.model.entity.Policy;
+import com.hunt.service.PolicyService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
 import io.swagger.annotations.ApiOperation;
 
-/**文化控制器
+/**招商控制器
  * @author YAO
  *
  */
 @Controller
-@RequestMapping("culture")
-public class CultureController{
+@RequestMapping("policy")
+public class PolicyController{
 
 	@Autowired
-	private CultureService cultureService;
+	private PolicyService policyService;
 
 	
 	/**
 	 * 新增
 	 * 
-	 * @param culture
+	 * @param policy
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Culture culture) {
+	public Result save(Policy policy) {
 		try {
-			cultureService.save(culture);
+			policyService.save(policy);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class CultureController{
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public Result delete(int id) {
 		try {
-			cultureService.delete(id);
+			policyService.delete(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,14 +67,14 @@ public class CultureController{
 	/**
 	 * 更新
 	 * 
-	 * @param culture
+	 * @param policy
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Culture culture) {
+	public Result update(Policy policy) {
 		try {
-			cultureService.update(culture);
+			policyService.update(policy);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,12 +85,12 @@ public class CultureController{
 	/**
 	 * 查询全部
 	 * 
-	 * @param List<Culture>
+	 * @param List<Policy>
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
-	public List<Culture> findAll() {
-		return cultureService.findAll();
+	public List<Policy> findAll() {
+		return policyService.findAll();
 	}
 }

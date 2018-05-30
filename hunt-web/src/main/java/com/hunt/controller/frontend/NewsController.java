@@ -1,4 +1,4 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 
@@ -9,36 +9,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Policy;
-import com.hunt.service.PolicyService;
+import com.hunt.model.entity.News;
+import com.hunt.service.NewsService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
 import io.swagger.annotations.ApiOperation;
 
-/**招商控制器
+/**新闻控制器
  * @author YAO
  *
  */
 @Controller
-@RequestMapping("policy")
-public class PolicyController{
+@RequestMapping("news")
+public class NewsController{
 
 	@Autowired
-	private PolicyService policyService;
+	private NewsService newsService;
 
-	
 	/**
 	 * 新增
 	 * 
-	 * @param policy
+	 * @param News
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Policy policy) {
+	public Result save(News news) {
 		try {
-			policyService.save(policy);
+			newsService.save(news);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,7 +55,7 @@ public class PolicyController{
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public Result delete(int id) {
 		try {
-			policyService.delete(id);
+			newsService.delete(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,14 +66,14 @@ public class PolicyController{
 	/**
 	 * 更新
 	 * 
-	 * @param policy
+	 * @param News
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Policy policy) {
+	public Result update(News news) {
 		try {
-			policyService.update(policy);
+			newsService.update(news);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,12 +84,12 @@ public class PolicyController{
 	/**
 	 * 查询全部
 	 * 
-	 * @param List<Policy>
+	 * @param List<Culture>
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
-	public List<Policy> findAll() {
-		return policyService.findAll();
+	public List<News> findAll() {
+		return newsService.findAll();
 	}
 }

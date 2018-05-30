@@ -1,4 +1,4 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 

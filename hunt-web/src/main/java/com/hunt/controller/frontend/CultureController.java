@@ -1,4 +1,4 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 
@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Specialty;
-import com.hunt.service.SpecialtyService;
+import com.hunt.model.entity.Culture;
+import com.hunt.service.CultureService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
 import io.swagger.annotations.ApiOperation;
 
-/**特产控制器
+/**文化控制器
  * @author YAO
  *
  */
 @Controller
-@RequestMapping("specialty")
-public class SpecialtyController{
+@RequestMapping("culture")
+public class CultureController{
 
 	@Autowired
-	private SpecialtyService specialtyService;
+	private CultureService cultureService;
 
 	
 	/**
 	 * 新增
 	 * 
-	 * @param specialty
+	 * @param culture
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Specialty specialty) {
+	public Result save(Culture culture) {
 		try {
-			specialtyService.save(specialty);
+			cultureService.save(culture);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class SpecialtyController{
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public Result delete(int id) {
 		try {
-			specialtyService.delete(id);
+			cultureService.delete(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,14 +67,14 @@ public class SpecialtyController{
 	/**
 	 * 更新
 	 * 
-	 * @param specialty
+	 * @param culture
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Specialty specialty) {
+	public Result update(Culture culture) {
 		try {
-			specialtyService.update(specialty);
+			cultureService.update(culture);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,12 +85,12 @@ public class SpecialtyController{
 	/**
 	 * 查询全部
 	 * 
-	 * @param List<Specialty>
+	 * @param List<Culture>
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
-	public List<Specialty> findAll() {
-		return specialtyService.findAll();
+	public List<Culture> findAll() {
+		return cultureService.findAll();
 	}
 }

@@ -1,40 +1,44 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Proclamation;
-import com.hunt.service.ProclamationService;
+import com.hunt.model.entity.Specialty;
+import com.hunt.service.SpecialtyService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
-/**公告控制器
+import io.swagger.annotations.ApiOperation;
+
+/**特产控制器
  * @author YAO
  *
  */
 @Controller
-@RequestMapping("proclamation")
-public class ProclamationController{
+@RequestMapping("specialty")
+public class SpecialtyController{
 
 	@Autowired
-	private ProclamationService proclamationService;
+	private SpecialtyService specialtyService;
 
+	
 	/**
 	 * 新增
 	 * 
-	 * @param proclamation
+	 * @param specialty
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Proclamation proclamation) {
+	public Result save(Specialty specialty) {
 		try {
-			proclamationService.save(proclamation);
+			specialtyService.save(specialty);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,7 +56,7 @@ public class ProclamationController{
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public Result delete(int id) {
 		try {
-			proclamationService.delete(id);
+			specialtyService.delete(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,14 +67,14 @@ public class ProclamationController{
 	/**
 	 * 更新
 	 * 
-	 * @param proclamation
+	 * @param specialty
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Proclamation proclamation) {
+	public Result update(Specialty specialty) {
 		try {
-			proclamationService.update(proclamation);
+			specialtyService.update(specialty);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,12 +85,12 @@ public class ProclamationController{
 	/**
 	 * 查询全部
 	 * 
-	 * @param List<Proclamation>
+	 * @param List<Specialty>
 	 * @return Result
 	 */
 	@ResponseBody
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
-	public List<Proclamation> findAll() {
-		return proclamationService.findAll();
+	public List<Specialty> findAll() {
+		return specialtyService.findAll();
 	}
 }

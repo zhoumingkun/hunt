@@ -1,10 +1,5 @@
-package com.hunt.controller;
-/**
- * 
- *summarize实现类
- * @Author: zmk
- * @Date : 2018/5/30
- */
+package com.hunt.controller.frontend;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,30 +7,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Summarize;
-import com.hunt.service.SummarizeService;
+import com.hunt.model.entity.Travel;
+import com.hunt.service.TravelService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
-
 /**
  * 
- *Summarize控制器
+ *Travelr控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */
 
 
+
 @Controller
-@RequestMapping("/summarize")
-public class SummarizeController {
+@RequestMapping("/travel")
+public class TravelController {
 	@Autowired
-	private SummarizeService summarizeService;
+	private TravelService travelService;
 	
 	@ResponseBody
     @RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Summarize summarize) {
+	public Result save(Travel travel) {
 		try {
-			summarizeService.save(summarize);
+			travelService.save(travel);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,10 +39,10 @@ public class SummarizeController {
 	}
 	
 	@ResponseBody
-    @RequestMapping(value = "deleteById", method = RequestMethod.POST)
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
     public Result deleteById(int id) {
 		try {
-			summarizeService.deleteById(id);
+			travelService.deleteById(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,9 +52,9 @@ public class SummarizeController {
 	
 	@ResponseBody
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public Result update(Summarize summarize) {
+    public Result update(Travel travel) {
 		try {
-			summarizeService.update(summarize);
+			travelService.update(travel);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,14 +64,14 @@ public class SummarizeController {
 	
 	 @ResponseBody
 	 @RequestMapping(value = "findById", method = RequestMethod.GET)
-	 public Summarize findById(int id) {
-		 return summarizeService.findById(id);
+	 public Travel findById(int id) {
+		 return travelService.findById(id);
 	 }
 	 
 	 @ResponseBody
 	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
-	 public List<Summarize> findAll() {
-	        List<Summarize> list = summarizeService.findAll();
+	 public List<Travel> findAll() {
+	        List<Travel> list = travelService.findAll();
 	        return list;
 	    }
 

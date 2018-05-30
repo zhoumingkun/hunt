@@ -1,4 +1,4 @@
-package com.hunt.controller;
+package com.hunt.controller.frontend;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hunt.model.entity.Travel;
-import com.hunt.service.TravelService;
+import com.hunt.model.entity.Guide;
+import com.hunt.service.GuideService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 /**
  * 
- *Travelr控制器
+ *Guide控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */
@@ -21,16 +21,16 @@ import com.hunt.util.Result;
 
 
 @Controller
-@RequestMapping("/travel")
-public class TravelController {
+@RequestMapping("/guide")
+public class GuideController {
 	@Autowired
-	private TravelService travelService;
+	private GuideService guideService;
 	
 	@ResponseBody
     @RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Travel travel) {
+	public Result save(Guide guide) {
 		try {
-			travelService.save(travel);
+			guideService.save(guide);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -39,10 +39,10 @@ public class TravelController {
 	}
 	
 	@ResponseBody
-    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @RequestMapping(value = "deleteById", method = RequestMethod.POST)
     public Result deleteById(int id) {
 		try {
-			travelService.deleteById(id);
+			guideService.deleteById(id);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,9 +52,9 @@ public class TravelController {
 	
 	@ResponseBody
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public Result update(Travel travel) {
+    public Result update(Guide guide) {
 		try {
-			travelService.update(travel);
+			guideService.update(guide);
 			return Result.success();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,14 +64,14 @@ public class TravelController {
 	
 	 @ResponseBody
 	 @RequestMapping(value = "findById", method = RequestMethod.GET)
-	 public Travel findById(int id) {
-		 return travelService.findById(id);
+	 public Guide findById(int id) {
+		 return guideService.findById(id);
 	 }
 	 
 	 @ResponseBody
 	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
-	 public List<Travel> findAll() {
-	        List<Travel> list = travelService.findAll();
+	 public List<Guide> findAll() {
+	        List<Guide> list = guideService.findAll();
 	        return list;
 	    }
 
