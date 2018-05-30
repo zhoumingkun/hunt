@@ -1,0 +1,10 @@
+@import url(../common/common.css);
+@import url(../common/hearder.css);
+@import url(../common/footer.css);
+@import url(../common/nav.css);
+@import url(../common/breadcrumb.css);
+@import url(../common/asideNav.css);
+@import url(../common/recommend.css);
+@import url(../common/paging.css);
+.mainwrap .right {
+  padding: 0 0.12rem; }

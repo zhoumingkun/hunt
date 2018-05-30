@@ -1,0 +1,112 @@
+/*分页*/
+.pagingwrap{
+  position:absolute;
+  right:0.2rem;
+  bottom:0.21rem;
+}
+div.tfoot div.pagination{
+  height:0.22rem;
+  /*width:5.54rem;*/
+  width:auto;
+  position: relative;
+  background:rgba(0,0,0,0);
+}
+div.pagination a.pre{
+  float:left;
+  height:0.22rem;
+  width:0.27rem;
+  border-radius: 0.04rem;
+  margin-right:0.08rem;
+  background-color:#d2222c;
+  background-repeat:  no-repeat;
+  background-position:  center;
+  background-size:cover;
+  background-image:url(../../../assets/images/all/pagination-pre.png);
+}
+div.pagination a.page{
+  float:left;
+  height:0.22rem;
+  width:0.22rem;
+  /*background:rgb(255,255,255);*/
+  border:0.01rem solid #dcdcdc;
+  line-height: 0.2rem;
+  text-align: center;
+  font-size: 0.12rem;
+  color:rgb(0,0,0);
+  border-radius: 0.02rem;
+  margin-right:0.1rem;
+}
+div.pagination a.page:hover{
+  border-color:#d2222c;
+}
+div.pagination a:hover{
+  text-decoration: none;
+}
+div.pagination a.active{
+  background:#d2222c;
+  color:rgb(255,255,255);
+  border-color:#d2222c;
+}
+div.pagination a.shot{
+  float:left;
+  height:0.24rem;
+  width:0.22rem;
+  /*background:rgb(255,255,255);*/
+  line-height: 0.2rem;
+  text-align: center;
+  margin-right:0.1rem;
+  text-align: center;
+  font-size: 0.12rem;
+  color:rgb(0,0,0);
+  font-size: 0.14rem;
+  border:0.01rem solid rgba(0,0,0,0);
+}
+div.pagination a.next{
+  float:left;
+  height:0.22rem;
+  width:0.27rem;
+  border-radius: 0.04rem;
+  background:rgb(55,141,248);
+  margin-left:-0.02rem;
+  background-color:#d2222c;
+  background-repeat:  no-repeat;
+  background-position:  center;
+  background-size:cover;
+  background-image:url(../../../assets/images/all/pagination-next.png);
+}
+div.pagination span{
+  float:left;
+  margin-left:0.3rem;
+  text-align: center;
+  font-size: 0.12rem;
+  color:rgb(0,0,0);
+  height:0.22rem;
+  line-height: 0.22rem;
+}
+div.pagination input{
+  float:left;
+  height:0.22rem;
+  width:0.27rem;
+  border-radius: 0.04rem;
+  background:rgba(255,255,255,0);
+  border:0.01rem solid rgb(236,210,200);
+  margin-left:0.08rem;
+  text-align: center;
+  font-size: 0.12rem;
+  color:rgb(0,0,0);
+}
+div.pagination button.search{
+  float:left;
+  height:0.22rem;
+  line-height: 0.228rem;
+  text-align: center;
+  width:0.27rem;
+  border-radius: 0.04rem;
+  background:#d2222c;
+  margin-left:0.1rem;
+  font-size: 0.14rem;
+  color:rgb(255,255,255);
+  border:none;
+  outline: none;
+  padding:0;
+}

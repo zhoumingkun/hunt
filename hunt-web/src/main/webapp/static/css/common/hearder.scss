@@ -1,0 +1,87 @@
+//头开始
+.hearder_box {
+    width: 100%;
+    height: 1.6rem;
+    padding-top: 0.57rem;
+    background-image: url(../../images/all/1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .hearder {
+        width: 12rem;
+        height: 100%;
+        margin: 0 auto;
+        .hearder_img {
+            width: 5.58rem;
+            float: left;
+            margin-left: 0.15rem;
+            margin-top: 0.05rem;
+            img {
+                width: 100%;
+            }
+        }
+        .hearder_input {
+            width: 6rem;
+            height: 100%;
+            float: right;
+            .hearder_input_font {
+                width: 100%;
+                height: auto;
+                p {
+                    display: inline-block;
+                    font-size: 0.14rem;
+                    color: black;
+                    a {
+                        font-size: inherit;
+                    }
+                    &.active {
+                        color: #d30707;
+                    }
+                    &:hover {
+                        color: #d30707;
+                    }
+                }
+            }
+            .hearder_input_box {
+                width: 100%;
+                height: 0.45rem;
+                input {
+                    padding-left: 0.15rem;
+                    color: #999999;
+                    font-size: 0.18rem;
+                    height: 100%;
+                    float: left;
+                    width: 4.63rem;
+                    border: 1px solid #c6c6c6;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                p {
+                    a {
+                        width: 100%;
+                        height: 100%;
+                        font-size: inherit;
+                        display: inline-block;
+                    }
+                    float: left;
+                    width: 1.36rem;
+                    height: 100%;
+                    text-align: center;
+                    line-height: 0.45rem;
+                    font-size: 0.24rem;
+                    color: white;
+                    background-color: #d30707;
+                }
+                &:after {
+                    clear: both;
+                }
+            }
+        }
+    }
+    &:after {
+        width: 100%;
+        clear: both;
+    }
+}
+
+//头结束

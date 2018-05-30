@@ -1,0 +1,93 @@
+@import url(../common/common.css);
+@import url(../common/hearder.css);
+@import url(../common/footer.css);
+@import url(../common/nav.css);
+@import url(../common/breadcrumb.css);
+@import url(../common/asideNav.css);
+@import url(../common/recommend.css);
+@import url(../common/paging.css);
+.mainwrap .right {
+  padding: 0 0.12rem; }
+  .mainwrap .right .title {
+    display: none; }
+    .mainwrap .right .title.active {
+      display: block; }
+
+.mainwrap .right .main ul {
+  width: 100%;
+  height: auto;
+  display: none;
+  margin-top: 0.1rem; }
+  .mainwrap .right .main ul li {
+    width: 100%;
+    height: 1.6rem;
+    border: 1px solid #dcdcdc;
+    padding: 0.1rem 0.07rem 0.1rem 0.07rem;
+    margin-bottom: 0.05rem; }
+    .mainwrap .right .main ul li:hover a .main_font .main_title p {
+      color: #d2222c; }
+    .mainwrap .right .main ul li a img {
+      width: 2rem;
+      height: 100%;
+      float: left; }
+    .mainwrap .right .main ul li a .main_font {
+      width: 5.3rem;
+      height: 100%;
+      float: right; }
+      .mainwrap .right .main ul li a .main_font .main_title {
+        width: 100%;
+        height: 0.44rem;
+        border-bottom: 1px dashed #d7d7d7;
+        margin-bottom: 0.17rem; }
+        .mainwrap .right .main ul li a .main_font .main_title p {
+          font-size: 0.2rem;
+          color: black; }
+      .mainwrap .right .main ul li a .main_font .main_font_content {
+        width: 100%;
+        height: 0.73rem; }
+        .mainwrap .right .main ul li a .main_font .main_font_content p {
+          color: #999;
+          font-size: 0.16rem;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          line-height: 1.6; }
+
+.mainwrap .right .main .survey {
+  width: 100%;
+  height: auto;
+  padding: 0.2rem 0.1rem 0; }
+  .mainwrap .right .main .survey .survey_title {
+    width: 100%;
+    height: 2.45rem;
+    border-bottom: 1px dashed #d7d7d7;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.1rem; }
+    .mainwrap .right .main .survey .survey_title .survey_title_img {
+      width: 3.44rem;
+      height: 1.92rem;
+      background-color: #eeeeee;
+      padding: 0.05rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+      margin: 0 auto;
+      margin-bottom: 0.1rem; }
+      .mainwrap .right .main .survey .survey_title .survey_title_img img {
+        width: 100%;
+        height: 100%; }
+    .mainwrap .right .main .survey .survey_title p {
+      width: 100%;
+      height: auto;
+      text-align: center;
+      font-size: 0.18rem;
+      color: #333; }
+  .mainwrap .right .main .survey .survey_font {
+    width: 100%;
+    height: auto; }
+    .mainwrap .right .main .survey .survey_font p {
+      text-indent: 2em;
+      font-size: 0.16rem;
+      color: #666;
+      margin-bottom: 0.05rem;
+      line-height: 2; }
