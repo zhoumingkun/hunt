@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.ProclamationMapper">
+	
+	<insert id="save" parameterType="Proclamation" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tbl_proclamation (id,
+		createTime,updateTime,author,proclamationName, proclamationContent,image,trade)
+		values (#{id}, #{createTime},#{updateTime},#{author},#{proclamationName},
+		#{proclamationContent},#{image},#{trade})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_proclamation where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Proclamation">
+		update tbl_proclamation
+		<set>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="enterpriseName != null and enterpriseName != ''">proclamationName = #{proclamationName},</if>
+			<if test="enterpriseContent != null and enterpriseContent != ''">proclamationContent = #{proclamationContent},</if>
+			<if test="updateTime != null">updateTime = #{updateTime},</if>
+			<if test="image != null and image != ''">image= #{image},</if>
+			<if test="trade != null and trade != ''">trade= #{trade},</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<select id="findAll" resultType="Proclamation">
+		select * from tbl_proclamation
+	</select>
+</mapper>

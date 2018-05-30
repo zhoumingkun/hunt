@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.PolicyMapper">
+	
+	<insert id="save" parameterType="Policy" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tbl_policy (id,
+		createTime,updateTime,author,policyName, policyContent,type,state)
+		values (#{id}, #{createTime},#{updateTime},#{author},#{policyName},
+		#{policyContent},#{type},#{state})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_policy where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Policy">
+		update tbl_policy
+		<set>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="policyName != null and policyName != ''">policyName = #{policyName},</if>
+			<if test="policyContent != null and policyContent != ''">policyContent = #{policyContent},</if>
+			<if test="updateTime != null">updateTime = #{updateTime},</if>
+			<if test="type != null and type != ''">type= #{type},</if>
+			<if test="state != null">state = #{state},</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<select id="findAll" resultType="Policy">
+		select * from tbl_policy
+	</select>
+</mapper>

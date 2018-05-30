@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.CultureMapper">
+	
+	<insert id="save" parameterType="Culture" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tbl_culture (id,
+		createTime,updateTime,author,cultureName, cultureContent,image)
+		values (#{id}, #{createTime},#{updateTime},#{author},#{cultureName},
+		#{cultureContent},#{image})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_culture where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Culture">
+		update tbl_culture
+		<set>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="cultureName != null and cultureName != ''">cultureName = #{cultureName},</if>
+			<if test="cultureContent != null and cultureContent != ''">cultureContent = #{cultureContent},</if>
+			<if test="updateTime != null">updateTime = #{updateTime},</if>
+			<if test="image != null and image != ''">image= #{image},</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<select id="findAll" resultType="Culture">
+		select * from tbl_culture
+	</select>
+</mapper>

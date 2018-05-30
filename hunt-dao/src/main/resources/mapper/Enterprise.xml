@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.EnterpriseMapper">
+	
+	<insert id="save" parameterType="Enterprise" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tbl_enterprise (id,
+		createTime,updateTime,author,enterpriseName, enterpriseContent,image,trade,state)
+		values (#{id}, #{createTime},#{updateTime},#{author},#{enterpriseName},
+		#{enterpriseContent},#{image},#{trade},#{state})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_enterprise where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Enterprise">
+		update tbl_enterprise
+		<set>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="enterpriseName != null and enterpriseName != ''">enterpriseName = #{enterpriseName},</if>
+			<if test="enterpriseContent != null and enterpriseContent != ''">enterpriseContent = #{enterpriseContent},</if>
+			<if test="updateTime != null">updateTime = #{updateTime},</if>
+			<if test="image != null and image != ''">image= #{image},</if>
+			<if test="trade != null and trade != ''">trade= #{trade},</if>
+			<if test="state != null ">state= #{state},</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<select id="findAll" resultType="Enterprise">
+		select * from tbl_enterprise
+	</select>
+</mapper>
