@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.hunt.model.entity.Culture;
 
+/**文化Dao层Mapper
+ * @author YAO
+ *
+ */
 public interface CultureMapper {
 	// 新增
 	public void save(Culture culture);

@@ -13,6 +13,10 @@ import com.hunt.service.ProclamationService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
+/**公告控制器
+ * @author YAO
+ *
+ */
 @Controller
 @RequestMapping("proclamation")
 public class ProclamationController{

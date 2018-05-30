@@ -6,6 +6,10 @@ import com.hunt.model.entity.Policy;
 
 
 
+/**招商Service层接口
+ * @author YAO
+ *
+ */
 public interface PolicyService {
 	// 新增
 	public void save(Policy policy);

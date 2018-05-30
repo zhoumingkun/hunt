@@ -6,6 +6,10 @@ import com.hunt.model.entity.Specialty;
 
 
 
+/**特产Service层接口
+ * @author YAO
+ *
+ */
 public interface SpecialtyService {
 	// 新增
 	public void save(Specialty specialty);

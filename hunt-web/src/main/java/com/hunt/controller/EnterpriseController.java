@@ -13,6 +13,10 @@ import com.hunt.service.EnterpriseService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
+/**企业控制器
+ * @author YAO
+ *
+ */
 @Controller
 @RequestMapping("enterprise")
 public class EnterpriseController {

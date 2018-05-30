@@ -5,6 +5,10 @@ import java.util.List;
 import com.hunt.model.entity.Specialty;
 
 
+/**特产Dao层Mapper
+ * @author YAO
+ *
+ */
 public interface SpecialtyMapper {
 	// 新增
 	public void save(Specialty specialty);

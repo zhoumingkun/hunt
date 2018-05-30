@@ -6,7 +6,7 @@ import com.hunt.model.AbstractModel;
 /**
  * 公告实体类
  * 
- * @author admin
+ * @author YAO
  */
 public class Proclamation extends AbstractModel implements Serializable {
 

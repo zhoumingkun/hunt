@@ -5,6 +5,10 @@ import java.util.List;
 import com.hunt.model.entity.News;
 
 
+/**新闻Dao层Mapper
+ * @author YAO
+ *
+ */
 public interface NewsMapper {
 	// 新增
 	public void save(News news);

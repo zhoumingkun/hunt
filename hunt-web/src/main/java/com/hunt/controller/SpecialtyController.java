@@ -16,6 +16,10 @@ import com.hunt.util.Result;
 
 import io.swagger.annotations.ApiOperation;
 
+/**特产控制器
+ * @author YAO
+ *
+ */
 @Controller
 @RequestMapping("specialty")
 public class SpecialtyController{

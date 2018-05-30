@@ -5,6 +5,10 @@ import java.util.List;
 import com.hunt.model.entity.Proclamation;
 
 
+/**公告Dao层Mapper
+ * @author YAO
+ *
+ */
 public interface ProclamationMapper {
 	// 新增
 	public void save(Proclamation proclamation);
