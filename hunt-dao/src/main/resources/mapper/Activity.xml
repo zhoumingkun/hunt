@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.ActivityMapper">
+    <insert id="save" parameterType="Activity" keyProperty="id" useGeneratedKeys="true">
+		insert into tbl_activity (id, activityName,activityContent,author,createTime,updateTime,state) 
+		values ( #{id}, #{activityName},#{activityContent},#{author},#{createTime},#{updateTime},#{state})
+	</insert>
+	
+	<!-- 删除某个记录 -->
+	<delete id="deleteById" parameterType="int" >
+		delete from tbl_activity where id = #{id}
+	</delete>
+	
+	<!-- 查询某个记录 -->
+	<select id="findById" parameterType="int" resultType="Activity">
+		select * from tbl_activity where id = #{id}
+	</select>
+	
+	<!-- 查询全部记录  -->
+	<select id="findAll" resultType="Activity" parameterType="Map">
+		select * from tbl_activity
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 分页查询交接单  -->
+	<select id="findPaginated" resultType="Activity" parameterType="Map">
+		select * from tbl_activity 
+		<include refid="paramsSQL"/>
+		ORDER BY createTime desc  limit #{offset}, #{limit}
+	</select>
+	
+	<select id="getTotalOfItems" parameterType="Map" resultType="int">
+		select count(*) from tbl_activity 
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 修改某个记录  -->
+	<update id="update" parameterType="Activity">
+		update tbl_activity
+		<set>
+			<if test="activityName != null and activityName != ''">activityName = #{activityName},</if>
+			<if test="activityContent != null and activityContent != ''">activityContent = #{activityContent},</if>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="state != null and state != ''">state = #{state},</if>
+			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
+			
+		</set>
+		where id = #{id}
+	</update>
+	
+	<!-- 通用的设置条件的查询SQL语句 -->
+	<sql id="paramsSQL">
+		<where>
+		    <if test=" activityNameLike != null and activityNameLike != '' ">
+				and activityName like concat(concat('%', #{activityNameLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="activityName != null and activityName != ''">
+				and activityName = #{activityName}
+			</if>
+			<if test=" activityContentLike != null and activityContentLike != '' ">
+				and activityContent like concat(concat('%', #{activityContentLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="activityContent != null and activityContent != ''">
+				and activityContent = #{activityContent}
+			</if>
+			<if test=" authorLike != null and authorLike != '' ">
+				and author like concat(concat('%', #{authorLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="author != null and author != ''">
+				and author = #{author}
+			</if>
+			<if test="createTime != null ">
+				and createTime = #{createTime}
+			</if>	
+			<if test="updateTime != null ">
+				and updateTime = #{updateTime}
+			</if>
+			<if test=" state != null and state != '' ">
+				and state = #{state}
+			</if>
+			<if test=" state != null and state != '' ">
+				and state in (-1,1,2)
+			</if>
+			<if test=" stateLike != null and stateLike != '' ">
+				and state like concat(concat('%', #{stateLike, jdbcType=VARCHAR}),'%')
+			</if>
+		</where>
+	</sql>
+	
+</mapper>

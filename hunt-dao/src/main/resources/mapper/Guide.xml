@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.GuideMapper">
+    <insert id="save" parameterType="Guide" keyProperty="id" useGeneratedKeys="true">
+		insert into tbl_guide (id, guideName,guideContent,author,createTime,updateTime) 
+		values ( #{id}, #{guideName},#{guideContent},#{author},#{createTime},#{updateTime})
+	</insert>
+	
+	<!-- 删除某个记录 -->
+	<delete id="deleteById" parameterType="int" >
+		delete from tbl_guide where id = #{id}
+	</delete>
+	
+	<!-- 查询某个记录 -->
+	<select id="findById" parameterType="int" resultType="Guide">
+		select * from tbl_guide where id = #{id}
+	</select>
+	
+	<!-- 查询全部记录  -->
+	<select id="findAll" resultType="Guide" parameterType="Map">
+		select * from tbl_guide
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 分页查询交接单  -->
+	<select id="findPaginated" resultType="Guide" parameterType="Map">
+		select * from tbl_guide 
+		<include refid="paramsSQL"/>
+		ORDER BY createTime desc  limit #{offset}, #{limit}
+	</select>
+	
+	<select id="getTotalOfItems" parameterType="Map" resultType="int">
+		select count(*) from tbl_guide 
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 修改某个记录  -->
+	<update id="update" parameterType="Guide">
+		update tbl_guide
+		<set>
+			<if test="guideName != null and guideName != ''">guideName = #{guideName},</if>
+			<if test="guideContent != null and guideContent != ''">guideContent = #{guideContent},</if>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
+			
+		</set>
+		where id = #{id}
+	</update>
+	
+	<!-- 通用的设置条件的查询SQL语句 -->
+	<sql id="paramsSQL">
+		<where>
+		    <if test=" guideNameLike != null and guideNameLike != '' ">
+				and guideName like concat(concat('%', #{guideNameLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="guideName != null and guideName != ''">
+				and guideName = #{guideName}
+			</if>
+			<if test=" guideContentLike != null and guideContentLike != '' ">
+				and guideContent like concat(concat('%', #{guideContentLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="guideContent != null and guideContent != ''">
+				and guideContent = #{guideContent}
+			</if>
+			<if test=" authorLike != null and authorLike != '' ">
+				and author like concat(concat('%', #{authorLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="author != null and author != ''">
+				and author = #{author}
+			</if>
+			<if test="createTime != null ">
+				and createTime = #{createTime}
+			</if>	
+			<if test="updateTime != null ">
+				and updateTime = #{updateTime}
+			</if>
+		</where>
+	</sql>
+	
+</mapper>

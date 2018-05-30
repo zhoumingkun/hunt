@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.TravelMapper">
+    <insert id="save" parameterType="Travel" keyProperty="id" useGeneratedKeys="true">
+		insert into tbl_travel (id, travelName,travelContent,author,createTime,updateTime,image) 
+		values ( #{id}, #{travelName},#{travelContent},#{author},#{createTime},#{updateTime},#{image})
+	</insert>
+	
+	<!-- 删除某个记录 -->
+	<delete id="deleteById" parameterType="int" >
+		delete from tbl_travel where id = #{id}
+	</delete>
+	
+	<!-- 查询某个记录 -->
+	<select id="findById" parameterType="int" resultType="Travel">
+		select * from tbl_travel where id = #{id}
+	</select>
+	
+	<!-- 查询全部记录  -->
+	<select id="findAll" resultType="Travel" parameterType="Map">
+		select * from tbl_travel
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 分页查询交接单  -->
+	<select id="findPaginated" resultType="Travel" parameterType="Map">
+		select * from tbl_travel 
+		<include refid="paramsSQL"/>
+		ORDER BY createTime desc  limit #{offset}, #{limit}
+	</select>
+	
+	<select id="getTotalOfItems" parameterType="Map" resultType="int">
+		select count(*) from tbl_travel 
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 修改某个记录  -->
+	<update id="update" parameterType="Travel">
+		update tbl_travel
+		<set>
+			<if test="travelName != null and travelName != ''">travelName = #{travelName},</if>
+			<if test="travelContent != null and travelContent != ''">travelContent = #{travelContent},</if>
+			<if test="author != null and author != ''">author = #{author},</if>
+			<if test="image != null and image != ''">image = #{image},</if>
+			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
+			
+		</set>
+		where id = #{id}
+	</update>
+	
+	<!-- 通用的设置条件的查询SQL语句 -->
+	<sql id="paramsSQL">
+		<where>
+		    <if test=" travelNameLike != null and travelNameLike != '' ">
+				and travelName like concat(concat('%', #{travelNameLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="travelName != null and travelName != ''">
+				and travelName = #{travelName}
+			</if>
+			<if test=" travelContentLike != null and travelContentLike != '' ">
+				and travelContent like concat(concat('%', #{travelContentLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="travelContent != null and travelContent != ''">
+				and travelContent = #{travelContent}
+			</if>
+			<if test=" authorLike != null and authorLike != '' ">
+				and author like concat(concat('%', #{authorLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="author != null and author != ''">
+				and author = #{author}
+			</if>
+			<if test="createTime != null ">
+				and createTime = #{createTime}
+			</if>	
+			<if test="updateTime != null ">
+				and updateTime = #{updateTime}
+			</if>
+			<if test=" image != null and image != '' ">
+				and image = #{image}
+			</if>
+		</where>
+	</sql>
+	
+</mapper>

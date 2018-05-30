@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hunt.dao.SummarizeMapper">
+    <insert id="save" parameterType="Summarize" keyProperty="id" useGeneratedKeys="true">
+		insert into tbl_summarize (id, louFanContent,createTime,updateTime,image) 
+		values ( #{id}, #{louFanContent},#{createTime},#{updateTime},#{image})
+	</insert>
+	
+	<!-- 删除某个记录 -->
+	<delete id="deleteById" parameterType="int" >
+		delete from tbl_summarize where id = #{id}
+	</delete>
+	
+	<!-- 查询某个记录 -->
+	<select id="findById" parameterType="int" resultType="Summarize">
+		select * from tbl_summarize where id = #{id}
+	</select>
+	
+	<!-- 查询全部记录  -->
+	<select id="findAll" resultType="Summarize" parameterType="Map">
+		select * from tbl_summarize
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 分页查询交接单  -->
+	<select id="findPaginated" resultType="Summarize" parameterType="Map">
+		select * from tbl_summarize 
+		<include refid="paramsSQL"/>
+		ORDER BY createTime desc  limit #{offset}, #{limit}
+	</select>
+	
+	<select id="getTotalOfItems" parameterType="Map" resultType="int">
+		select count(*) from tbl_summarize 
+		<include refid="paramsSQL"/>
+	</select>
+	
+	<!-- 修改某个记录  -->
+	<update id="update" parameterType="Summarize">
+		update tbl_summarize
+		<set>
+			<if test="louFanContent != null and louFanContent != ''">louFanContent = #{louFanContent},</if>
+			<if test="image != null and image != ''">image = #{image},</if>
+			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
+			
+		</set>
+		where id = #{id}
+	</update>
+	
+	<!-- 通用的设置条件的查询SQL语句 -->
+	<sql id="paramsSQL">
+		<where>
+		    <if test=" louFanContentLike != null and louFanContentLike != '' ">
+				and louFanContent like concat(concat('%', #{louFanContentLike, jdbcType=VARCHAR}),'%') 
+			</if>
+			<if test="louFanContent != null and louFanContent != ''">
+				and louFanContent = #{louFanContent}
+			</if>
+			<if test=" image != null and image != '' ">
+				and image = #{image}
+			</if>
+			<if test="createTime != null ">
+				and createTime = #{createTime}
+			</if>	
+			<if test="updateTime != null ">
+				and updateTime = #{updateTime}
+			</if>
+			
+		</where>
+	</sql>
+	
+</mapper>
