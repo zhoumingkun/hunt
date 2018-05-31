@@ -38,7 +38,7 @@ import java.util.List;
  */
 @Api(value = "系统功能模块")
 @Controller
-@RequestMapping("backend/system")
+@RequestMapping("system")
 public class SystemController extends BaseController {
     private static final Logger log = LoggerFactory.getLogger(SystemController.class);
     @Autowired
@@ -129,7 +129,7 @@ public class SystemController extends BaseController {
     @RequiresPermissions("user:loginStatu:list")
     @RequestMapping(value = "online", method = RequestMethod.GET)
     public String online() {
-        return "backend/backend/system/online";
+        return "backend/system/online";
     }
 
     /**
