@@ -15,17 +15,17 @@
         <property name="filterChainDefinitions">
             <value>
             	/frontend/**=anon
-                /system/captcha=anon
+                /backend/system/captcha=anon
                 /static/**=anon
-                /system/logout = anon
-                /system/login=anon
-                /oauth/**=anon
-                /error/**=anon
-                /v2/**/=anon
-                /webjars/**=anon
-                /swagger-resources/**=anon
-                /swagger-ui.html/**=anon
-                /system/welcome=authc
+                /backend/system/logout = anon
+                /backend/system/login=anon
+                /backend/oauth/**=anon
+                /backend/error/**=anon
+                /backend/v2/**/=anon
+                /backend/webjars/**=anon
+                /backend/swagger-resources/**=anon
+                /backend/swagger-ui.html/**=anon
+                /backend/system/welcome=authc
                 /backend/**=authc
             </value>
         </property>

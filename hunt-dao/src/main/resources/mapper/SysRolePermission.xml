@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hunt.dao.SysRolePermissionMapper">
+<mapper namespace="com.hunt.backend.dao.SysRolePermissionMapper">
     <resultMap id="baseResultMap" type="com.hunt.model.entity.SysRolePermission">
         <result column="id" property="id" jdbcType="BIGINT"/>
         <result column="sys_permission_id" property="sysPermissionId" jdbcType="BIGINT"/>

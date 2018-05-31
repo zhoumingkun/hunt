@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hunt.dao.GuideMapper">
+<mapper namespace="com.hunt.frontend.dao.GuideMapper">
     <insert id="save" parameterType="Guide" keyProperty="id" useGeneratedKeys="true">
 		insert into tbl_guide (id, guideName,guideContent,author,createTime,updateTime) 
 		values ( #{id}, #{guideName},#{guideContent},#{author},#{createTime},#{updateTime})
