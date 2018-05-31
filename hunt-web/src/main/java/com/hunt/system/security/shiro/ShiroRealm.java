@@ -1,6 +1,12 @@
 package com.hunt.system.security.shiro;
 
-import com.hunt.dao.*;
+import com.hunt.backend.dao.SysPermissionMapper;
+import com.hunt.backend.dao.SysRoleMapper;
+import com.hunt.backend.dao.SysRoleOrganizationMapper;
+import com.hunt.backend.dao.SysRolePermissionMapper;
+import com.hunt.backend.dao.SysUserMapper;
+import com.hunt.backend.dao.SysUserPermissionMapper;
+import com.hunt.backend.dao.SysUserRoleOrganizationMapper;
 import com.hunt.model.entity.*;
 import com.hunt.util.SystemConstant;
 import org.apache.shiro.authc.AuthenticationException;

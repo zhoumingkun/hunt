@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hunt.frontend.service.SummarizeService;
 import com.hunt.model.entity.Summarize;
-import com.hunt.service.SummarizeService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 

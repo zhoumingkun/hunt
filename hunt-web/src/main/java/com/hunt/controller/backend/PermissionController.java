@@ -1,9 +1,10 @@
 package com.hunt.controller.backend;
 
+import com.hunt.backend.service.SysPermissionService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.SysPermission;
 import com.hunt.model.entity.SysPermissionGroup;
-import com.hunt.service.SysPermissionService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;

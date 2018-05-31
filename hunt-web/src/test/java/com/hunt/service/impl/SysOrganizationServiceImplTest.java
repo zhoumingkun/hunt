@@ -1,10 +1,11 @@
 package com.hunt.service.impl;
 
 import com.google.gson.Gson;
+import com.hunt.backend.service.SysOrganizationService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.dto.SysOrganizationTree;
 import com.hunt.model.entity.SysOrganization;
-import com.hunt.service.SysOrganizationService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

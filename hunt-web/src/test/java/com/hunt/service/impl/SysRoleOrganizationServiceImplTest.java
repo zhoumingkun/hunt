@@ -1,9 +1,10 @@
 package com.hunt.service.impl;
 
+import com.hunt.backend.service.SysRoleOrganizationService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.dto.SysRoleOrganizationTree;
 import com.hunt.model.entity.SysRoleOrganization;
-import com.hunt.service.SysRoleOrganizationService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

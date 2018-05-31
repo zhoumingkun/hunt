@@ -1,5 +1,6 @@
 package com.hunt.service.impl;
 
+import com.hunt.backend.service.SysPermissionService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.SysPermission;
 import com.hunt.model.entity.SysPermissionGroup;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import com.hunt.service.SysPermissionService;
 
 import java.util.List;
 

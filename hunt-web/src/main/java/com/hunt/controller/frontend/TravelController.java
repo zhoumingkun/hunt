@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hunt.frontend.service.TravelService;
 import com.hunt.model.entity.Travel;
-import com.hunt.service.TravelService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 /**

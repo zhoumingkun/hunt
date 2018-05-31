@@ -1,5 +1,6 @@
 package com.hunt.system.log;
 
+import com.hunt.backend.service.SystemService;
 import com.hunt.model.entity.SysLog;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -14,7 +15,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import com.hunt.service.SystemService;
 
 import javax.servlet.http.HttpServletRequest;
 

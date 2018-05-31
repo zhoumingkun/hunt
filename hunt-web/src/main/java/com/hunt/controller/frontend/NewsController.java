@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hunt.frontend.service.NewsService;
 import com.hunt.model.entity.News;
-import com.hunt.service.NewsService;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 

@@ -1,5 +1,6 @@
 package com.hunt.system.security.ip;
 
+import com.hunt.backend.service.SystemService;
 import com.hunt.system.exception.ForbiddenIpException;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -10,7 +11,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import com.hunt.service.SystemService;
+
 import com.hunt.util.ResponseCode;
 
 import javax.servlet.http.HttpServletRequest;

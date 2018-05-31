@@ -1,6 +1,7 @@
 package com.hunt.controller.backend;
 
 import com.google.gson.Gson;
+import com.hunt.backend.service.SystemService;
 import com.hunt.system.security.geetest.GeetestLib;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -12,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import com.hunt.service.SystemService;
+
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 import com.hunt.util.StringUtil;
