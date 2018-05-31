@@ -12,7 +12,7 @@ import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 /**
  * 
- *Project控制器
+ *招商项目控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */

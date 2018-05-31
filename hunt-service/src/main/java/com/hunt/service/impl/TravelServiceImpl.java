@@ -6,7 +6,12 @@ import org.springframework.stereotype.Service;
 import com.hunt.dao.TravelMapper;
 import com.hunt.model.entity.Travel;
 import com.hunt.service.TravelService;
-
+/**
+ * 
+ *旅游实现类
+ * @Author: zmk
+ * @Date : 2018/5/30
+ */
 
 @Service
 public class TravelServiceImpl implements TravelService{

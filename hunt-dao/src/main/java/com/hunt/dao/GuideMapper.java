@@ -6,7 +6,7 @@ import com.hunt.model.entity.Guide;
 
 /**
  * 
- *Guide接口
+ *服务指南接口
  * @Author: zmk
  * @Date : 2018/5/30
  */

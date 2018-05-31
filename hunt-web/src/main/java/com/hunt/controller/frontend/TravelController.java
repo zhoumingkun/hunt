@@ -13,7 +13,7 @@ import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 /**
  * 
- *Travelr控制器
+ *旅游控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */

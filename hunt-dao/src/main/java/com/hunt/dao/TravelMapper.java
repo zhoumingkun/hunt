@@ -7,7 +7,7 @@ import com.hunt.model.entity.Travel;
 
 /**
  * 
- *Travel接口
+ *旅游接口
  * @Author: zmk
  * @Date : 2018/5/30
  */

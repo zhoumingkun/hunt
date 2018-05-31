@@ -7,7 +7,7 @@ import com.hunt.model.entity.Summarize;
 
 /**
  * 
- *Summarize接口
+ *概况接口
  * @Author: zmk
  * @Date : 2018/5/30
  */

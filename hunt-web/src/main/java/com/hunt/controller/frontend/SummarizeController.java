@@ -19,7 +19,7 @@ import com.hunt.util.Result;
 
 /**
  * 
- *Summarize控制器
+ *概况控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */

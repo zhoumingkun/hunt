@@ -3,7 +3,7 @@ package com.hunt.model.entity;
 import java.util.Date;
 /**
  * 
- *Activity实体类
+ *招商活动实体类
  * @Author: zmk
  * @Date : 2018/5/30
  */

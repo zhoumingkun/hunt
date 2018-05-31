@@ -10,7 +10,12 @@ import com.hunt.dao.GuideMapper;
 import com.hunt.model.entity.Guide;
 import com.hunt.service.ActivityService;
 import com.hunt.service.GuideService;
-
+/**
+ * 
+ *服务指南实现类
+ * @Author: zmk
+ * @Date : 2018/5/30
+ */
 @Service
 public class GuideServiceImpl implements GuideService{
 	@Autowired

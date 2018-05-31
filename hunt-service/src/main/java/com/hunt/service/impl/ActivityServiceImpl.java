@@ -13,7 +13,12 @@ import org.springframework.stereotype.Service;
 import com.hunt.dao.ActivityMapper;
 import com.hunt.model.entity.Activity;
 import com.hunt.service.ActivityService;
-
+/**
+ * 
+ *招商活动实现类
+ * @Author: zmk
+ * @Date : 2018/5/30
+ */
 @Service
 public class ActivityServiceImpl implements ActivityService{
 	@Autowired

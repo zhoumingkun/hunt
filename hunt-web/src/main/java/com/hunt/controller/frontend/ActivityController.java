@@ -14,7 +14,7 @@ import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 /**
  * 
- *Activity控制器
+ *招商活动控制器
  * @Author: zmk
  * @Date : 2018/5/30
  */

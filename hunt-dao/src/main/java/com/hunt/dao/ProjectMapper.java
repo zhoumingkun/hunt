@@ -6,7 +6,7 @@ import com.hunt.model.entity.Project;
 
 /**
  * 
- *Project接口
+ *招商项目接口
  * @Author: zmk
  * @Date : 2018/5/30
  */

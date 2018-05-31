@@ -8,7 +8,12 @@ import com.hunt.dao.SummarizeMapper;
 import com.hunt.model.entity.Summarize;
 import com.hunt.service.ActivityService;
 import com.hunt.service.SummarizeService;
-
+/**
+ * 
+ *概况实现类
+ * @Author: zmk
+ * @Date : 2018/5/30
+ */
 @Service
 public class SummarizeServiceImpl implements SummarizeService{
 	@Autowired

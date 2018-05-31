@@ -5,7 +5,7 @@ import java.util.List;
 import com.hunt.model.entity.Activity;
 /**
  * 
- *Activity接口
+ *招商活动接口
  * @Author: zmk
  * @Date : 2018/5/30
  */

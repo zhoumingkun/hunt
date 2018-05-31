@@ -10,7 +10,12 @@ import com.hunt.dao.ProjectMapper;
 import com.hunt.model.entity.Project;
 import com.hunt.service.ActivityService;
 import com.hunt.service.ProjectService;
-
+/**
+ * 
+ *招商项目实现类
+ * @Author: zmk
+ * @Date : 2018/5/30
+ */
 @Service
 public class ProjectServiceImpl implements ProjectService{
 	@Autowired
