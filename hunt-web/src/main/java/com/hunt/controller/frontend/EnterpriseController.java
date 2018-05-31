@@ -19,7 +19,7 @@ import com.hunt.util.Result;
  *
  */
 @Controller
-@RequestMapping("enterprise")
+@RequestMapping("frontend/enterprise")
 public class EnterpriseController {
 	
 	@Autowired

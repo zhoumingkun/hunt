@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
  *
  */
 @Controller
-@RequestMapping("culture")
+@RequestMapping("frontend/culture")
 public class CultureController{
 
 	@Autowired

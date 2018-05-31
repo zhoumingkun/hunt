@@ -21,7 +21,7 @@ import com.hunt.util.Result;
 
 
 @Controller
-@RequestMapping("/travel")
+@RequestMapping("frontend/travel")
 public class TravelController {
 	@Autowired
 	private TravelService travelService;

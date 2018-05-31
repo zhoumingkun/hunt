@@ -19,7 +19,7 @@ import com.hunt.util.Result;
  *
  */
 @Controller
-@RequestMapping("proclamation")
+@RequestMapping("frontend/proclamation")
 public class ProclamationController{
 
 	@Autowired

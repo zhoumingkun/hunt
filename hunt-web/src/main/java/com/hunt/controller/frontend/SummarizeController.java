@@ -26,7 +26,7 @@ import com.hunt.util.Result;
 
 
 @Controller
-@RequestMapping("/summarize")
+@RequestMapping("frontend/summarize")
 public class SummarizeController {
 	@Autowired
 	private SummarizeService summarizeService;

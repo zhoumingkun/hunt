@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
  *
  */
 @Controller
-@RequestMapping("specialty")
+@RequestMapping("frontend/specialty")
 public class SpecialtyController{
 
 	@Autowired

@@ -19,7 +19,7 @@ import com.hunt.util.Result;
  * @Date : 2018/5/30
  */
 @Controller
-@RequestMapping("/activity")
+@RequestMapping("frontend/activity")
 public class ActivityController {
 	@Autowired
 	private ActivityService activityService;

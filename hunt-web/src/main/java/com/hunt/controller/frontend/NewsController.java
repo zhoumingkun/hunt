@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
  *
  */
 @Controller
-@RequestMapping("news")
+@RequestMapping("frontend/news")
 public class NewsController{
 
 	@Autowired

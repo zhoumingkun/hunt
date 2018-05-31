@@ -20,7 +20,7 @@ import com.hunt.util.Result;
 
 
 @Controller
-@RequestMapping("/project")
+@RequestMapping("frontend/project")
 public class ProjectController {
 	@Autowired
 	private ProjectService projectService;

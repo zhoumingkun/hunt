@@ -21,7 +21,7 @@ import com.hunt.util.Result;
 
 
 @Controller
-@RequestMapping("/guide")
+@RequestMapping("frontend/guide")
 public class GuideController {
 	@Autowired
 	private GuideService guideService;

@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
  *
  */
 @Controller
-@RequestMapping("policy")
+@RequestMapping("frontend/policy")
 public class PolicyController{
 
 	@Autowired
