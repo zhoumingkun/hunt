@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.Specialty;
 
 
-/**特产Dao层Mapper
+/**
+ * 特产Dao层Mapper
  * @author YAO
  *
  */

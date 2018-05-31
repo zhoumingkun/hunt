@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.Proclamation;
 
 
-/**公告Service层接口
+/**
+ * 公告Service层接口
  * @author YAO
  *
  */

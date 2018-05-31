@@ -16,7 +16,8 @@ import com.hunt.util.Result;
 
 import io.swagger.annotations.ApiOperation;
 
-/**新闻控制器
+/**
+ * 新闻控制器
  * @author YAO
  *
  */

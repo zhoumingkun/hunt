@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.Enterprise;
 
 
-/**企业Dao层Mapper
+/**
+ * 企业Dao层Mapper
  * @author YAO
  *
  */

@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.hunt.model.entity.Culture;
 
-/**文化Dao层Mapper
+/**
+ * 文化Dao层Mapper
  * @author YAO
  *
  */

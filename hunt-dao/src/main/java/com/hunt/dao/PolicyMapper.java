@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.News;
 import com.hunt.model.entity.Policy;
 
-/**招商Dao层Mapper
+/**
+ * 招商Dao层Mapper
  * @author YAO
  *
  */

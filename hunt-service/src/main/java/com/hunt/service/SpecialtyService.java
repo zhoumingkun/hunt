@@ -6,7 +6,8 @@ import com.hunt.model.entity.Specialty;
 
 
 
-/**特产Service层接口
+/**
+ * 特产Service层接口
  * @author YAO
  *
  */

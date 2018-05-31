@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.Culture;
 
 
-/**文化Service层接口
+/**
+ * 文化Service层接口
  * @author YAO
  *
  */

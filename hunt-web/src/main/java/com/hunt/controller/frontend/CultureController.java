@@ -16,7 +16,8 @@ import com.hunt.util.Result;
 
 import io.swagger.annotations.ApiOperation;
 
-/**文化控制器
+/**
+ * 文化控制器
  * @author YAO
  *
  */

@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.hunt.model.entity.Enterprise;
 
-/**企业Service层接口
+/**
+ * 企业Service层接口
  * @author YAO
  *
  */

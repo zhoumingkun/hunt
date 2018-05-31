@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.Proclamation;
 
 
-/**公告Dao层Mapper
+/**
+ * 公告Dao层Mapper
  * @author YAO
  *
  */

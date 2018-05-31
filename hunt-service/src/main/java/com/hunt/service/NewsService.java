@@ -5,7 +5,8 @@ import java.util.List;
 import com.hunt.model.entity.News;
 
 
-/**新闻Service层接口
+/**
+ * 新闻Service层接口
  * @author YAO
  *
  */
