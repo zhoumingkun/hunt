@@ -14,6 +14,7 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
+            	/frontend/**=anon
                 /system/captcha=anon
                 /static/**=anon
                 /system/logout = anon
@@ -25,7 +26,7 @@
                 /swagger-resources/**=anon
                 /swagger-ui.html/**=anon
                 /system/welcome=authc
-                /**=authc
+                /backend/**=authc
             </value>
         </property>
     </bean>
