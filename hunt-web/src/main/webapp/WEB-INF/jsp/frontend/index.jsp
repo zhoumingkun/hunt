@@ -49,28 +49,28 @@
                 <a href="#"><span>网站首页</span></a>
             </li>
             <li>
-                <a href="pages/resources/common.html"><span>走进娄烦</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/summarize"><span>走进娄烦</span></a>
             </li>
             <li>
-                <a href="pages/expert/list.html"><span>招商政策</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/policy"><span>招商政策</span></a>
             </li>
             <li>
-                <a href="pages/project/project.html"><span>招商项目</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/project"><span>招商项目</span></a>
             </li>
             <li>
-                <a href="pages/video/list.html"><span>招商活动</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/activity"><span>招商活动</span></a>
             </li>
             <li>
-                <a href="pages/newsInformation/newsInformation.html"><span>新闻动态</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/news"><span>新闻动态</span></a>
             </li>
             <li>
-                <a href="pages/policy/list.html"><span>企业展示</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/enterprise"><span>企业展示</span></a>
             </li>
             <li>
-                <a href="pages/Park/list.html"><span>投资指南</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/guide"><span>投资指南</span></a>
             </li>
             <li>
-                <a href="pages/investment/show.html"><span>联系我们</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/contactUs"><span>联系我们</span></a>
             </li>
         </ul>
 

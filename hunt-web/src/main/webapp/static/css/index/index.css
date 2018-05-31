@@ -134,7 +134,7 @@ body {
           color: white;
           text-align: center;
           line-height: 1.4;
-          background-image: url(../../images/index/notice_title.png);
+          background-image: url(../../image/index/notice_title.png);
           background-repeat: no-repeat;
           background-size: cover; }
         .news_content .news .notice .notice_title span {
@@ -142,7 +142,7 @@ body {
           float: right;
           width: 0.4rem;
           height: 0.13rem;
-          background-image: url(../../images/index/notic_more.png);
+          background-image: url(../../image/index/notic_more.png);
           background-repeat: no-repeat;
           background-size: cover; }
           .news_content .news .notice .notice_title span a {
@@ -326,7 +326,7 @@ body {
           margin: 0 auto;
           background-size: cover;
           color: #fff;
-          background-image: url(../../images/index/project_first.png);
+          background-image: url(../../image/index/project_first.png);
           background-repeat: no-repeat; }
       .stress .stress_content .project .project_list {
         width: 100%;
@@ -408,7 +408,7 @@ body {
     .investment .investment_only .investment_title {
       width: 100%;
       height: 0.45rem;
-      background-image: url(../../images/index/investment.png);
+      background-image: url(../../image/index/investment.png);
       background-repeat: no-repeat;
       background-size: 100%;
       padding-left: 0.42rem;
@@ -579,7 +579,7 @@ body {
     .friendship_box .friendship .friendship_title {
       width: 100%;
       height: 0.45rem;
-      background-image: url(../../images/index/investment.png);
+      background-image: url(../../image/index/investment.png);
       background-repeat: no-repeat;
       background-size: 100%;
       padding-left: 0.42rem;

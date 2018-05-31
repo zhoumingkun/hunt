@@ -28,12 +28,12 @@ body {
       .nav_box .nav li:last-child {
         margin: 0; }
       .nav_box .nav li:hover {
-        background-image: url(../../images/all/hearder.png);
+        background-image: url(../../image/all/hearder.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: left; }
         .nav_box .nav li.current {
-        background-image: url(../../images/all/hearder.png);
+        background-image: url(../../image/all/hearder.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: left; }

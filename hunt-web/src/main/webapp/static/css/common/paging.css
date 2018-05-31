@@ -21,7 +21,7 @@ div.pagination a.pre{
   background-repeat:  no-repeat;
   background-position:  center;
   background-size:cover;
-  background-image:url(../../../assets/images/all/pagination-pre.png);
+  background-image:url(../../image/all/pagination-pre.png);
 }
 div.pagination a.page{
   float:left;
@@ -72,7 +72,7 @@ div.pagination a.next{
   background-repeat:  no-repeat;
   background-position:  center;
   background-size:cover;
-  background-image:url(../../../assets/images/all/pagination-next.png);
+  background-image:url(../../image/all/pagination-next.png);
 }
 div.pagination span{
   float:left;

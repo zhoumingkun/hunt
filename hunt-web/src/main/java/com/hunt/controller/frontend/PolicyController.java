@@ -17,7 +17,7 @@ import com.hunt.util.Result;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 招商控制器
+ * 招商政策控制器
  * @author YAO
  *
  */
