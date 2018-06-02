@@ -23,6 +23,17 @@
     Statement st = conn.createStatement();  
       
  %>
+ <script type="text/javascript">
+	$(function() {
+		// 处理导航的class="current"
+		var module = $('#module-name').val();
+		$('.nav li').removeClass('current');
+		$('#nav-' + module).addClass('current');
+		console.log(module);
+	});
+</script>
+<!-- 使用隐藏的input，存储模块名，以使导航的class="current"正确显示 -->
+<input type="hidden" id="module-name" value="${module}" />
 <!--头开始-->
     <div class="hearder_box">
         <div class="hearder">
@@ -55,32 +66,32 @@
     <div class="nav_box">
         <div class="nev_back"> </div>
         <ul class="nav">
-            <li class="current">
-                <a href="${pageContext.request.contextPath}/frontend/index/welcome"><span>网站首页</span></a>
+            <li id="nav-index">
+                <a href="${pageContext.request.contextPath}/frontend/index"><span>网站首页</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/summarize"><span>走进娄烦</span></a>
+            <li id="nav-summarize">
+                <a href="${pageContext.request.contextPath}/frontend/summarize/common"><span>走进娄烦</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/policy"><span>招商政策</span></a>
+            <li id="nav-policy">
+                <a href="${pageContext.request.contextPath}/frontend/policy/policy"><span>招商政策</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/project"><span>招商项目</span></a>
+            <li id="nav-project">
+                <a href="${pageContext.request.contextPath}/frontend/project/project"><span>招商项目</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/activity"><span>招商活动</span></a>
+            <li id="nav-activity">
+                <a href="${pageContext.request.contextPath}/frontend/activity/activity"><span>招商活动</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/news"><span>新闻动态</span></a>
+            <li id="nav-news">
+                <a href="${pageContext.request.contextPath}/frontend/news/news"><span>新闻动态</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/enterprise"><span>企业展示</span></a>
+            <li id="nav-enterprise">
+                <a href="${pageContext.request.contextPath}/frontend/enterprise/enterprise"><span>企业展示</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/guide"><span>投资指南</span></a>
+            <li id="nav-guide">
+                <a href="${pageContext.request.contextPath}/frontend/guide/guide"><span>投资指南</span></a>
             </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/frontend/index/contactUs"><span>联系我们</span></a>
+            <li id="nav-contactUs">
+                <a href="${pageContext.request.contextPath}/frontend/contactUs/contactUs"><span>联系我们</span></a>
             </li>
         </ul>
 

@@ -23,7 +23,7 @@
 <body class="easyui-layout">
 <div data-options="region:'north',border:false" style="height:40px; background:#198ec2;padding: 0;">
     <div style="height: 40px; float: left; line-height: 40px">
-        <span style="font-weight:bolder; font-size: large;padding-left: 10px;color: #ffffff">Hunt-Admin 快速开发平台</span>
+        <span style="font-weight:bolder; font-size: large;padding-left: 10px;color: #ffffff">娄烦招商引资后台信息管理平台</span>
     </div>
     <div style="float:right;height: 40px;padding: 0;">
 
@@ -143,7 +143,7 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/user/user">新闻管理
+                                 href="${pageContext.request.contextPath}/content/news">新闻管理
                             </div>
                         </li>
                     </div>
