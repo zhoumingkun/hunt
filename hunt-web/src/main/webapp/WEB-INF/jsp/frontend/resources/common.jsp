@@ -65,11 +65,11 @@
 				<ul>
 
 					<%
-						ResultSet rs = st.executeQuery(
-								"SELECT * FROM tbl_project where state = 2 ORDER BY createTime DESC LIMIT 6");
+						ResultSet rs = st
+								.executeQuery("SELECT * FROM tbl_project where state = 2 ORDER BY createTime DESC LIMIT 6");
 						while (rs.next()) {
 					%>
-					<li><a href=""><%=rs.getString("projectName") %></a></li>
+					<li><a href=""><%=rs.getString("projectName")%></a></li>
 					<%
 						}
 					%>
@@ -99,29 +99,26 @@
 				<!-- 内容看着填吧 -->
 				<!--娄烦概况开始-->
 				<div class="survey common_content">
+					<%
+						ResultSet summarize = st.executeQuery(
+								"SELECT * FROM tbl_summarize");
+					    summarize.beforeFirst();
+						while (summarize.next()) {
+					%>
 					<div class="survey_title">
 						<div class="survey_title_img">
 							<img
-								src="${pageContext.request.contextPath}/static/image/resources/common2.jpg"
+								src="${pageContext.request.contextPath}<%=summarize.getString("image") %>"
 								alt="">
 						</div>
-						<p>山西省娄烦县</p>
+						<p><%=summarize.getString("louFanName") %></p>
 					</div>
 					<div class="survey_font">
-						<p>娄烦县是山西省太原市下辖县，地理坐标为东经111°31′—112°02′，北纬37°51′—38°13′，地处太原市西北部、吕梁山腹地、汾河中上游，距省城太原97公里，东依古交，西邻方山，南毗交城，北连静乐，西北与岚县接壤，是集山区、老区、库区为一体的国家扶贫开发重点县，
-							[1] 也是太原最重要的水源地和生态屏障。
-							娄烦县属温带大陆性气候，总的特征是气候干旱，雨量较少，气温较低，风力较小，光照充足，湿热同季，分季节看：冬季漫长、干燥寒冷，夏季炎热、雨季集中，春季风多、升温较快，秋季短暂，天气凉爽。年平均风速2.5米/秒。日照总时数为2872.6小时。</p>
-						<p>经济编辑概况 娄烦建县以后，1996年，娄烦生产总值33
-							198万元，娄烦县娄烦县为1978年的17.3倍；工业总产值46
-							315万元，为1978年的70.1倍；农林牧渔业总产值8033万元，为1978年的1.6倍；社会消费品零售总额6131万元，为1978年的5.4倍，扣除物价因素为1.3倍；地方财政收入1251万元，为1978年的29倍。
-							2008年，娄烦县生产总值完成13亿元、同比增长7%，财政收入6.68亿元、同比增长66.3%；工业企业共投入技改和节能建设资金5.88亿元，万元工业增加值能耗同比下降7.8%。
-							2012年6月，娄烦有煤矿8座，生产能力690万吨/年，有非煤矿山企业15家（含尖山铁矿），砖瓦粘土企业8家。铝钒土矿1家，设计能力10万吨；长石矿1家，设计生产能力0.5万吨；白云岩矿2家，设计生产能力14万吨；另有炼铁厂企业1家，30万立方米高炉。焦化厂3家，生产能力160万吨。
-						</p>
-						<p>娄烦建县以后，1996年，娄烦生产总值33 198万元，娄烦县娄烦县为1978年的17.3倍；工业总产值46
-							315万元，为1978年的70.1倍；农林牧渔业总产值8033万元，为1978年的1.6倍；社会消费品零售总额6131万元，为1978年的5.4倍，扣除物价因素为1.3倍；地方财政收入1251万元，为1978年的29倍。</p>
-						<p>2008年，娄烦县生产总值完成13亿元、同比增长7%，财政收入6.68亿元、同比增长66.3%；工业企业共投入技改和节能建设资金5.88亿元，万元工业增加值能耗同比下降7.8%。</p>
-						<p>2012年6月，娄烦有煤矿8座，生产能力690万吨/年，有非煤矿山企业15家（含尖山铁矿），砖瓦粘土企业8家。铝钒土矿1家，设计能力10万吨；长石矿1家，设计生产能力0.5万吨；白云岩矿2家，设计生产能力14万吨；另有炼铁厂企业1家，30万立方米高炉。焦化厂3家，生产能力160万吨</p>
+					     <%=summarize.getString("louFanContent") %>
 					</div>
+					<%
+						}
+					%>
 				</div>
 				<!--娄烦概况结束-->
 				<!--娄烦旅游开始-->
@@ -150,6 +147,25 @@
 								</div>
 							</div>
 					</a></li>
+					<!-- 右边分页开始 -->
+					<!-- <div class="common_content"></div>
+					<script>
+						$('.pagingwrap').lemonPaging({
+							'url' : "page1.php",//ajax请求地址
+							'total' : 217,//总数据条数
+							'page_size' : 10,//每页数据条数
+							'pages' : 7,//分页可显示页码数量
+							'pre_next' : 'true',//默认显示上一页下一页
+							'searchable' : 'false',//默认带跳转输入框
+							'successcallback' : function(data, current_page) {
+								console.log(data, current_page);
+							},//列表数据填充容器
+							'errorcallback' : function(data, current_page) {
+								console.log(data, current_page);
+							},//列表数据填充容器
+						});
+					</script> -->
+					<!-- 右边分页结束 -->
 				</ul>
 				<!--娄烦旅游结束-->
 				<!--名俗文化开始-->
@@ -206,30 +222,31 @@
 								</div>
 							</div>
 					</a></li>
+					<!-- 右边分页开始 -->
+					<div class="pagingwrap"></div>
+					<script>
+						$('.pagingwrap').lemonPaging({
+							'url' : "page1.php",//ajax请求地址
+							'total' : 217,//总数据条数
+							'page_size' : 10,//每页数据条数
+							'pages' : 7,//分页可显示页码数量
+							'pre_next' : 'true',//默认显示上一页下一页
+							'searchable' : 'false',//默认带跳转输入框
+							'successcallback' : function(data, current_page) {
+								console.log(data, current_page);
+							},//列表数据填充容器
+							'errorcallback' : function(data, current_page) {
+								console.log(data, current_page);
+							},//列表数据填充容器
+						});
+					</script>
+					<!-- 右边分页结束 -->
 				</ul>
 				<!--名优特产结束-->
 				<!-- 内容填充完毕 -->
 			</div>
 			<!-- 右边主体结束 -->
-			<!-- 右边分页开始 -->
-			<div class="pagingwrap"></div>
-			<script>
-				$('.pagingwrap').lemonPaging({
-					'url' : "page1.php",//ajax请求地址
-					'total' : 217,//总数据条数
-					'page_size' : 10,//每页数据条数
-					'pages' : 7,//分页可显示页码数量
-					'pre_next' : 'true',//默认显示上一页下一页
-					'searchable' : 'false',//默认带跳转输入框
-					'successcallback' : function(data, current_page) {
-						console.log(data, current_page);
-					},//列表数据填充容器
-					'errorcallback' : function(data, current_page) {
-						console.log(data, current_page);
-					},//列表数据填充容器
-				});
-			</script>
-			<!-- 右边分页结束 -->
+
 		</div>
 		<!-- 右边结束 -->
 	</div>

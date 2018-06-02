@@ -8,7 +8,8 @@ import java.util.Date;
  * @Date : 2018/5/30
  */
 public class Summarize {
-	private int id;                    //ID
+	private int id;                      //ID
+	private String louFanName;           //娄烦名称
 	private String louFanContent;        //娄烦简介
 	private Date createTime;             //创建时间
 	private Date updateTime;             //修改时间
@@ -18,6 +19,12 @@ public class Summarize {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getLouFanName() {
+		return louFanName;
+	}
+	public void setLouFanName(String louFanName) {
+		this.louFanName = louFanName;
 	}
 	public String getLouFanContent() {
 		return louFanContent;
