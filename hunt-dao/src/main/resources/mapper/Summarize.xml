@@ -38,6 +38,7 @@
 	<update id="update" parameterType="Summarize">
 		update tbl_summarize
 		<set>
+		    <if test="louFanName != null and louFanName != ''">louFanName = #{louFanName},</if>
 			<if test="louFanContent != null and louFanContent != ''">louFanContent = #{louFanContent},</if>
 			<if test="image != null and image != ''">image = #{image},</if>
 			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
@@ -49,6 +50,12 @@
 	<!-- 通用的设置条件的查询SQL语句 -->
 	<sql id="paramsSQL">
 		<where>
+		   <if test=" louFanNameLike != null and louFanNameLike != '' ">
+				and louFanName like concat(concat('%', #{louFanNameLike, jdbcType=VARCHAR}),'%') 
+			</if>
+		   <if test="louFanName != null and louFanName != ''">
+				and louFanName = #{louFanName}
+			</if>
 		    <if test=" louFanContentLike != null and louFanContentLike != '' ">
 				and louFanContent like concat(concat('%', #{louFanContentLike, jdbcType=VARCHAR}),'%') 
 			</if>
