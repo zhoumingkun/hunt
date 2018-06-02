@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/newsInformation/newsInformation.css">
     <script src="${pageContext.request.contextPath}/static/js/jquery1.7/jQuery1.7.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/paging/paging.js"></script>
+    
 </head>
 
 <body>
@@ -155,7 +156,7 @@
                  'errorcallback':function(data,current_page){
                      console.log(data,current_page);
                  },//列表数据填充容器
-                });
+                })
             </script>
     <!-- 右边分页结束 -->
         </div>
