@@ -20,8 +20,8 @@ public class Policy extends  AbstractModel implements Serializable {
 	// policyContent : 招商政策内容
 	private String policyContent;
 
-	// type : 政策类型（政策法规 区具政策）
-	private String type;
+	// type : 政策类型（1,政策法规  2,区具政策）
+	private int type;
 
 	// state : (-1,未发布；1,已发布；2,推广)
 	private int state;
@@ -42,11 +42,12 @@ public class Policy extends  AbstractModel implements Serializable {
 		this.policyContent = policyContent;
 	}
 
-	public String getType() {
+
+	public int getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 

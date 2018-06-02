@@ -21,7 +21,7 @@
 			<if test="policyName != null and policyName != ''">policyName = #{policyName},</if>
 			<if test="policyContent != null and policyContent != ''">policyContent = #{policyContent},</if>
 			<if test="updateTime != null">updateTime = #{updateTime},</if>
-			<if test="type != null and type != ''">type= #{type},</if>
+			<if test="type != null">type= #{type},</if>
 			<if test="state != null">state = #{state},</if>
 		</set>
 		where id = #{id}

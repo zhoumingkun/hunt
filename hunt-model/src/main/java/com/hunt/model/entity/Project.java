@@ -14,7 +14,7 @@ public class Project {
 	private String author;             //作者
 	private Date createTime;           //创建时间
 	private Date updateTime;           //修改时间
-	private String type;               //项目类型（工业类，农业类，商贸物流类，文化旅游类，金融及交通类设施，城市公用设施）
+	private int type;                 //项目类型（工业类，农业类，商贸物流类，文化旅游类，金融及交通类设施，城市公用设施）
 	private int state;                 //状态（-1，未发布，1，已发布，2，推广 ，3，重点项目）
 	public int getId() {
 		return id;
@@ -52,10 +52,11 @@ public class Project {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	public String getType() {
+	
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 	public int getState() {

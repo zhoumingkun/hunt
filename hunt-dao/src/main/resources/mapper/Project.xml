@@ -41,7 +41,7 @@
 			<if test="projectName != null and projectName != ''">projectName = #{projectName},</if>
 			<if test="projectContent != null and projectContent != ''">projectContent = #{projectContent},</if>
 			<if test="author != null and author != ''">author = #{author},</if>
-			<if test="type != null and type != ''">type = #{type},</if>
+			<if test="type != null ">type = #{type},</if>
 			<if test="state != null and state != ''">state = #{state},</if>
 			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
 			
@@ -76,10 +76,10 @@
 			<if test="updateTime != null ">
 				and updateTime = #{updateTime}
 			</if>
-			<if test=" typeLike != null and typeLike != '' ">
+			<!-- <if test=" typeLike != null and typeLike != '' ">
 				and type like concat(concat('%', #{typeLike, jdbcType=VARCHAR}),'%') 
-			</if>
-			<if test="type != null and type != ''">
+			</if> -->
+			<if test="type != null ">
 				and type = #{type}
 			</if>
 			<if test=" state != null and state != '' ">

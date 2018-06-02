@@ -9,8 +9,20 @@
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/static/js/swiper/swiper-3.4.2.min.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/swiper/swiper-3.4.2.jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/index/index.js"></script>
- --%></head>
+ --%>
+ <%@page import="java.sql.*" %>
+ </head>
 <body>
+<%  
+ //连接MySQL数据库   
+    Class.forName("com.mysql.jdbc.Driver").newInstance();  
+    String url="jdbc:mysql://localhost:3306/hunt";  
+    String user="root";  
+    String password="root";  
+    Connection conn = DriverManager.getConnection(url, user, password);  
+    Statement st = conn.createStatement();  
+      
+ %>
 <!--头开始-->
     <div class="hearder_box">
         <div class="hearder">
@@ -44,7 +56,7 @@
         <div class="nev_back"> </div>
         <ul class="nav">
             <li class="current">
-                <a href="#"><span>网站首页</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/index/welcome"><span>网站首页</span></a>
             </li>
             <li>
                 <a href="${pageContext.request.contextPath}/frontend/index/summarize"><span>走进娄烦</span></a>
