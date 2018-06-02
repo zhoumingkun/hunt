@@ -18,9 +18,9 @@
         <p>
             <span class="breadcrumbIcon" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon.png);"></span>
             <span>您当前所在位置:</span>        
-            <a href="../../index.html">首页</a>
+            <a href="${pageContext.request.contextPath}/frontend/index">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-            <a href="javascript:;" class="current">投资指南</a>
+            <a href="${pageContext.request.contextPath}/frontend/contactUs/contactUs" class="current">联系我们</a>
         </p>
     </div>
     <!-- 面包屑结束 -->
@@ -35,10 +35,10 @@
                 </p>
                 <ul>
                     <li>
-                        <a href="../../pages/investmentGuide/investmentGuide.html">投资指南</a>
+                        <a href="${pageContext.request.contextPath}/frontend/guide/guide">投资指南</a>
                     </li>
                     <li class="current">
-                        <a href="../../pages/contactUs/contactUs.html">联系我们</a>
+                        <a href="${pageContext.request.contextPath}/frontend/contactUs/contactUs">联系我们</a>
                     </li>
                 </ul>
             </div>

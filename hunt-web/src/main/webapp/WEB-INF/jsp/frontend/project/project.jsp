@@ -20,9 +20,9 @@
         <p>
             <span class="breadcrumbIcon" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon.png);"></span>
             <span>您当前所在位置:</span>
-            <a href="../../index.html">首页</a>
+            <a href="${pageContext.request.contextPath}/frontend/index">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-            <a href="javascript:;" class="current">招商项目</a>
+            <a href="${pageContext.request.contextPath}/frontend/project/project" class="current">招商项目</a>
         </p>
     </div>
     <!-- 面包屑结束 -->
@@ -88,16 +88,17 @@
             </p>
             <!-- 右边标题结束 -->
             <!-- 右边主体开始 -->
+            
             <div class="main">
                 <!-- 内容看着填吧 -->
                 <ul>
                     <li>
-                        <a href="../resources/details.html">国务院关于北部湾城市群发展规划的批复</a>
+                        <a href="../resources/details.html">>国务院关于北部湾城市群发展规划的批复</a>
                         <span class="updatatime">2018-5-12</span>
                     </li>
                     <li>
                         <a href="../resources/details.html">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
+                        <span class="updatatime">${m.hyname}</span>
                     </li>
                     <li>
                         <a href="../resources/details.html">国务院关于北部湾城市群发展规划的批复</a>
@@ -134,6 +135,7 @@
                 </ul>
                 <!-- 内容填充完毕 -->
             </div>
+            
             <!-- 右边主体结束 -->
             <!-- 右边分页开始 -->
             <div class="pagingwrap">

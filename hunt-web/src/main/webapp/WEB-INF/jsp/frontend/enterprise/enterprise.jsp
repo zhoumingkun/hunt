@@ -19,9 +19,9 @@
         <p>
             <span class="breadcrumbIcon" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon.png);"></span>
             <span>您当前所在位置:</span>        
-            <a href="../../index.html">首页</a>
+            <a href="${pageContext.request.contextPath}/frontend/index">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-            <a href="javascript:;" class="current">企业展示</a>
+            <a href="${pageContext.request.contextPath}/frontend/enterprise/enterprise" class="current">企业展示</a>
         </p>
     </div>
     <!-- 面包屑结束 -->
@@ -36,7 +36,7 @@
                 </p>
                 <ul>
                     <li class="current">
-                        <a href="javascript:;">热门企业</a>
+                        <a href="${pageContext.request.contextPath}/frontend/enterprise/enterprise">热门企业</a>
                     </li>
                 </ul>
             </div>

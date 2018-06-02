@@ -247,7 +247,7 @@
 						<li><a href=""><img
 								src="${pageContext.request.contextPath}/static/image/index/fast2.png"
 								alt=""></a></li>
-						<li><a href=""><img
+						<li><a href="${pageContext.request.contextPath}/frontend/contactUs/contactUs"><img
 								src="${pageContext.request.contextPath}/static/image/index/fast3.png"
 								alt=""></a></li>
 					</ul>
