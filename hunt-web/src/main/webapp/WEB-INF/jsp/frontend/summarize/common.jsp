@@ -1,4 +1,4 @@
-﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+﻿﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
 	pageEncoding="utf-8"%>
 <html lang="en">
@@ -25,10 +25,10 @@
 		<p>
 			<span class="breadcrumbIcon"
 				style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon.png);"></span>
-			<span>您当前所在位置:</span> <a href="../../index.html">首页</a> <span
+			<span>您当前所在位置:</span> <a href="${pageContext.request.contextPath}/frontend/index">首页</a> <span
 				class="breadcrumbIcon2"
 				style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-			<a href="javascript:;" class="current">走进娄烦</a>
+			<a href="${pageContext.request.contextPath}/frontend/summarize/common" class="current">走进娄烦</a>
 		</p>
 	</div>
 	<!-- 面包屑结束 -->
