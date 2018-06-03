@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.druid.util.StringUtils;
+
 import io.swagger.annotations.ApiOperation;
 
 /**
@@ -22,13 +24,18 @@ import io.swagger.annotations.ApiOperation;
 public class IndexController {
 	
 	@RequestMapping(value = "/{module}/{page}")
-	public ModelAndView page(@PathVariable String module, @PathVariable String page, HttpServletRequest request) {		
-		// 简单的模块页面跳转
-		// 例如链接为/expert/list，则找到对应的页面
-		ModelAndView mv = new ModelAndView("frontend/" + module + "/" + page);
-		// 将模块名保留下来，传递给页面，使页面的导航能正确展示class="active"
-		mv.addObject("module", module);
-		System.out.println(mv);
+	public ModelAndView page(@PathVariable String module, @PathVariable String page, HttpServletRequest request) {	
+		ModelAndView mv;
+		if(page.equals("details")) {
+			mv = new ModelAndView("frontend/details/details");
+			mv.addObject("module", module);
+			if (!StringUtils.isEmpty(request.getParameter("id"))) {
+				mv.addObject("id", request.getParameter("id"));
+			}
+		} else {
+			mv = new ModelAndView("frontend/" + module + "/" + page);
+			mv.addObject("module", module);
+		}
 		return mv;
 	}
 	
