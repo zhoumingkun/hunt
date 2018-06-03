@@ -10,7 +10,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/swiper/swiper-3.4.2.jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/index/index.js"></script>
  --%>
- <%@page import="java.sql.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.util.*"%>
+<%@page import="com.hunt.model.entity.*"%>
  </head>
 <body>
 <%  

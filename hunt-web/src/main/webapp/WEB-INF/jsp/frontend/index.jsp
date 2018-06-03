@@ -2,10 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
 	pageEncoding="utf-8"%>
 <html lang="en">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="java.sql.*"%>
-<%@page import="java.util.*"%>
-<%@page import="com.hunt.model.entity.*"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>娄烦招商引资</title>
@@ -63,7 +59,7 @@
 										ResultSet rs = st.executeQuery("SELECT * FROM tbl_policy where type = 1 and state = 2 ORDER BY createTime DESC LIMIT 9");
 										while (rs.next()) {
 									%>
-									<li><span class="cir"></span> <a href="">
+									<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/policy/details?id=<%=rs.getInt("id") %>">
 											<div>
 												<p class="oth"><%=rs.getString("policyName")%></p>
 												<span><%=rs.getDate("createTime")%></span>
