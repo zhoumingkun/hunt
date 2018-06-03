@@ -20,9 +20,9 @@
         <p>
             <span class="breadcrumbIcon" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon.png);"></span>
             <span>您当前所在位置:</span>        
-            <a href="../../index.html">首页</a>
+            <a href="${pageContext.request.contextPath}/frontend/index">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-            <a href="javascript:;" class="current">招商政策</a>
+            <a href="${pageContext.request.contextPath}/frontend/policy/policy" class="current">招商政策</a>
         </p>
     </div>
     <!-- 面包屑结束 -->
@@ -37,13 +37,13 @@
                 </p>
                 <ul>
                     <li>
-                        <a href="../../pages/newsInformation/newsInformation.html">新闻动态</a>
+                        <a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a>
                     </li>
                     <li class="current">
-                        <a href="../../pages/policy/policy.html">招商政策</a>
+                        <a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a>
                     </li>
                     <li>
-                        <a href="../../pages/investmentActivities/investmentActivities.html">招商活动</a>
+                        <a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a>
                     </li>
                 </ul>
             </div>
