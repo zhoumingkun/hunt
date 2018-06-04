@@ -1,4 +1,4 @@
-﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
 
@@ -89,47 +89,7 @@
     <!-- 右边主体开始 -->
             <div class="main">
     <!-- 内容看着填吧 -->
-                <ul>
-                    <li>
-                        <a href="">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
+               <ul id="content">
                 </ul>
     <!-- 内容填充完毕 -->
             </div>
@@ -138,22 +98,29 @@
             <div class="pagingwrap">
                 
             </div>
-            <script>
-                $('.pagingwrap').lemonPaging({
-                 'url':"",//ajax请求地址为空时不发送ajax
-                 'total':217,//总数据条数
-                 'page_size':10,//每页数据条数
-                 'pages':7,//分页可显示页码数量
-                 'pre_next':'true',//默认显示上一页下一页
-                 'searchable':'false',//默认带跳转输入框
-                 'successcallback':function(data,current_page){
-                     console.log(data,current_page);
-                 },//列表数据填充容器
-                 'errorcallback':function(data,current_page){
-                     console.log(data,current_page);
-                 },//列表数据填充容器
-                });
-            </script>
+           <script>
+            $('.pagingwrap').lemonPaging({
+             'url':"${pageContext.request.contextPath}/frontend/guide/data",//ajax请求地址为空时不发送ajax
+             /* 'total':217,//总数据条数*/
+             'page_size':10,//每页数据条数
+             'pages':7,//分页可显示页码数量 
+             'pre_next':'true',//默认显示上一页下一页
+             'searchable':'false',//默认带跳转输入框
+             'successcallback':function(data,current_page){
+                 console.log(data,current_page);
+                 var str = '';
+                 $("#content").empty();
+                 $.each(data.rows,function(i,guide){
+                	 var path =  "${pageContext.request.contextPath}/frontend/guide/details?id="+guide.id;
+                	 str+='<li><a href="'+path+'">'+guide.guideName+'</a><span class="updatatime">'+guide.updateTime+'</span></li>';
+                 })
+                $("#content").html(str);
+             },//列表数据填充容器
+             'errorcallback':function(data,current_page){
+                 console.log(data,current_page);
+             },//列表数据填充容器
+            })
+        </script>
     <!-- 右边分页结束 -->
         </div>
     <!-- 右边结束 -->

@@ -92,46 +92,14 @@
             <div class="main">
                 <!-- 内容看着填吧 -->
                 <ul>
-                    <li>
-                        <a href="../resources/details.html">>国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">${m.hyname}</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院关于北部湾城市群发展规划的批复</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
-                    <li>
-                        <a href="../resources/details.html">国务院办公厅关于对真抓实干成效明显地方加大激励支持力度的通知 国办发[2016]82号</a>
-                        <span class="updatatime">2018-5-12</span>
-                    </li>
+                    <%
+						ResultSet project = st.executeQuery("SELECT * FROM tbl_project ORDER BY createTime DESC LIMIT 10");
+						while (project.next()) {
+					%>
+					<li><a href=""><%=project.getString("projectName")%></a></li>
+					<%
+						}
+					%>
                 </ul>
                 <!-- 内容填充完毕 -->
             </div>

@@ -1,4 +1,4 @@
-﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
 
@@ -162,22 +162,29 @@
             <div class="pagingwrap">
                 
             </div>
-            <script>
-                $('.pagingwrap').lemonPaging({
-                 'url':"",//ajax请求地址为空时不发送ajax
-                 'total':217,//总数据条数
-                 'page_size':10,//每页数据条数
-                 'pages':7,//分页可显示页码数量
-                 'pre_next':'true',//默认显示上一页下一页
-                 'searchable':'false',//默认带跳转输入框
-                 'successcallback':function(data,current_page){
-                     console.log(data,current_page);
-                 },//列表数据填充容器
-                 'errorcallback':function(data,current_page){
-                     console.log(data,current_page);
-                 },//列表数据填充容器
-                });
-            </script>
+             <script>
+            $('.pagingwrap').lemonPaging({
+             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=2&trade="+"",//ajax请求地址为空时不发送ajax
+             /* 'total':217,//总数据条数*/
+             'page_size':10,//每页数据条数
+             'pages':7,//分页可显示页码数量 
+             'pre_next':'true',//默认显示上一页下一页
+             'searchable':'false',//默认带跳转输入框
+             'successcallback':function(data,current_page){
+                 console.log(data,current_page);
+                 var str = '';
+                 $("#content").empty();
+                 $.each(data.rows,function(i,enterprise){
+                	 var path =  "${pageContext.request.contextPath}/frontend/news/details?id="+enterprise.id;
+                	 str+='<li><a href="'+path+'">'+enterprise.enterpriseName+'</a><span class="updatatime">'+enterprise.updateTime+'</span></li>';
+                 })
+                $("#content").html(str);
+             },//列表数据填充容器
+             'errorcallback':function(data,current_page){
+                 console.log(data,current_page);
+             },//列表数据填充容器
+            })
+        </script>
     <!-- 右边分页结束 -->
         </div>
     <!-- 右边结束 -->

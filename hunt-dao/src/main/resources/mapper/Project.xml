@@ -16,6 +16,11 @@
 		select * from tbl_project where id = #{id}
 	</select>
 	
+	<!-- 查询某个记录 根据项目名称-->
+	<select id="findByprojectName" parameterType="String" resultType="Project">
+		select * from tbl_project where projectName = #{projectName}
+	</select>
+	
 	<!-- 查询全部记录  -->
 	<select id="findAll" resultType="Project" parameterType="Map">
 		select * from tbl_project
