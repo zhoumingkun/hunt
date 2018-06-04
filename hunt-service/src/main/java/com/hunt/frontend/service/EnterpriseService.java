@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Enterprise;
 
 /**
@@ -21,4 +22,7 @@ public interface EnterpriseService {
 
 	// 查询全部
 	public List<Enterprise> findAll();
+
+	// 分页查询
+	PageInfo findPage(int page, int state, String trade);
 }

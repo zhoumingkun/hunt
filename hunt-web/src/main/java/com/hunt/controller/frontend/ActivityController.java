@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hunt.frontend.service.ActivityService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Activity;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -61,7 +63,7 @@ public class ActivityController {
 	}
 	
 	 @ResponseBody
-	 @RequestMapping(value = "findById", method = RequestMethod.GET)
+	 @RequestMapping(value = "findById", method = RequestMethod.POST)
 	 public Activity findById(int id) {
 		 return activityService.findById(id);
 	 }
@@ -73,4 +75,16 @@ public class ActivityController {
 	        return list;
 	    }
 
+	 /**
+	 * 分页查询 --前台
+	 * 
+	 * @param  page 当前页  state 状态
+	 * @return pageInfo
+	 */
+	@ResponseBody
+	@RequestMapping(value = "data", method = RequestMethod.GET)
+	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) {
+		PageInfo pageInfo = activityService.findPage(page,state);
+		return pageInfo;
+	}
 }

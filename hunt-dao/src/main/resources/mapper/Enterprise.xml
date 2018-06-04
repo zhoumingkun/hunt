@@ -31,4 +31,27 @@
 	<select id="findAll" resultType="Enterprise">
 		select * from tbl_enterprise
 	</select>
+	
+	
+	<!-- 根据状态查询数量 -->
+	<select id="findCount"  resultType="java.lang.Integer">
+		select Count(*) from tbl_enterprise where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		<if test="trade != null and trade != ''">
+		 and trade = #{trade}
+		</if>
+	</select>
+	
+	<!--查询全部根据状态与行业查询  -->
+	<select id="findAllByState"  resultType="Enterprise">
+		select * from tbl_enterprise where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		<if test="trade != null and trade != ''">
+		 and trade = #{trade}
+		</if>
+	</select>
 </mapper>

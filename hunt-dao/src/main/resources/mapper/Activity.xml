@@ -87,4 +87,20 @@
 		</where>
 	</sql>
 	
+	<!-- 根据状态查询数量 -->
+	<select id="findCount" parameterType="int" resultType="java.lang.Integer">
+		select Count(*) from tbl_activity where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+	</select>
+	
+	<!--查询全部根据状态查询  -->
+	<select id="findAllByState" parameterType="java.lang.Integer"  resultType="Activity">
+		select * from tbl_activity where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+	</select>
+	
 </mapper>

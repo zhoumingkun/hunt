@@ -9,7 +9,6 @@
     <script src="${pageContext.request.contextPath}/static/js/jquery1.7/jQuery1.7.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/paging/paging.js"></script>
 </head>
-
 <body>
     <!--头开始-->
    <%@ include file="../common/head.jsp" %>
@@ -56,49 +55,49 @@
                 </p>
             </div>
             <!-- 左边侧导航结束 -->
-            <!-- 左边推荐开始 -->
-            <div class="recommend">
-                <p class="title" style="background-image:url(${pageContext.request.contextPath}/static/image/all/asideNavtitle.png);">
-                    <span>推荐项目</span>
-                </p>
-                <ul>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目具体实施细则</a>
-                    </li>
-                    <li>
-                        <a href="">小时贷关于近期平台系统充值</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- 左边推荐结束 -->
         </div>
         <!-- 左边结束 -->
         <!-- 右边开始 -->
         <div class="right">
             <!-- 右边标题开始 -->
-            <p class="title">
-                <span>娄烦旅游</span>
-            </p>
+            <c:choose>
+              <c:when test="${module == 'policy' }">
+             		<p class="title"><span>政务法规</span>
+		            </p>
+              </c:when>
+              <c:when test="${module == 'activity' }">
+             		<p class="title"><span>招商活动</span>
+		            </p>
+              </c:when>
+              <c:when test="${module == 'news' }">
+             		<p class="title"><span>新闻活动</span>
+		            </p>
+              </c:when>
+              <c:when test="${module == 'project' }">
+             		<p class="title"><span>招商项目</span>
+		            </p>
+              </c:when>
+            </c:choose>
             <!-- 右边标题结束 -->
             <!-- 右边主体开始 -->
-            <div class="main">
-                <!-- 内容看着填吧 -->
-                <!-- 内容填充完毕 -->
-            </div>
+           <!--  <div id="content" class="main">
+                内容看着填吧
+                内容填充完毕
+            </div> -->
+            <div class="survey common_content">
+					<div class="survey_title">
+						<div id="image" class="survey_title_img">
+							<img
+								src=""
+								alt="">
+						</div>
+						<p id="title"></p>
+					</div>
+					<div id="content" class="survey_font">
+					</div>
+				</div>
             <!-- 右边主体结束 -->
-            <script>
+          <!--   <script>
                 $('.pagingwrap').lemonPaging({
                     'url': "page1.php",//ajax请求地址
                     'total': 217,//总数据条数
@@ -113,16 +112,48 @@
                         console.log(data, current_page);
                     },//列表数据填充容器
                 });
-            </script>
+            </script> -->
             <!-- 右边分页结束 -->
         </div>
         <!-- 右边结束 -->
+        <script type="text/javascript">
+	     window.onload = function() {
+			  var id = ${id};
+			  //招商政策详情
+			  if("${module}" == "policy"){
+				  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+					  
+					  $("#title").html("<span>"+data.policyName+"</span>");
+					  $("#content").html("<P>"+data.policyContent+"<P>");
+				  });
+			  }
+			  //新闻动态详情
+			  else if("${module}" == "news"){
+	                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+					  $("#title").html("<span>"+data.newsName+"</span>");
+					  $("#content").html("<P>"+data.newsContent+"<P>");
+				  });
+			  }
+			  //招商项目详情
+			  else if("${module}" == "project"){
+	                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+					  $("#title").html("<span>"+data.projectName+"</span>");
+					  $("#content").html("<P>"+data.projectContent+"<P>");
+				  });
+			  }
+			  //招商活动详情
+			  else if("${module}" == "activity"){
+	                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+					  $("#title").html("<span>"+data.activityName+"</span>");
+					  $("#content").html("<P>"+data.activityContent+"<P>");
+				  });
+			  }
+	  }
+    </script>
     </div>
     <!-- 身体容器结束 -->
     <!--脚开始-->
     <%@ include file="../common/foot.jsp" %>
     <!--脚结束-->
-
 </body>
-
 </html>

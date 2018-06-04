@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.EnterpriseMapper;
 import com.hunt.frontend.service.EnterpriseService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Enterprise;
+import com.hunt.model.entity.Guide;
 @Transactional
 @Service
 public class EnterpriseServiceImpl implements EnterpriseService {
@@ -34,6 +37,14 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 	@Override
 	public List<Enterprise> findAll() {
 		return enterpriseMapper.findAll();
+	}
+	
+	@Override
+	public PageInfo findPage(int page,int state,String trade) {
+		 int count = enterpriseMapper.findCount(state,trade);
+		 PageHelper.startPage(page, 10);
+		 List<Enterprise> list = enterpriseMapper.findAllByState(state,trade);
+		return new PageInfo(count, list);
 	}
 
 }

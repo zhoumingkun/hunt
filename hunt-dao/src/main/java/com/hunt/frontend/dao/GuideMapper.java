@@ -2,6 +2,8 @@ package com.hunt.frontend.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hunt.model.entity.Guide;
 
 /**
@@ -27,4 +29,10 @@ public interface GuideMapper {
     
     //删除
     public void deleteById(int id);
+    
+    //根据状态查询数量
+  	public int findCount();
+ 
+  	//查询全部 根据状态查询
+  	public List<Guide> findAllByState();
 }

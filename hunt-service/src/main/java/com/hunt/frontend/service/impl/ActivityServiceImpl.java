@@ -10,8 +10,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.ActivityMapper;
 import com.hunt.frontend.service.ActivityService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Activity;
 /**
  * 
@@ -54,9 +56,12 @@ public class ActivityServiceImpl implements ActivityService{
 		activityMapper.deleteById(id);
 	}
 
-	
-	
+	@Override
+	public PageInfo findPage(int page, int state) {
+		 int count = activityMapper.findCount(state);
+		 PageHelper.startPage(page, 10);
+		 List<Activity> list = activityMapper.findAllByState(state);
+		return new PageInfo(count, list);
+	}
 
-	
-	
 }
