@@ -14,14 +14,7 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page import="com.hunt.model.entity.*"%>
-<script type="text/javascript">
-    function sou(){    
-    var sou=$("#tiaojian").val();
-     $.get("?method=sou&srxx="+sou,function(date){
-                $("#div").html(date);
-   				});
-   				}		
-  </script>
+
  </head>
 <body>
 <%  
@@ -66,16 +59,8 @@
                 <div class="hearder_input_box">
                     <input type="text" name="tiaojian" id="tiaojian" placeholder="请输入项目名称" />
                     <p class="oth">
-                    <%
-                    String name=request.getParameter("tiaojian");
-						ResultSet projectName = st.executeQuery("SELECT * FROM tbl_project where projectName like'%"+name+"%'");
-						while (projectName.next()) {
-					%>
-					<a href="${pageContext.request.contextPath}/frontend/aaa" onclick="javascript:sou()">搜索</a>
-					<%
-						}
-					%>
-                        
+                 	<a href="">搜索</a>
+   
                     </p>
                 </div>
             </div>
