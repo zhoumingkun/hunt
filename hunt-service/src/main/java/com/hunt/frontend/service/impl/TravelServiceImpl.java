@@ -4,8 +4,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.TravelMapper;
 import com.hunt.frontend.service.TravelService;
+import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Activity;
 import com.hunt.model.entity.Travel;
 /**
  * 
@@ -47,6 +50,14 @@ public class TravelServiceImpl implements TravelService{
 	public void deleteById(int id) {
 		// TODO Auto-generated method stub
 		travelMapper.deleteById(id);
+	}
+
+	@Override
+	public PageInfo findPage(int page) {
+		 int count = travelMapper.findCount();
+		 PageHelper.startPage(page, 10);
+		 List<Travel> list = travelMapper.findAll();
+		return new PageInfo(count, list);
 	}
 
 }

@@ -21,4 +21,7 @@ public interface CultureMapper {
 
 	// 查询全部
 	public List<Culture> findAll();
+
+	//查询总数
+	public int findCount();
 }

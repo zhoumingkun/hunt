@@ -27,6 +27,11 @@
 	</update>
 	
 	<select id="findAll" resultType="Culture">
-		select * from tbl_culture
+		select * from tbl_culture order by createTime desc
+	</select>
+	
+	<!-- 查询总数 -->
+	<select id="findCount"  resultType="java.lang.Integer">
+		select Count(*) from tbl_culture 
 	</select>
 </mapper>

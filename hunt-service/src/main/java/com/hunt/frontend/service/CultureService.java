@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Culture;
 
 
@@ -22,4 +23,7 @@ public interface CultureService {
 
 	// 查询全部
 	public List<Culture> findAll();
+
+	//分页查询 -- 前台
+	public PageInfo findPage(int page);
 }

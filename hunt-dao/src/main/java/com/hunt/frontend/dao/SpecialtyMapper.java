@@ -22,4 +22,7 @@ public interface SpecialtyMapper {
 
 	// 查询全部
 	public List<Specialty> findAll();
+
+	//查询总数
+	public int findCount();
 }
