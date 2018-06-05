@@ -24,17 +24,17 @@ $.fn.lemonPaging = function(options) {
 				type:"GET",
 				url:url,//分页数据的请求地址
 				dataType:'json',//省去了字符串转化json
-				data:{current_page:1},
+				data:{current_page:settings.current_page},
 				success:function(data){
 					settings.total=data.total;
-					settings.page_size=data.page_size;
-					createPaging(settings.total,settings.page_size,data.current_page,settings.pages,settings.pre_next,settings.searchable);
-					settings.successcallback(data,data.current_page);
+//					settings.page_size=data.page_size;
+					createPaging(settings.total,settings.page_size,settings.current_page,settings.pages,settings.pre_next,settings.searchable);
+					settings.successcallback(data,settings.current_page);
 				},
 				error:function(data){
 					if(data.status==404){
 						console.log('连接不到网络！启用本地默认数据模拟');
-						createPaging(settings.total,settings.page_size,1,settings.pages,settings.pre_next,settings.searchable);
+						createPaging(settings.total,settings.page_size,settings.current_page,settings.pages,settings.pre_next,settings.searchable);
 						settings.errorcallback(data,1);
 					}
 				}
@@ -89,7 +89,9 @@ $.fn.lemonPaging = function(options) {
 			}
 		}
 		if(pre_next=='true'){
-			if(current_page==1){
+			if(current_page==1&&last_page==1){
+				paging='<a href="javascript:;" class="pre disabled"></a>'+paging+'<a href="javascript:;" class="next disabled"></a>'
+			}else if(current_page==1&&last_page!==1){
 				paging='<a href="javascript:;" class="pre disabled"></a>'+paging+'<a href="javascript:;" class="next"></a>'
 			}else if(current_page==last_page){
 				paging='<a href="javascript:;" class="pre"></a>'+paging+'<a href="javascript:;" class="next disabled"></a>'
@@ -103,6 +105,9 @@ $.fn.lemonPaging = function(options) {
 		paging='<div class="paginationwrap"><div class="pagination pagenav">'+paging+'</div></div>'
 		that.html(paging);
 		that.find('.page').on('click',function(){
+			if($(this).attr('class')=='page active'){
+				return;
+			}
 			current_page=parseInt($(this).html());
 			changePage(current_page)
 		});
