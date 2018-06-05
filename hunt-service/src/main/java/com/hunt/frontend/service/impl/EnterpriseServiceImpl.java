@@ -47,4 +47,10 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 		return new PageInfo(count, list);
 	}
 
+	@Override
+	public Enterprise findById(int id) {
+		// TODO Auto-generated method stub
+		return enterpriseMapper.findById(id);
+	}
+
 }

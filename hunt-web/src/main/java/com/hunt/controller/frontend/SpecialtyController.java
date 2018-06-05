@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hunt.frontend.service.SpecialtyService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Specialty;
+import com.hunt.model.entity.Travel;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
@@ -109,4 +110,10 @@ public class SpecialtyController{
 		PageInfo pageInfo = specialtyService.findPage(page);
 		return pageInfo;
 	}
+	
+	 @ResponseBody
+	 @RequestMapping(value = "findById", method = RequestMethod.POST)
+	 public Specialty findById(int id) {
+		 return specialtyService.findById(id);
+	 }
 }

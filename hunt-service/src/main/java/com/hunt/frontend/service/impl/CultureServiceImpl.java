@@ -49,5 +49,11 @@ public class CultureServiceImpl implements CultureService{
 		 List<Culture> list = cultureMapper.findAll();
 		return new PageInfo(count, list);
 	}
+
+	@Override
+	public Culture findById(int id) {
+		// TODO Auto-generated method stub
+		return cultureMapper.findById(id);
+	}
 	
 }

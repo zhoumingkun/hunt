@@ -64,6 +64,13 @@ public class TravelController {
 		}
 	}
 	
+	
+	/**
+	 * 根据ID查询
+	 * 
+	 * @param  int id 
+	 * @return Specialty
+	 */
 	 @ResponseBody
 	 @RequestMapping(value = "findById", method = RequestMethod.POST)
 	 public Travel findById(int id) {

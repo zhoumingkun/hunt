@@ -30,4 +30,7 @@ public interface EnterpriseMapper {
 
 	//查询全部 根据状态查询
 	public List<Enterprise> findAllByState(@Param("state") int state,@Param("trade") String trade);
+
+	//根据ID查询
+	public Enterprise findById(int id);
 }

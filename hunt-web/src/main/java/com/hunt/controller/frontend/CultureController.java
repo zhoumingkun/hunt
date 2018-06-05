@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hunt.frontend.service.CultureService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Culture;
+import com.hunt.model.entity.Specialty;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
@@ -108,5 +109,17 @@ public class CultureController{
 	public PageInfo findPage(@RequestParam(value = "current_page") int page) {
 		PageInfo pageInfo = cultureService.findPage(page);
 		return pageInfo;
+	}
+	
+	/**
+	 * 根据ID查询
+	 * 
+	 * @param  int id 
+	 * @return Culture
+	 */
+	@ResponseBody
+	@RequestMapping(value = "findById", method = RequestMethod.POST)
+	public Culture findById(int id) {
+		return cultureService.findById(id);
 	}
 }

@@ -77,6 +77,22 @@
              		<p class="title"><span>招商项目</span>
 		            </p>
               </c:when>
+              <c:when test="${module == 'travel' }">
+             		<p class="title"><span>娄烦旅游</span>
+		            </p>
+              </c:when>
+               <c:when test="${module == 'culture' }">
+             		<p class="title"><span>民俗文化</span>
+		            </p>
+              </c:when>
+              <c:when test="${module == 'specialty' }">
+             		<p class="title"><span>名优特产</span>
+		            </p>
+              </c:when>
+              <c:when test="${module == 'enterprise' }">
+             		<p class="title"><span>企业展示</span>
+		            </p>
+              </c:when>
             </c:choose>
             <!-- 右边标题结束 -->
             <!-- 右边主体开始 -->
@@ -122,40 +138,63 @@
 			  //招商政策详情
 			  if("${module}" == "policy"){
 				  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-					  
 					  $("#title").html("<span>"+data.policyName+"</span>");
 					  $("#content").html("<P>"+data.policyContent+"<P>");
 				  });
 			  }
 			  //新闻动态详情
 			  else if("${module}" == "news"){
-	                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	              $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 					  $("#title").html("<span>"+data.newsName+"</span>");
 					  $("#content").html("<P>"+data.newsContent+"<P>");
 				  });
 			  }
 			  //招商项目详情
 			  else if("${module}" == "project"){
-	                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	              $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 					  $("#title").html("<span>"+data.projectName+"</span>");
 					  $("#content").html("<P>"+data.projectContent+"<P>");
 				  });
 			  }
 			  //招商活动详情
 			  else if("${module}" == "activity"){
-	                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	              $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 					  $("#title").html("<span>"+data.activityName+"</span>");
 					  $("#content").html("<P>"+data.activityContent+"<P>");
 				  });
 			  }
+			  //娄烦旅游
 			  else if("${module}" == "travel"){
                   $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-				  console.log(data);
-                  $("image").html("<img src="+data.image+" alt="">"); 
-                  $("#title").html("<span>"+data.travelName+"</span>");
-				  $("#content").html("<P>"+data.travelContent+"<P>");
-			  });
-		  }
+	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("#title").html("<span>"+data.travelName+"</span>");
+					  $("#content").html("<P>"+data.travelContent+"<P>");
+			    });
+		     }
+			//民俗文化
+			 else if("${module}" == "culture"){
+                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("#title").html("<span>"+data.cultureName+"</span>");
+					  $("#content").html("<P>"+data.cultureContent+"<P>");
+			    });
+		     }
+			 //名优特产
+			 else if("${module}" == "specialty"){
+                 $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("#title").html("<span>"+data.specialtyName+"</span>");
+					  $("#content").html("<P>"+data.specialtyContent+"<P>");
+			    });
+		     }
+			//企业展示
+			 else if("${module}" == "enterprise"){
+                 $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("#title").html("<span>"+data.enterpriseName+"</span>");
+					  $("#content").html("<P>"+data.enterpriseContent+"<P>");
+			    });
+		     }
 	  }
     </script>
     </div>

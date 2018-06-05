@@ -49,5 +49,10 @@ public class SpecialtyServiceImpl implements SpecialtyService{
 		 List<Specialty> list = specialtyMapper.findAll();
 		return new PageInfo(count, list);
 	}
+
+	@Override
+	public Specialty findById(int id) {
+		return specialtyMapper.findById(id);
+	}
 	
 }
