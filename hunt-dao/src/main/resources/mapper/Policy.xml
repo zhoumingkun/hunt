@@ -28,7 +28,7 @@
 	</update>
 	
 	<select id="findAll" resultType="Policy">
-		select * from tbl_policy
+		select * from tbl_policy 
 	</select>
 	
 	<!-- 根据ID查询 -->
@@ -50,5 +50,6 @@
 		<if test="state != null">
 		 and state = #{state}
 		</if>
+		order by createTime desc
 	</select>
 </mapper>

@@ -29,10 +29,7 @@ public interface GuideMapper {
     
     //删除
     public void deleteById(int id);
-    
+
     //根据状态查询数量
   	public int findCount();
- 
-  	//查询全部 根据状态查询
-  	public List<Guide> findAllByState();
 }

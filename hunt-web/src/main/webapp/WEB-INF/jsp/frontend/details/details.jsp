@@ -148,6 +148,14 @@
 					  $("#content").html("<P>"+data.activityContent+"<P>");
 				  });
 			  }
+			  else if("${module}" == "travel"){
+                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+				  console.log(data);
+                  $("image").html("<img src="+data.image+" alt="">"); 
+                  $("#title").html("<span>"+data.travelName+"</span>");
+				  $("#content").html("<P>"+data.travelContent+"<P>");
+			  });
+		  }
 	  }
     </script>
     </div>

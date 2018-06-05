@@ -26,4 +26,7 @@ public interface TravelMapper {
     
     //删除
     public void deleteById(int id);
+    
+    //查询总数
+	public int findCount();
 }

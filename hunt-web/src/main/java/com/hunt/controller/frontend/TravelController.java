@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hunt.frontend.service.TravelService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Travel;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -63,7 +65,7 @@ public class TravelController {
 	}
 	
 	 @ResponseBody
-	 @RequestMapping(value = "findById", method = RequestMethod.GET)
+	 @RequestMapping(value = "findById", method = RequestMethod.POST)
 	 public Travel findById(int id) {
 		 return travelService.findById(id);
 	 }
@@ -75,4 +77,16 @@ public class TravelController {
 	        return list;
 	    }
 
+	 /**
+	 * 分页查询 --前台
+	 * 
+	 * @param  page 当前页  
+	 * @return pageInfo
+	 */
+	@ResponseBody
+	@RequestMapping(value = "data", method = RequestMethod.GET)
+	public PageInfo findPage(@RequestParam(value = "current_page") int page) {
+		PageInfo pageInfo = travelService.findPage(page);
+		return pageInfo;
+	}
 }

@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Travel;
 
 /**
@@ -26,5 +27,8 @@ public interface TravelService {
 	    
 	    //删除
 	    public void deleteById(int id);
+
+	    //分页查询 -- 前台
+		public PageInfo findPage(int page);
 
 }

@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.SpecialtyMapper;
 import com.hunt.frontend.service.SpecialtyService;
+import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Culture;
 import com.hunt.model.entity.Specialty;
 @Transactional
 @Service
@@ -39,5 +42,12 @@ public class SpecialtyServiceImpl implements SpecialtyService{
 		return specialtyMapper.findAll();
 	}
 	
+	@Override
+	public PageInfo findPage(int page) {
+		 int count = specialtyMapper.findCount();
+		 PageHelper.startPage(page, 10);
+		 List<Specialty> list = specialtyMapper.findAll();
+		return new PageInfo(count, list);
+	}
 	
 }

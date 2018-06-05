@@ -58,7 +58,7 @@ public class GuideServiceImpl implements GuideService{
 	public PageInfo findPage(int page) {
 		 int count = guideMapper.findCount();
 		 PageHelper.startPage(page, 10);
-		 List<Guide> list = guideMapper.findAllByState();
+		 List<Guide> list = guideMapper.findAll();
 		return new PageInfo(count, list);
 	}
 	

@@ -18,8 +18,9 @@
 	
 	<!-- 查询全部记录  -->
 	<select id="findAll" resultType="Guide" parameterType="Map">
-		select * from tbl_guide
+		select * from tbl_guide 
 		<include refid="paramsSQL"/>
+		order by createTime desc
 	</select>
 	
 	<!-- 分页查询交接单  -->
@@ -83,8 +84,4 @@
 		select Count(*) from tbl_guide 
 	</select>
 	
-	<!--查询全部根据状态查询  -->
-	<select id="findAllByState" parameterType="java.lang.Integer"  resultType="Guide">
-		select * from tbl_guide 
-	</select>
 </mapper>

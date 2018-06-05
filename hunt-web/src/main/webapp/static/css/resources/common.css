@@ -16,7 +16,7 @@
 .mainwrap .right .main ul {
   width: 100%;
   height: auto;
-  display: none;
+  /* display: none; */
   margin-top: 0.1rem; }
   .mainwrap .right .main ul li {
     width: 100%;

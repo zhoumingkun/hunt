@@ -26,7 +26,14 @@
 		where id = #{id}
 	</update>
 	
-	<select id="findAll" resultType="Specialty">
-		select * from tbl_specialty
+	<!-- 查询总数 -->
+	<select id="findCount"  resultType="java.lang.Integer">
+		select Count(*) from tbl_specialty 
+	</select>
+	
+	<!-- 查询全部 -->
+	<select id="findAll"  resultType="Specialty">
+		select * from tbl_specialty 
+		order by createTime desc
 	</select>
 </mapper>

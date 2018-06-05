@@ -53,5 +53,6 @@
 		<if test="trade != null and trade != ''">
 		 and trade = #{trade}
 		</if>
+		order by createTime desc
 	</select>
 </mapper>

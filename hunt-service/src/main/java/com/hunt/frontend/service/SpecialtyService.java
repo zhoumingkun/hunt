@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Specialty;
 
 
@@ -23,4 +24,7 @@ public interface SpecialtyService {
 
 	// 查询全部
 	public List<Specialty> findAll();
+
+	//分页查询 -- 前台
+	public PageInfo findPage(int page);
 }
