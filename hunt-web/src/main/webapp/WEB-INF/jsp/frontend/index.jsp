@@ -61,7 +61,7 @@
 									%>
 									<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/policy/details?id=<%=rs.getInt("id") %>">
 											<div>
-												<p class="oth"><%=rs.getString("policyName")%></p>
+												<p class="oth"><%=rs.getString("policyName") %></p>
 												<span><%=rs.getDate("createTime")%></span>
 											</div>
 									</a></li>
@@ -77,7 +77,7 @@
 												.executeQuery("SELECT * FROM tbl_policy where type = 2 and state = 2 ORDER BY createTime DESC LIMIT 9");
 										while (policy.next()) {
 									%>
-									<li><span class="cir"></span> <a href="">
+									<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/policy/details?id=<%=policy.getInt("id") %>">
 											<div>
 												<p class="oth"><%=policy.getString("policyName")%></p>
 												<span><%=policy.getDate("createTime")%></span>
@@ -94,7 +94,7 @@
 										ResultSet news = st.executeQuery("SELECT * FROM tbl_news where state = 2 ORDER BY createTime DESC LIMIT 9");
 										while (news.next()) {
 									%>
-									<li><span class="cir"></span> <a href="">
+									<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/news/details?id=<%=news.getInt("id") %>">
 											<div>
 												<p class="oth"><%=news.getString("newsName")%></p>
 												<span><%=news.getDate("createTime")%></span>
@@ -163,7 +163,7 @@
 								.executeQuery("SELECT * FROM tbl_activity where state = 2 ORDER BY createTime DESC LIMIT 6");
 						while (activity.next()) {
 					%>
-					<li><spam class="cir"></spam> <a href="">
+					<li><spam class="cir"></spam> <a href="${pageContext.request.contextPath}/frontend/activity/details?id=<%=activity.getInt("id") %>">
 							<div>
 								<p class="oth"><%=activity.getString("activityName")%></p>
 								<span><%=activity.getDate("createTime")%></span>
@@ -172,42 +172,6 @@
 					<%
 						}
 					%>
-					<!-- <li><spam class="cir"></spam> <a href="">
-							<div>
-								<p class="oth">消防支队全面开展冬春安全检查</p>
-								<span>2018-07-23</span>
-							</div>
-					</a></li>
-					<li><spam class="cir"></spam> <a href="">
-							<div>
-								<p class="oth">公安机关重拳打击非法开采</p>
-								<span>2018-07-23</span>
-							</div>
-					</a></li>
-					<li><spam class="cir"></spam> <a href="">
-							<div>
-								<p class="oth">茄子河消防大队入工地查消防</p>
-								<span>2018-07-23</span>
-							</div>
-					</a></li>
-					<li><spam class="cir"></spam> <a href="">
-							<div>
-								<p class="oth">交警整治违法摩托车</p>
-								<span>2018-07-23</span>
-							</div>
-					</a></li>
-					<li><spam class="cir"></spam> <a href="">
-							<div>
-								<p class="oth">禁毒知识宣传进校园</p>
-								<span>2018-07-23</span>
-							</div>
-					</a></li>
-					<li><spam class="cir"></spam> <a href="">
-							<div>
-								<p class="oth">茄子河消防大队入工地查消防</p>
-								<span>2018-07-23</span>
-							</div>
-					</a></li> -->
 				</ul>
 			</div>
 			<div class="project common">
@@ -220,7 +184,7 @@
 								.executeQuery("SELECT * FROM tbl_project where state = 3 ORDER BY createTime DESC LIMIT 10");
 						while (rsr.next()) {
 					%>
-					<li><span class="cir"></span> <a href="">
+					<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=rsr.getInt("id") %>">
 							<div>
 								<p class="oth"><%=rsr.getString("projectName")%></p>
 							</div>
@@ -278,7 +242,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 1 and state = 2  ORDER BY createTime DESC LIMIT 9");
 							while (project.next()) {
 						%>
-						<li><span class="cir"></span> <a href="">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=project.getInt("id") %>">
 								<p class="oth"><%=project.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -296,7 +260,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 2 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (projec.next()) {
 						%>
-						<li><span class="cir"></span> <a href="">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=projec.getInt("id") %>">
 								<p class="oth"><%=projec.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -314,7 +278,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 3 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proje.next()) {
 						%>
-						<li><span class="cir"></span> <a href="">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=proje.getInt("id") %>">
 								<p class="oth"><%=proje.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -332,7 +296,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 4 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proj.next()) {
 						%>
-						<li><span class="cir"></span> <a href="">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=proj.getInt("id") %>">
 								<p class="oth"><%=proj.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -350,7 +314,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 5 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (pro.next()) {
 						%>
-						<li><span class="cir"></span> <a href="">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=pro.getInt("id") %>">
 								<p class="oth"><%=pro.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -368,7 +332,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 6 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (pr.next()) {
 						%>
-						<li><span class="cir"></span> <a href="">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=pr.getInt("id") %>">
 								<p class="oth"><%=pr.getString("projectName")%></p>
 						</a></li>
 						<%

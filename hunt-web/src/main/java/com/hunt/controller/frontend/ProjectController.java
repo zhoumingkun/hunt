@@ -65,7 +65,7 @@ public class ProjectController {
 	}	
 	
 	 @ResponseBody
-	 @RequestMapping(value = "findById", method = RequestMethod.GET)
+	 @RequestMapping(value = "findById", method = RequestMethod.POST)
 	 public Project findById(int id) {
 		 return projectService.findById(id);
 	 }

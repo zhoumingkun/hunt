@@ -5,11 +5,14 @@ import java.util.List;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hunt.frontend.service.PolicyService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Policy;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -93,5 +96,30 @@ public class PolicyController{
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
 	public List<Policy> findAll() {
 		return policyService.findAll();
+	}
+	
+	/**
+	 * 根据ID查询
+	 * 
+	 * @param List<Policy>
+	 * @return Result
+	 */
+	@ResponseBody
+	@RequestMapping(value = "findById", method = RequestMethod.POST)
+	public Policy findById(int id) {
+		return policyService.findById(id);
+	}
+	
+	/**
+	 * 分页查询 --前台
+	 * 
+	 * @param page 当前页  state 状态
+	 * @return PageInfo
+	 */
+	@ResponseBody
+	@RequestMapping(value = "data", method = RequestMethod.GET)
+	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) {
+		PageInfo pageInfo = policyService.findPage(page,state);
+		return pageInfo;
 	}
 }

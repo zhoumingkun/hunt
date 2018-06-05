@@ -2,6 +2,8 @@ package com.hunt.frontend.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hunt.model.entity.Enterprise;
 
 
@@ -22,4 +24,10 @@ public interface EnterpriseMapper {
 
 	// 查询全部
 	public List<Enterprise> findAll();
+	
+	//根据状态查询数量
+	public int findCount(@Param("state") int state,@Param("trade") String trade);
+
+	//查询全部 根据状态查询
+	public List<Enterprise> findAllByState(@Param("state") int state,@Param("trade") String trade);
 }

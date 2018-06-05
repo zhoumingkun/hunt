@@ -57,10 +57,9 @@
                     </p>
                 </div>
                 <div class="hearder_input_box">
-                    <input type="text" name="tiaojian" id="tiaojian" placeholder="请输入项目名称" />
+                    <input type="text"  placeholder="请输入项目名称" />
                     <p class="oth">
-                 	<a href="">搜索</a>
-   
+                 	<a href="">搜索</a>   
                     </p>
                 </div>
             </div>

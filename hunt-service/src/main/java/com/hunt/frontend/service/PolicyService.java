@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Policy;
 
 
@@ -23,4 +24,10 @@ public interface PolicyService {
 
 	// 查询全部
 	public List<Policy> findAll();
+
+	//根据ID查询
+	public Policy findById(int id);
+
+	//分页查询
+	public PageInfo findPage(int page,int state);
 }

@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Guide;
 
 
@@ -28,5 +29,8 @@ public interface GuideService {
 	    
 	    //删除
 	    public void deleteById(int id);
+	    
+	    // 分页查询
+	 	public PageInfo findPage(int page);
 
 }

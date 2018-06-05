@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.PolicyMapper;
 import com.hunt.frontend.service.PolicyService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Policy;
 
 
@@ -39,6 +41,19 @@ public class PolicyServiceImpl implements PolicyService{
 	@Override
 	public List<Policy> findAll() {
 		return policyMapper.findAll();
+	}
+
+	@Override
+	public Policy findById(int id) {
+		return policyMapper.findById(id);
+	}
+
+	@Override
+	public PageInfo findPage(int page,int state) {
+		 int count = policyMapper.findCount(state);
+		 PageHelper.startPage(page, 10);
+		 List<Policy> list = policyMapper.findAllByState(state);
+		return new PageInfo(count, list);
 	}
 	
 	

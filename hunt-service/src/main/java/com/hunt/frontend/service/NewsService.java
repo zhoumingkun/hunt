@@ -2,6 +2,7 @@ package com.hunt.frontend.service;
 
 import java.util.List;
 
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.News;
 
 
@@ -22,4 +23,9 @@ public interface NewsService {
 
 	// 查询全部
 	public List<News> findAll();
+
+	//根据ID查询
+	public News findById(int id);
+    // 分页查询
+	PageInfo findPage(int page, int state);
 }

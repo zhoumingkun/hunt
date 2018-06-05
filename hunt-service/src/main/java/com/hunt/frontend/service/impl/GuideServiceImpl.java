@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.ActivityMapper;
 import com.hunt.frontend.dao.GuideMapper;
 import com.hunt.frontend.service.ActivityService;
 import com.hunt.frontend.service.GuideService;
+import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Activity;
 import com.hunt.model.entity.Guide;
 /**
  * 
@@ -51,6 +54,13 @@ public class GuideServiceImpl implements GuideService{
 		guideMapper.deleteById(id);
 	}
 
+	@Override
+	public PageInfo findPage(int page) {
+		 int count = guideMapper.findCount();
+		 PageHelper.startPage(page, 10);
+		 List<Guide> list = guideMapper.findAllByState();
+		return new PageInfo(count, list);
+	}
 	
 	
 
