@@ -47,6 +47,9 @@ div.pagination a.active{
   color:rgb(255,255,255);
   border-color:#d2222c;
 }
+div.pagination a.disabled{
+  cursor:not-allowed;
+}
 div.pagination a.shot{
   float:left;
   height:0.24rem;
