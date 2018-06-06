@@ -20,7 +20,28 @@
             <span>您当前所在位置:</span>
             <a href="../../index.html">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-            <a href="javascript:;" class="current">走进娄烦</a>
+            <a href="javascript:;" class="current">
+              <c:choose>
+	             <c:when test="${module == 'summmarize' } && ${module == 'travel' } && ${module == 'culture' } && ${module == 'specialty' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'policy' }">
+	             		招商政策
+	             </c:when>
+	             <c:when test="${module == 'news' }">
+	             		新闻动态
+	             </c:when>
+	             <c:when test="${module == 'activity' }">
+	             		招商活动
+	             </c:when>
+	             <c:when test="${module == 'enterprise' }">
+	             		企业展示
+	             </c:when>
+	             <c:when test="${module == 'guide' }">
+	             		投资指南
+	             </c:when>
+              </c:choose>
+            </a>
         </p>
     </div>
     <!-- 面包屑结束 -->
@@ -31,21 +52,70 @@
             <!-- 左边侧导航开始 -->
             <div class="asideNav">
                 <p class="title" style="background-image:url(${pageContext.request.contextPath}/static/image/all/asideNavtitle.png);">
-                    <span>走进娄烦</span>
+                    <span><c:choose>
+	             <c:when test="${module == 'summmarize' } && ${module == 'travel' } && ${module == 'culture' } && ${module == 'specialty' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'policy' }">
+	             		招商政策
+	             </c:when>
+	             <c:when test="${module == 'news' }">
+	             		新闻动态
+	             </c:when>
+	             <c:when test="${module == 'activity' }">
+	             		招商活动
+	             </c:when>
+	             <c:when test="${module == 'enterprise' }">
+	             		企业展示
+	             </c:when>
+	             <c:when test="${module == 'guide' }">
+	             		投资指南
+	             </c:when>
+              </c:choose></span>
                 </p>
                 <ul>
-                    <li >
-                        <a href="common.html">娄烦概况</a>
-                    </li>
-                    <li class="current">
-                        <a href="common.html">娄烦旅游</a>
-                    </li>
-                    <li>
-                        <a href="common.html">民俗文化</a>
-                    </li>
-                    <li>
-                        <a href="common.html">名优特产 </a>
-                    </li>
+                    <c:choose>
+                       <c:when test="${module == 'travel' }">
+	                        <li><a href="common.html">娄烦概况</a></li>
+		                    <li class="current"><a href="common.html">娄烦旅游</a></li>
+		                    <li><a href="common.html">民俗文化</a></li>
+		                    <li><a href="common.html">名优特产 </a></li>
+                       </c:when>
+                       <c:when test="${module == 'culture' }">
+	                        <li><a href="common.html">娄烦概况</a></li>
+		                    <li><a href="common.html">娄烦旅游</a></li>
+		                    <li class="current"><a href="common.html">民俗文化</a></li>
+		                    <li><a href="common.html">名优特产 </a></li>
+                       </c:when>
+                       <c:when test="${module == 'specialty' }">
+	                        <li><a href="common.html">娄烦概况</a></li>
+		                    <li><a href="common.html">娄烦旅游</a></li>
+		                    <li><a href="common.html">民俗文化</a></li>
+		                    <li class="current"><a href="common.html">名优特产 </a></li>
+                       </c:when>
+                       <c:when test="${module == 'news' }">
+                       		<li class="current"><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                       </c:when>
+                       <c:when test="${module == 'policy' }">
+                       		<li><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                       </c:when>
+                       <c:when test="${module == 'activity' }">
+                       		<li><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                       </c:when>
+                       <c:when test="${module == 'enterprise' }">
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/enterprise/enterprise">企业展示</a></li>
+                       </c:when>
+                        <c:when test="${module == 'guide' }">
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/guide/guide">投资指南</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/contactUs/contactUs">联系我们</a></li>
+                       </c:when>
+                    </c:choose>
                 </ul>
             </div>
             <div class="phone" style="background-image:url(${pageContext.request.contextPath}/static/image/all/phone.png);">
@@ -91,6 +161,10 @@
               </c:when>
               <c:when test="${module == 'enterprise' }">
              		<p class="title"><span>企业展示</span>
+		            </p>
+              </c:when>
+              <c:when test="${module == 'guide' }">
+             		<p class="title"><span>投资指南</span>
 		            </p>
               </c:when>
             </c:choose>
@@ -193,6 +267,14 @@
 	                  $("image").html('<img src="'+data.image+'" alt="">');
 	                  $("#title").html("<span>"+data.enterpriseName+"</span>");
 					  $("#content").html("<P>"+data.enterpriseContent+"<P>");
+			    });
+		     }
+			//投资指南
+			 else if("${module}" == "guide"){
+                 $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("#title").html("<span>"+data.guideName+"</span>");
+					  $("#content").html("<P>"+data.guideContent+"<P>");
 			    });
 		     }
 	  }

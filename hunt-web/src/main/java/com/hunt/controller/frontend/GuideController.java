@@ -65,7 +65,7 @@ public class GuideController {
 	}
 	
 	 @ResponseBody
-	 @RequestMapping(value = "findById", method = RequestMethod.GET)
+	 @RequestMapping(value = "findById", method = RequestMethod.POST)
 	 public Guide findById(int id) {
 		 return guideService.findById(id);
 	 }
