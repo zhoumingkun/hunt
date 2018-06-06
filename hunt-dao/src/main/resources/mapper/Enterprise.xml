@@ -35,12 +35,12 @@
 	
 	<!-- 根据状态查询数量 -->
 	<select id="findCount"  resultType="java.lang.Integer">
-		select Count(*) from tbl_enterprise where 1 = 1
+		select count(*) from tbl_enterprise where 1 = 1
 		<if test="state != null">
 		 and state = #{state}
 		</if>
 		<if test="trade != null and trade != ''">
-		 and trade = #{trade}
+		 and trade = #{trade,jdbcType=VARCHAR}
 		</if>
 	</select>
 	
@@ -51,7 +51,7 @@
 		 and state = #{state}
 		</if>
 		<if test="trade != null and trade != ''">
-		 and trade = #{trade}
+		 and trade = #{trade,jdbcType=VARCHAR}
 		</if>
 		order by createTime desc
 	</select>

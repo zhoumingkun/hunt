@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -105,12 +107,13 @@ public class EnterpriseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
-	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "trade") String trade) throws UnsupportedEncodingException {
+	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) throws UnsupportedEncodingException{
+		String trade = request.getParameter("trade");
 		if(trade.equals("")){
-			String decode = URLDecoder.decode(trade, "UTF-8");
-			PageInfo pageInfo = enterpriseService.findPage(page,state,decode);
+			PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
 			return pageInfo;
 		}else{
+			trade = URLDecoder.decode(trade,"UTF-8");
 			PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
 			return pageInfo;
 		}
