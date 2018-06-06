@@ -37,22 +37,22 @@
                 </p>
                 <ul>
                     <li class="current">
-                        <a href="">工业类</a>
+                        <a href="javascript:;">工业类</a>
                     </li>
                     <li>
-                        <a href="">农业类</a>
+                        <a href="javascript:;">农业类</a>
                     </li>
                     <li>
-                        <a href="">商贸物流类</a>
+                        <a href="javascript:;">商贸物流类</a>
                     </li>
                     <li>
-                        <a href="">文化旅游类</a>
+                        <a href="javascript:;">文化旅游类</a>
                     </li>
                     <li>
-                        <a href="">金融及交通类设施</a>
+                        <a href="javascript:;">金融及交通类设施</a>
                     </li>
                     <li>
-                        <a href="">城市公用设施</a>
+                        <a href="javascript:;">城市公用设施</a>
                     </li>
                 </ul>
             </div>
@@ -91,15 +91,7 @@
             
             <div class="main">
                 <!-- 内容看着填吧 -->
-                <ul>
-                    <%
-						ResultSet project = st.executeQuery("SELECT * FROM tbl_project ORDER BY createTime DESC LIMIT 10");
-						while (project.next()) {
-					%>
-					<li><a href=""><%=project.getString("projectName")%></a></li>
-					<%
-						}
-					%>
+                <ul id="content">
                 </ul>
                 <!-- 内容填充完毕 -->
             </div>
@@ -110,20 +102,66 @@
 
             </div>
             <script>
+            window.onload = function(){
                 $('.pagingwrap').lemonPaging({
-                    'url': "page1.php",//ajax请求地址
-                    'total': 217,//总数据条数
+                    'url': "${pageContext.request.contextPath}/frontend/project/data?state=2&type=1",//ajax请求地址
+                    /* 'total': 217,//总数据条数 */
                     'page_size': 10,//每页数据条数
                     'pages': 7,//分页可显示页码数量
                     'pre_next': 'true',//默认显示上一页下一页
                     'searchable': 'false',//默认带跳转输入框
                     'successcallback': function (data, current_page) {
-                        console.log(data, current_page);
+                        var str ='';
+                        $.each(data.rows,function(i,project){
+                         var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id;
+                         str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
+                        });
+                        $("#content").html(str);
                     },//列表数据填充容器
                     'errorcallback': function (data, current_page) {
                         console.log(data, current_page);
                     },//列表数据填充容器
                 });
+            }
+            $(function(){
+            	$('.asideNav ul li a ').on('click',function(){
+            		var type = $(this).html().trim().toString();
+            		var A = null;
+            		if(type == '工业类'){
+            			A = 1;
+            		}else if(type == '农业类'){
+            			A = 2;
+            		}else if(type == '商贸物流类'){
+            			A = 3;
+            		}else if(type == '文化旅游类'){
+            			A = 4;
+            		}else if(type == '金融及交通类设施'){
+            			A = 5;
+            		}else if(type == '城市公用设施'){
+            			A = 6;
+            		}
+            		$('.pagingwrap').lemonPaging({
+                        'url': "${pageContext.request.contextPath}/frontend/project/data?state=2&type="+A,//ajax请求地址
+                        /* 'total': 217,//总数据条数 */
+                        'page_size': 10,//每页数据条数
+                        'pages': 7,//分页可显示页码数量
+                        'pre_next': 'true',//默认显示上一页下一页
+                        'searchable': 'false',//默认带跳转输入框
+                        'successcallback': function (data, current_page) {
+                            var str ='';
+                            $.each(data.rows,function(i,project){
+                             var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id;
+                             str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
+                            });
+                            $("#content").html(str);
+                        },//列表数据填充容器
+                        'errorcallback': function (data, current_page) {
+                            console.log(data, current_page);
+                        },//列表数据填充容器
+                    });
+            		
+            	});
+            });
             </script>
             <!-- 右边分页结束 -->
         </div>

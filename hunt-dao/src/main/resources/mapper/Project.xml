@@ -99,4 +99,28 @@
 		</where>
 	</sql>
 	
+	<!-- 根据状态查询数量 -->
+	<select id="findCount"  resultType="java.lang.Integer">
+		select count(*) from tbl_project where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		<if test="type != null">
+		 and type = #{type,jdbcType=INTEGER}
+		</if>
+	</select>
+	
+	<!--查询全部根据状态与类型查询  -->
+	<select id="findAllByState"  resultType="Project">
+		select * from tbl_project where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		<if test="type != null ">
+		 and type = #{type,jdbcType=INTEGER}
+		</if>
+		order by createTime desc
+	</select>
+	
+	
 </mapper>

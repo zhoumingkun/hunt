@@ -1,16 +1,21 @@
 package com.hunt.controller.frontend;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hunt.frontend.service.ProjectService;
+import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Project;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -78,5 +83,17 @@ public class ProjectController {
 	    }
 	 
 	 
+	 /**
+	 * 分页查询 --前台
+	 * 
+	 * @param  page 当前页  type 类型
+	 * @return pageInfo
+	 */
+	@ResponseBody
+	@RequestMapping(value = "data", method = RequestMethod.GET)
+	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "type") int type) {
+			PageInfo pageInfo = projectService.findPage(page,state,type);
+			return pageInfo;
+	}
 
 }
