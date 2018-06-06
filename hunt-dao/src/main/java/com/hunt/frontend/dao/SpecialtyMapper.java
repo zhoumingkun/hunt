@@ -25,4 +25,7 @@ public interface SpecialtyMapper {
 
 	//查询总数
 	public int findCount();
+
+	//根据ID查询
+	public Specialty findById(int id);
 }

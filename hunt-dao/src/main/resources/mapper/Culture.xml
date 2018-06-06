@@ -34,4 +34,9 @@
 	<select id="findCount"  resultType="java.lang.Integer">
 		select Count(*) from tbl_culture 
 	</select>
+	
+	<!-- 根据ID查询 -->
+	<select id="findById"  parameterType="int" resultType="Culture">
+		select * from tbl_culture where id = #{id}
+	</select>
 </mapper>

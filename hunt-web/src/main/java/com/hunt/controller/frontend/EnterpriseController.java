@@ -1,5 +1,7 @@
 package com.hunt.controller.frontend;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hunt.frontend.service.EnterpriseService;
 import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Culture;
 import com.hunt.model.entity.Enterprise;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -98,11 +101,30 @@ public class EnterpriseController {
 	 * 
 	 * @param  page 当前页  state 状态
 	 * @return pageInfo
+	 * @throws UnsupportedEncodingException 
 	 */
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
-	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "trade") String trade) {
-		PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
-		return pageInfo;
+	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "trade") String trade) throws UnsupportedEncodingException {
+		if(trade.equals("")){
+			String decode = URLDecoder.decode(trade, "UTF-8");
+			PageInfo pageInfo = enterpriseService.findPage(page,state,decode);
+			return pageInfo;
+		}else{
+			PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
+			return pageInfo;
+		}
+	}
+	
+	/**
+	 * 根据ID查询
+	 * 
+	 * @param  int id 
+	 * @return Enterprise
+	 */
+	@ResponseBody
+	@RequestMapping(value = "findById", method = RequestMethod.POST)
+	public Enterprise findById(int id) {
+		return enterpriseService.findById(id);
 	}
 }

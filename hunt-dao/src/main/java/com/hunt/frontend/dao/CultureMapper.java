@@ -3,6 +3,7 @@ package com.hunt.frontend.dao;
 import java.util.List;
 
 import com.hunt.model.entity.Culture;
+import com.hunt.model.entity.Specialty;
 
 /**
  * 文化Dao层Mapper
@@ -24,4 +25,7 @@ public interface CultureMapper {
 
 	//查询总数
 	public int findCount();
+	
+	//根据ID查询
+	public Culture findById(int id);
 }

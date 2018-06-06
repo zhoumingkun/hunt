@@ -26,4 +26,7 @@ public interface CultureService {
 
 	//分页查询 -- 前台
 	public PageInfo findPage(int page);
+
+	//根据ID查询
+	public Culture findById(int id);
 }

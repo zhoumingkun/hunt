@@ -47,33 +47,6 @@
                     </p>
                 </div>
     <!-- 左边侧导航结束 -->  
-    <!-- 左边推荐开始 -->
-            <div class="recommend">
-                <p class="title" style="background-image:url(${pageContext.request.contextPath}/static/image/all/asideNavtitle.png);">
-                    <span>推荐项目</span>
-                </p>
-                <ul>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目具体实施细则</a>
-                    </li>
-                    <li>
-                        <a href="">小时贷关于近期平台系统充值</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                </ul>
-            </div>
-    <!-- 左边推荐结束 -->
         </div>
     <!-- 左边结束 -->
     <!-- 右边开始 -->
@@ -89,70 +62,25 @@
                 <div class="option">
                     <div class="left">
                         <p class="title">行业</p>
-                        <a class="current" href="">全部</a>                       
+                        <a class="current" href="javascript:;">全部</a>                       
                     </div>
                     <div class="right">
-                        <a href="">农、林、牧、渔业</a>
-                        <a href="">采棚业</a>
-                        <a href="">制造业</a>
-                        <a href="">建筑业</a>
-                        <a href="">交通运输</a>
-                        <a href="">房地产业</a>
-                        <a href="">金融</a>
-                        <a href="">建筑</a>
-                        <a href="">教育行业</a>
-                        <a href="">卫生行业</a>
-                        <a href="">互联网行业</a>
-                        <a href="">其他行业</a>
+                        <a href="javascript:;">农、林、牧、渔业</a>
+                        <a href="javascript:;">采棚业</a>
+                        <a href="javascript:;">制造业</a>
+                        <a href="javascript:;">建筑业</a>
+                        <a href="javascript:;">交通运输</a>
+                        <a href="javascript:;">房地产业</a>
+                        <a href="javascript:;">金融</a>
+                        <a href="javascript:;">建筑</a>
+                        <a href="javascript:;">教育行业</a>
+                        <a href="javascript:;">卫生行业</a>
+                        <a href="javascript:;">互联网行业</a>
+                        <a href="javascript:;">其他行业</a>
                     </div>
                 </div>
                 <div class="items">
-                    <ul class="cards">
-                        <li>
-                            <a href="">
-                                <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card1.png);"></div>
-                                <div class="content">
-                                    <p class="title">娄烦县煤炭运销公司</p>
-                                    <p class="text">汾河水库位于山西省太原市西北娄烦县境内下静游村至下石家庄之间。南北长15公里，东西宽5公里，总面积32平方公里。、运城四个市及所辖18个工农业县区市调洪错峰重任</p>
-                                </div>
-                            </a>
-                        </li>    
-                        <li>
-                            <a href="">
-                                <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card2.png);"></div>
-                                <div class="content">
-                                    <p class="title">娄烦新开元矿业有限公司</p>
-                                    <p class="text">汾河水库位于山西省太原市西北娄烦县境内下静游村至下石家庄之间。南北长15公里，东西宽5公里，总面积32平方公里。、运城四个市及所辖18个工农业县区市调洪错峰重任</p>
-                                </div> 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card3.png);"></div>
-                                <div class="content">
-                                    <p class="title">娄烦鸿业热力有限公司</p>
-                                    <p class="text">鸿业热力公司是一个民营企业，隶属于鸿业房地产开发有限公司。根据县委、县政府建成“生态环保县”的总体要求。总经理秦存明自愿筹集资金，彻底解决县城集中供热问题。创造一个碧水蓝天，优美和谐的环境。 </p>
-                                </div> 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card1.png);"></div>
-                                <div class="content">
-                                    <p class="title">娄烦县煤炭运销公司</p>
-                                    <p class="text">汾河水库位于山西省太原市西北娄烦县境内下静游村至下石家庄之间。南北长15公里，东西宽5公里，总面积32平方公里。、运城四个市及所辖18个工农业县区市调洪错峰重任</p>
-                                </div> 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card2.png);"></div>
-                                <div class="content">
-                                    <p class="title">娄烦新开元矿业有限公司</p>
-                                    <p class="text">汾河水库位于山西省太原市西北娄烦县境内下静游村至下石家庄之间。南北长15公里，东西宽5公里，总面积32平方公里。、运城四个市及所辖18个工农业县区市调洪错峰重任</p>
-                                </div> 
-                            </a>
-                        </li>
+                    <ul id="contents" class="cards">
                     </ul>
                 </div>
     <!-- 内容填充完毕 -->
@@ -163,26 +91,56 @@
                 
             </div>
              <script>
-            $('.pagingwrap').lemonPaging({
-             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=2&trade="+"",//ajax请求地址为空时不发送ajax
-             /* 'total':217,//总数据条数*/
-             'page_size':10,//每页数据条数
-             'pages':7,//分页可显示页码数量 
-             'pre_next':'true',//默认显示上一页下一页
-             'searchable':'false',//默认带跳转输入框
-             'successcallback':function(data,current_page){
-                 console.log(data,current_page);
-                 var str = '';
-                 $("#content").empty();
-                 $.each(data.rows,function(i,enterprise){
-                	 var path =  "${pageContext.request.contextPath}/frontend/news/details?id="+enterprise.id;
-                	 str+='<li><a href="'+path+'">'+enterprise.enterpriseName+'</a><span class="updatatime">'+enterprise.updateTime+'</span></li>';
-                 })
-                $("#content").html(str);
-             },//列表数据填充容器
-             'errorcallback':function(data,current_page){
-                 console.log(data,current_page);
-             },//列表数据填充容器
+             window.onload = function(){
+	            $('.pagingwrap').lemonPaging({
+	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=2&trade="+"",//ajax请求地址为空时不发送ajax
+	             /* 'total':217,//总数据条数*/
+	             'page_size':10,//每页数据条数
+	             'pages':7,//分页可显示页码数量 
+	             'pre_next':'true',//默认显示上一页下一页
+	             'searchable':'false',//默认带跳转输入框
+	             'successcallback':function(data,current_page){
+	                 console.log(data,current_page);
+	                 var str = '';
+	                 $("#content").empty();
+	                 $.each(data.rows,function(i,enterprise){
+	                	 var path =  "${pageContext.request.contextPath}/frontend/enterprise/details?id="+enterprise.id;
+						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card3.png);"></div><div class="content">'+
+						 '<p class="title">'+enterprise.enterpriseName+'</p><p class="text">'+enterprise.enterpriseContent+'</p></div></a></li>'      
+	                 })
+	                $("#contents").html(str);
+	             },//列表数据填充容器
+	             'errorcallback':function(data,current_page){
+	                 console.log(data,current_page);
+	             },//列表数据填充容器
+	            })
+             }
+            $(function(){
+            	$('.option div a').on('click',function(){
+            		var trade = $(this).html().trim();
+            		$('.pagingwrap').lemonPaging({
+       	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=2&trade="+trade+"",//ajax请求地址为空时不发送ajax
+       	             /* 'total':217,//总数据条数*/
+       	             'page_size':10,//每页数据条数
+       	             'pages':7,//分页可显示页码数量 
+       	             'pre_next':'true',//默认显示上一页下一页
+       	             'searchable':'false',//默认带跳转输入框
+       	             'successcallback':function(data,current_page){
+       	                 console.log(data,current_page);
+       	                 var str = '';
+       	                 $("#content").empty();
+       	                 $.each(data.rows,function(i,enterprise){
+       	                	 var path =  "${pageContext.request.contextPath}/frontend/enterprise/details?id="+enterprise.id;
+       						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(${pageContext.request.contextPath}/static/image/mock/card3.png);"></div><div class="content">'+
+       						 '<p class="title">'+enterprise.enterpriseName+'</p><p class="text">'+enterprise.enterpriseContent+'</p></div></a></li>'      
+       	                 })
+       	                $("#contents").html(str);
+       	             },//列表数据填充容器
+       	             'errorcallback':function(data,current_page){
+       	                 console.log(data,current_page);
+       	             },//列表数据填充容器
+       	            })
+            	});
             })
         </script>
     <!-- 右边分页结束 -->
