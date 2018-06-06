@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.hunt.frontend.dao.ActivityMapper;
 import com.hunt.frontend.dao.ProjectMapper;
 import com.hunt.frontend.service.ActivityService;
 import com.hunt.frontend.service.ProjectService;
+import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Enterprise;
 import com.hunt.model.entity.Project;
 /**
  * 
@@ -51,9 +54,12 @@ public class ProjectServiceImpl implements ProjectService{
 		projectMapper.deleteById(id);
 	}
 
-	
-	
-
-	
+	@Override
+	public PageInfo findPage(int page, int state, int type) {
+		 int count = projectMapper.findCount(state,type);
+		 PageHelper.startPage(page, 10);
+		 List<Project> list = projectMapper.findAllByState(state,type);
+		return new PageInfo(count, list);
+	}
 	
 }

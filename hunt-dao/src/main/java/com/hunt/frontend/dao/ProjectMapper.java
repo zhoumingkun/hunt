@@ -2,6 +2,8 @@ package com.hunt.frontend.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hunt.model.entity.Project;
 
 /**
@@ -28,4 +30,10 @@ public interface ProjectMapper {
     
     //删除
     public void deleteById(int id);
+
+    //根据类型与状态查询总数
+	public int findCount(@Param("state") int state,@Param("type") int type);
+
+	//根据类型与状态查询
+	public List<Project> findAllByState(@Param("state") int state,@Param("type") int type);
 }

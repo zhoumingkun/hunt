@@ -100,7 +100,6 @@
 	             'pre_next':'true',//默认显示上一页下一页
 	             'searchable':'false',//默认带跳转输入框
 	             'successcallback':function(data,current_page){
-	                 console.log(data,current_page);
 	                 var str = '';
 	                 $("#content").empty();
 	                 $.each(data.rows,function(i,enterprise){

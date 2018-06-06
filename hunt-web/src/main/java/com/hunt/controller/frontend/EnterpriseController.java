@@ -109,7 +109,8 @@ public class EnterpriseController {
 	@RequestMapping(value = "data", method = RequestMethod.GET)
 	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) throws UnsupportedEncodingException{
 		String trade = request.getParameter("trade");
-		if(trade.equals("")){
+		if(trade.equals("") && trade.equals("全部")){
+			trade = "";
 			PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
 			return pageInfo;
 		}else{
