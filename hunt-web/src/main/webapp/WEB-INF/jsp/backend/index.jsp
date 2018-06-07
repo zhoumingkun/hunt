@@ -33,7 +33,7 @@
             id="logout-btn" class="easyui-menubutton logout" value="安全退出">
     </div>
 </div>
-<div data-options="region:'west',border:true,split:true" style="text-align: center;width:160px;">
+<div data-options="region:'west',border:true,split:false" style="text-align: center;width:160px;">
     <div class="easyui-accordion" data-options="border:false,fit:true,">
         <div title="系统管理" style="padding: 0 0 0 15px;">
             <ul style="list-style: none;padding: 0 0 0 0 ;">
@@ -156,7 +156,7 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/organization/organization">机构管理
+                                 href="${pageContext.request.contextPath}/content/activity">活动管理
                             </div>
                         </li>
                     </div>
@@ -165,7 +165,7 @@
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'"
                                  style="border: 0;"
-                                 href="${pageContext.request.contextPath}/role/role">角色管理
+                                 href="${pageContext.request.contextPath}/content/proclamation">公告管理
                             </div>
                         </li>
                     </div>
