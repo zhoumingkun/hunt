@@ -118,7 +118,7 @@
 				<div class="notice_list">
 					<ul>
 						<%
-							ResultSet proclamation = st.executeQuery("SELECT * FROM tbl_proclamation ORDER BY createTime DESC LIMIT 9");
+							ResultSet proclamation = st.executeQuery("SELECT * FROM tbl_proclamation where state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proclamation.next()) {
 						%>
 						<li><a href=""> <span>·</span>
@@ -242,7 +242,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 1 and state = 2  ORDER BY createTime DESC LIMIT 9");
 							while (project.next()) {
 						%>
-						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=project.getInt("id") %>">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=project.getInt("id") %>&type=<%=project.getInt("type") %>">
 								<p class="oth"><%=project.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -260,7 +260,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 2 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (projec.next()) {
 						%>
-						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=projec.getInt("id") %>">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=projec.getInt("id") %>&type=<%=projec.getInt("type") %>">
 								<p class="oth"><%=projec.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -278,7 +278,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 3 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proje.next()) {
 						%>
-						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=proje.getInt("id") %>">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=proje.getInt("id") %>&type=<%=proje.getInt("type") %>">
 								<p class="oth"><%=proje.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -296,7 +296,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 4 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proj.next()) {
 						%>
-						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=proj.getInt("id") %>">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=proj.getInt("id") %>&type=<%=proj.getInt("type") %>">
 								<p class="oth"><%=proj.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -314,7 +314,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 5 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (pro.next()) {
 						%>
-						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=pro.getInt("id") %>">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=pro.getInt("id") %>&type=<%=pro.getInt("type") %>">
 								<p class="oth"><%=pro.getString("projectName")%></p>
 						</a></li>
 						<%
@@ -332,7 +332,7 @@
 									.executeQuery("SELECT * FROM tbl_project WHERE type = 6 and state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (pr.next()) {
 						%>
-						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=pr.getInt("id") %>">
+						<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=pr.getInt("id") %>&type=<%=pr.getInt("type") %>">
 								<p class="oth"><%=pr.getString("projectName")%></p>
 						</a></li>
 						<%
