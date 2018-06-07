@@ -141,52 +141,52 @@
                        </c:when>
                        <c:when test="${module == 'project' }">
                         <c:if test="${type == 1 }">
-                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                    		<li class="current nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
                        </c:if>
                         <c:if test="${type == 2 }">
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
-                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="current nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
                        </c:if>
                         <c:if test="${type == 3 }">
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
-                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="current nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
                        </c:if>
                         <c:if test="${type == 4 }">
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
-                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="current nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
                        </c:if>
                         <c:if test="${type == 5 }">
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
-                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="current nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
                        </c:if>
                         <c:if test="${type == 6 }">
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
-                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
-                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="current nospace"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
                        </c:if>
                        </c:when>
                     </c:choose>

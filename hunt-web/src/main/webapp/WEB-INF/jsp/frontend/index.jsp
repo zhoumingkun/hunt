@@ -184,7 +184,7 @@
 								.executeQuery("SELECT * FROM tbl_project where state = 3 ORDER BY createTime DESC LIMIT 10");
 						while (rsr.next()) {
 					%>
-					<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=rsr.getInt("id") %>">
+					<li><span class="cir"></span> <a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=rsr.getInt("id") %>&type=<%=rsr.getInt("type") %>">
 							<div>
 								<p class="oth"><%=rsr.getString("projectName")%></p>
 							</div>

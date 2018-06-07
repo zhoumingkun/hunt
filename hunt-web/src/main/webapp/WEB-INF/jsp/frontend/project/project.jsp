@@ -156,8 +156,14 @@
 	                });
             	}
             $(function(){
-            	$('.asideNav ul li a ').on('click',function(){
-            		var type = $(this).html().trim().toString();
+            	var flag=true;
+            	$('.asideNav ul li').on('click',function(){
+            		if(!flag){
+            			return
+            		}
+            		flag=false
+            		var type = $(this).find('a').html().trim().toString();
+            		console.log(type)
             		var A = null;
             		if(type == '工业类'){
             			A = 1;
@@ -186,6 +192,8 @@
                              str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
                             });
                             $("#content").html(str);
+                            console.log(64654)
+                            flag=true;
                         },//列表数据填充容器
                         'errorcallback': function (data, current_page) {
                             console.log(data, current_page);
