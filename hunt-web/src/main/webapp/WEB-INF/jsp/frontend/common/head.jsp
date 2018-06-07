@@ -34,6 +34,14 @@
 		$('.nav li').removeClass('current');
 		$('#nav-' + module).addClass('current');
 		console.log(module);
+		
+		
+		$("#search").on("click",function() {
+			var projectName = $("#searchInput").val();
+				$.post("${pageContext.request.contextPath}/frontend/search/search",{"projectName" : projectName}, function(data) {
+
+				});
+		});
 	});
 </script>
 <!-- 使用隐藏的input，存储模块名，以使导航的class="current"正确显示 -->
@@ -57,10 +65,10 @@
                     </p>
                 </div>
                 <div class="hearder_input_box">
-                    <input type="text"  placeholder="请输入项目名称" />
+                    <input id="searchInput" type="text"  placeholder="请输入项目名称" />
                     <p class="oth">
-                 	<a href="">搜索</a>   
-                    </p>
+                 	<a href="javascript:;" id="search">搜索</a>
+					</p>
                 </div>
             </div>
         </div>
