@@ -1,17 +1,17 @@
 role_tool = {
     form_clear: function () {
         $("#role_edit_form").form("clear");
-        $("#news_grid").datagrid("uncheckAll");
+        $("#policy_grid").datagrid("uncheckAll");
     },
     //初始化页面+加载数据
     init_main_view: function () {
-        $("#news_grid").datagrid({
-            url: getRootPath() + "/frontend/news/findAll",
+        $("#policy_grid").datagrid({
+            url: getRootPath() + "/frontend/policy/findAll",
             method: 'post',
             idField: "id",
             treeField: 'name',
             fitColumns: true,
-            toolbar: '#role-tool-bar',
+            toolbar: '#policy-tool-bar',
             rownumbers: true,
             animate: true,
             singleSelect: true,
@@ -25,8 +25,15 @@ role_tool = {
             pageList: [15, 30, 45, 60],
             columns: [[
                 {title: "选择", field: "ck", checkbox: true},
-                {title: "新闻名称", field: "newsName", width: 300},
+                {title: "招商政策名称", field: "policyName", width: 300},
                 {title: "作者", field: "author", width: 400},
+                {title: "类型", field: "type", formatter: function(value) {
+                	if(value == 1) {
+                		return "政策法规";
+                	} else if(value == 2){
+                		return "区县政策";
+                	}
+                },width: 100},
                 {title: "状态", field:"state",formatter: function(value) {
                 	if(value == -1) {
                 		return "未发布";
@@ -50,17 +57,17 @@ role_tool = {
         });
     },
     delete: function () {
-        if ($("#news_grid").datagrid("getChecked").length == 0) {
+        if ($("#policy_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
         }
-        var newsId = $("#news_grid").datagrid("getChecked")[0].id;
+        var policyId = $("#policy_grid").datagrid("getChecked")[0].id;
         $.ajax({
             data: {
-                id: newsId,
+                id: policyId,
             },
             traditional: true,
             method: 'post',
-            url: getRootPath() + '/frontend/news/delete',
+            url: getRootPath() + '/frontend/policy/delete',
             async: false,
             dataType: 'json',
             success: function (result) {
@@ -72,35 +79,40 @@ role_tool = {
                 else {
                     common_tool.messager_show(result.msg);
                 }
+                role_tool.form_clear();
+                role_tool.init_main_view();
             },
         });
     },
     saveOrUpdate: function (id) {
-        if (!$("#newsName").val()) {
-            common_tool.messager_show("请输入新闻名称");
+        if (!$("#policyName").val()) {
+            common_tool.messager_show("请输入招商政策名称");
         } else if (!$("#author").val()) {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
-            common_tool.messager_show("请输入新闻内容");
+            common_tool.messager_show("请输入招商政策内容");
         } else {
-            var newsName = $("#newsName").val();
+            var policyName = $("#policyName").val();
             var author = $("#author").val();
+            var type = $("#type option:selected").val();
             var state = $("#state option:selected").val();
-            var newsContent = editor.html();
+            var policyContent = editor.html();
             var data = {};
             if(!id) {
-            	var url = getRootPath() + '/frontend/news/save';
-            	data.newsName = newsName;
+            	var url = getRootPath() + '/frontend/policy/save';
+            	data.policyName = policyName;
             	data.author = author;
+            	data.type = type;
             	data.state = state;
-            	data.newsContent = newsContent;
+            	data.policyContent = policyContent;
             } else {
-            	var url = getRootPath() + '/frontend/news/update';
+            	var url = getRootPath() + '/frontend/policy/update';
             	data.id = id;
-            	data.newsName = newsName;
+            	data.policyName = policyName;
             	data.author = author;
+            	data.type = type;
             	data.state = state;
-            	data.newsContent = newsContent;
+            	data.policyContent = policyContent;
             }
             $.ajax({
                 data: data,
@@ -110,6 +122,16 @@ role_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
+//                    if (result.code == 10000) {
+//                        $("#role_edit_dialog").dialog("close");
+//                        role_tool.form_clear();
+//                        role_tool.init_main_view();
+//                        common_tool.messager_show(result.msg);
+//                        return false;
+//                    }
+//                    else {
+//                        common_tool.messager_show(result.msg);
+//                    }
                 	role_tool.form_clear();
                     role_tool.init_main_view();
                 	$('.pagewrap').hide();
@@ -120,48 +142,48 @@ role_tool = {
 };
 $(document).ready(function () {
     role_tool.init_main_view();
-    $("#role-select-btn").click(function () {
+    $("#policy-select-btn").click(function () {
         role_tool.init_main_view();
         $('.pagewrap').hide();
     });
 
-    $("#role-save-btn").click(function () {
+    $("#policy-save-btn").click(function () {
         /*role_tool.init_edit_view(1);*/
         $('.pagewrap').show();
-        $("#newsName").val('');
+        $("#policyName").val('');
+        $("#type").val(1);
+        $("#state").val(-1);
     	$("#author").val('');
-    	$("#state").val(-1);
     	editor.html('');
-    	
     });
 
-    $("#role-update-btn").click(function () {
-        if ($("#news_grid").datagrid("getChecked").length == 0) {
+    $("#policy-update-btn").click(function () {
+        if ($("#policy_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         } else {
         	$('.pagewrap').show();
-        	var data = $("#news_grid").datagrid("getChecked")[0];
-        	$("#newsName").val(data.newsName);
+        	var data = $("#policy_grid").datagrid("getChecked")[0];
+        	$("#policyName").val(data.policyName);
         	$("#author").val(data.author);
+        	$("#type").val(data.type);
         	$("#state").val(data.state);
-        	editor.html(data.newsContent);
+        	editor.html(data.policyContent);
         }
+
     });
-    
     $("#submit").click(function () {
     	var id;
-    	if ($("#news_grid").datagrid("getChecked").length == 0) {
+    	if ($("#policy_grid").datagrid("getChecked").length == 0) {
     		id = 0;
     	} else {
-    		id = $("#news_grid").datagrid("getChecked")[0].id;
+    		id = $("#policy_grid").datagrid("getChecked")[0].id;
     	}
     	role_tool.saveOrUpdate(id);
-	})
-	
-    $("#role-delete-btn").click(function () {
+    })
+    $("#policy-delete-btn").click(function () {
         $('.pagewrap').hide();
-        if ($("#news_grid").datagrid("getChecked").length == 0) {
+        if ($("#policy_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         }
@@ -171,7 +193,7 @@ $(document).ready(function () {
             }
         });
     });
-    $("#role-select-btn ").click(function () {
+    $("#policy-select-btn ").click(function () {
         role_tool.form_clear();
         role_tool.init_main_view();
     });

@@ -36,24 +36,54 @@
                     <span>招商项目</span>
                 </p>
                 <ul>
-                    <li class="current">
-                        <a href="javascript:;">工业类</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">农业类</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">商贸物流类</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">文化旅游类</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">金融及交通类设施</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">城市公用设施</a>
-                    </li>
+                <c:if test="${type == 1 }">
+						<li class="current"><a href="javascript:;">工业类</a></li>
+						<li><a href="javascript:;">农业类</a></li>
+						<li><a href="javascript:;">商贸物流类</a></li>
+						<li><a href="javascript:;">文化旅游类</a></li>
+						<li><a href="javascript:;">金融及交通类设施</a></li>
+						<li><a href="javascript:;">城市公用设施</a></li>
+				</c:if>
+				<c:if test="${type == 2 }">
+						<li><a href="javascript:;">工业类</a></li>
+						<li class="current"><a href="javascript:;">农业类</a></li>
+						<li><a href="javascript:;">商贸物流类</a></li>
+						<li><a href="javascript:;">文化旅游类</a></li>
+						<li><a href="javascript:;">金融及交通类设施</a></li>
+						<li><a href="javascript:;">城市公用设施</a></li>
+				</c:if>
+				<c:if test="${type == 3 }">
+						<li><a href="javascript:;">工业类</a></li>
+						<li><a href="javascript:;">农业类</a></li>
+						<li class="current"><a href="javascript:;">商贸物流类</a></li>
+						<li><a href="javascript:;">文化旅游类</a></li>
+						<li><a href="javascript:;">金融及交通类设施</a></li>
+						<li><a href="javascript:;">城市公用设施</a></li>
+				</c:if>
+				<c:if test="${type == 4 }">
+						<li><a href="javascript:;">工业类</a></li>
+						<li><a href="javascript:;">农业类</a></li>
+						<li><a href="javascript:;">商贸物流类</a></li>
+						<li class="current"><a href="javascript:;">文化旅游类</a></li>
+						<li><a href="javascript:;">金融及交通类设施</a></li>
+						<li><a href="javascript:;">城市公用设施</a></li>
+				</c:if>
+				<c:if test="${type == 5 }">
+						<li><a href="javascript:;">工业类</a></li>
+						<li><a href="javascript:;">农业类</a></li>
+						<li><a href="javascript:;">商贸物流类</a></li>
+						<li><a href="javascript:;">文化旅游类</a></li>
+						<li class="current"><a href="javascript:;">金融及交通类设施</a></li>
+						<li><a href="javascript:;">城市公用设施</a></li>
+				</c:if>
+				<c:if test="${type == 6 }">
+						<li><a href="javascript:;">工业类</a></li>
+						<li><a href="javascript:;">农业类</a></li>
+						<li><a href="javascript:;">商贸物流类</a></li>
+						<li><a href="javascript:;">文化旅游类</a></li>
+						<li><a href="javascript:;">金融及交通类设施</a></li>
+						<li class="current"><a href="javascript:;">城市公用设施</a></li>
+				</c:if>
                 </ul>
             </div>
             <div class="phone" style="background-image:url(${pageContext.request.contextPath}/static/image/all/phone.png);">
@@ -103,29 +133,37 @@
             </div>
             <script>
             window.onload = function(){
-                $('.pagingwrap').lemonPaging({
-                    'url': "${pageContext.request.contextPath}/frontend/project/data?state=2&type=1",//ajax请求地址
-                    /* 'total': 217,//总数据条数 */
-                    'page_size': 10,//每页数据条数
-                    'pages': 7,//分页可显示页码数量
-                    'pre_next': 'true',//默认显示上一页下一页
-                    'searchable': 'false',//默认带跳转输入框
-                    'successcallback': function (data, current_page) {
-                        var str ='';
-                        $.each(data.rows,function(i,project){
-                         var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id;
-                         str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
-                        });
-                        $("#content").html(str);
-                    },//列表数据填充容器
-                    'errorcallback': function (data, current_page) {
-                        console.log(data, current_page);
-                    },//列表数据填充容器
-                });
-            }
+	                var type = ${type };
+	                var path = "${pageContext.request.contextPath}/frontend/project/data?state=2&type="+type;
+	                $('.pagingwrap').lemonPaging({
+	                    'url': path,//ajax请求地址
+	                    /* 'total': 217,//总数据条数 */
+	                    'page_size': 10,//每页数据条数
+	                    'pages': 7,//分页可显示页码数量
+	                    'pre_next': 'true',//默认显示上一页下一页
+	                    'searchable': 'false',//默认带跳转输入框
+	                    'successcallback': function (data, current_page) {
+	                        var str ='';
+	                        $.each(data.rows,function(i,project){
+	                         var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id+"&type="+project.type;
+	                         str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
+	                        });
+	                        $("#content").html(str);
+	                    },//列表数据填充容器
+	                    'errorcallback': function (data, current_page) {
+	                        console.log(data, current_page);
+	                    },//列表数据填充容器
+	                });
+            	}
             $(function(){
-            	$('.asideNav ul li a ').on('click',function(){
-            		var type = $(this).html().trim().toString();
+            	var flag=true;
+            	$('.asideNav ul li').on('click',function(){
+            		if(!flag){
+            			return
+            		}
+            		flag=false
+            		var type = $(this).find('a').html().trim().toString();
+            		console.log(type)
             		var A = null;
             		if(type == '工业类'){
             			A = 1;
@@ -150,10 +188,12 @@
                         'successcallback': function (data, current_page) {
                             var str ='';
                             $.each(data.rows,function(i,project){
-                             var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id;
+                             var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id+"&type="+project.type;
                              str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
                             });
                             $("#content").html(str);
+                            console.log(64654)
+                            flag=true;
                         },//列表数据填充容器
                         'errorcallback': function (data, current_page) {
                             console.log(data, current_page);

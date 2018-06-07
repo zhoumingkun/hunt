@@ -139,7 +139,6 @@
         </div>
         <div title="内容管理" style="padding: 0 0 0 15px;">
             <ul style="list-style: none;padding: 0 0 0 0 ;">
-                <shiro:hasPermission name="user:list">
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
@@ -147,17 +146,13 @@
                             </div>
                         </li>
                     </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="job:list">
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0; "
-                                 href="${pageContext.request.contextPath}/job/job">职位管理
+                                 href="${pageContext.request.contextPath}/content/policy">政策管理
                             </div>
                         </li>
                     </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="organization:list">
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
@@ -165,7 +160,6 @@
                             </div>
                         </li>
                     </div>
-                </shiro:hasPermission>
                 <shiro:hasPermission name="role:list">
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">

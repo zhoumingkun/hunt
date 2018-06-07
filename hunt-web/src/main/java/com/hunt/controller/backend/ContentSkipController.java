@@ -27,4 +27,16 @@ public class ContentSkipController {
     public String news() {
         return "backend/content/news";
     }
+    
+    /**
+     * 政策管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至政策管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "policy", method = RequestMethod.GET)
+    public String policy() {
+        return "backend/content/policy";
+    }
 }

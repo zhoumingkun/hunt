@@ -5,9 +5,9 @@
 	<insert id="save" parameterType="Proclamation" keyProperty="id"
 		useGeneratedKeys="true">
 		insert into tbl_proclamation (id,
-		createTime,updateTime,author,proclamationName, proclamationContent,image,trade)
+		createTime,updateTime,author,proclamationName, proclamationContent,state)
 		values (#{id}, #{createTime},#{updateTime},#{author},#{proclamationName},
-		#{proclamationContent},#{image},#{trade})
+		#{proclamationContent},#{state})
 	</insert>
 	
 	<delete id="delete" parameterType="int">
@@ -21,8 +21,7 @@
 			<if test="enterpriseName != null and enterpriseName != ''">proclamationName = #{proclamationName},</if>
 			<if test="enterpriseContent != null and enterpriseContent != ''">proclamationContent = #{proclamationContent},</if>
 			<if test="updateTime != null">updateTime = #{updateTime},</if>
-			<if test="image != null and image != ''">image= #{image},</if>
-			<if test="trade != null and trade != ''">trade= #{trade},</if>
+			<if test="state != null">state= #{state},</if>
 		</set>
 		where id = #{id}
 	</update>

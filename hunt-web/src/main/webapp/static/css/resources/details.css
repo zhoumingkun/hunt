@@ -8,3 +8,7 @@
 @import url(../common/paging.css);
 .mainwrap .right {
   padding: 0 0.12rem; }
+  .mainwrap .left .asideNav ul li.nospace {
+  letter-spacing: 0;
+  text-align: left;
+  padding-left: 0.8rem; }

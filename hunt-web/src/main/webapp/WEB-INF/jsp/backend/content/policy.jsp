@@ -1,26 +1,26 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/content/prettify.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/content/news.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/content/policy.css" />
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/content/kindeditor-all.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/content/prettify.js"></script>
 	<script src="${pageContext.request.contextPath}/static/js/content/zh-CN.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/system/common.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/content/news.js"></script>
-<div id="role-tool-bar" style="padding: 10px">
-    <div class="easyui-linkbutton " id="role-select-btn" data-options="iconCls:'icon-reload'" style="width:70px">刷新
+	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/content/policy.js"></script>
+<div id="policy-tool-bar" style="padding: 10px">
+    <div class="easyui-linkbutton " id="policy-select-btn" data-options="iconCls:'icon-reload'" style="width:70px">刷新
     </div>
-    <div class="easyui-linkbutton " id="role-save-btn" data-options="iconCls:'icon-add'" style="width:70px">新增</div>
-    <div class="easyui-linkbutton " id="role-update-btn" data-options="iconCls:'icon-edit'" style="width:70px">修改</div>
-    <div class="easyui-linkbutton " id="role-delete-btn" data-options="iconCls:'icon-remove'" style="width:70px">删除
+    <div class="easyui-linkbutton " id="policy-save-btn" data-options="iconCls:'icon-add'" style="width:70px">新增</div>
+    <div class="easyui-linkbutton " id="policy-update-btn" data-options="iconCls:'icon-edit'" style="width:70px">修改</div>
+    <div class="easyui-linkbutton " id="policy-delete-btn" data-options="iconCls:'icon-remove'" style="width:70px">删除
     </div>
 </div>
-<div id="news_grid" style="padding: 10px"></div>
+<div id="policy_grid" style="padding: 10px"></div>
 
 <div class="pagewrap" >
 	<div class="rowz">
-		<div class="label">新闻名称：</div>
+		<div class="label">政策名称：</div>
 		<div class="contentz">
-			<input type="text" class="colortitle" id="newsName" value="">
+			<input type="text" class="colortitle" id="policyName" value="">
 			<div class="colorbtn">
 				<input type="color" onchange="setColor(this.value)">
 			</div>
@@ -46,9 +46,18 @@
 		</div>
 	</div>
 	<div class="rowz">
+		<div class="label">政策类型：</div>
+		<div class="contentz">
+			<select id="type" style="height:24px;margin:6px 0;">
+				<option value="1">政策法规</option>
+				<option value="2">区县政策</option>
+			</select>
+		</div>
+	</div>
+	<div class="rowz">
 		<div class="label">内容：</div>
 		<div class="contentz">
-			<textarea id="editor_news" name="content" style="width:100%;height:400px;"></textarea>
+			<textarea id="editor_policy" name="content" style="width:100%;height:400px;"></textarea>
 			
 		</div>
 	</div>
@@ -63,7 +72,7 @@
 </div>
 <script>
 	console.log(KindEditor)
-    window.editor = KindEditor.create('#editor_news',{
+    window.editor = KindEditor.create('#editor_policy',{
         width : '100%',
         height : '400px'
 	});

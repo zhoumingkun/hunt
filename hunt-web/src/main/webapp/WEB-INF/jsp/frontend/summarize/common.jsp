@@ -15,7 +15,6 @@
 <script
 	src="${pageContext.request.contextPath}/static/js/resources/common.js"></script>
 </head>
-
 <body>
 	<!--头开始-->
 	<%@ include file="../common/head.jsp"%>
@@ -43,10 +42,30 @@
 					<span>走进娄烦</span>
 				</p>
 				<ul>
+				<c:if test="${ids  == 0}">
 					<li class="current"><a href="">娄烦概况</a></li>
 					<li><a href="">娄烦旅游</a></li>
 					<li><a href="">民俗文化</a></li>
 					<li><a href="">名优特产 </a></li>
+				</c:if>
+				<c:if test="${ids  == 1}">
+					<li><a href="">娄烦概况</a></li>
+					<li class="current"><a href="">娄烦旅游</a></li>
+					<li><a href="">民俗文化</a></li>
+					<li><a href="">名优特产 </a></li>
+				</c:if>
+				<c:if test="${ids  == 2}">
+					<li><a href="">娄烦概况</a></li>
+					<li><a href="">娄烦旅游</a></li>
+					<li  class="current"><a href="">民俗文化</a></li>
+					<li><a href="">名优特产 </a></li>
+				</c:if>
+				<c:if test="${ids  == 3}">
+					<li><a href="">娄烦概况</a></li>
+					<li><a href="">娄烦旅游</a></li>
+					<li><a href="">民俗文化</a></li>
+					<li  class="current"><a href="">名优特产 </a></li>
+				</c:if>
 				</ul>
 			</div>
 			<div class="phone"
@@ -60,18 +79,62 @@
 		<!-- 右边开始 -->
 		 <div class="right">
             <!-- 右边标题开始 -->
-            <p class="title active">
-                <span>娄烦概况</span>
-            </p>
-            <p class="title">
-                <span>娄烦旅游</span>
-            </p>
-            <p class="title">
-                <span>民俗文化</span>
-            </p>
-            <p class="title">
-                <span>名优特产</span>
-            </p>
+            <c:if test="${ids == 0 }">
+	            <p class="title active">
+	                <span>娄烦概况</span>
+	            </p>
+	            <p class="title">
+	                <span>娄烦旅游</span>
+	            </p>
+	            <p class="title">
+	                <span>民俗文化</span>
+	            </p>
+	            <p class="title">
+	                <span>名优特产</span>
+	            </p>
+            </c:if>
+            <c:if test="${ids == 1 }">
+	            <p class="title">
+	                <span>娄烦概况</span>
+	            </p>
+	            <p class="title active">
+	                <span>娄烦旅游</span>
+	            </p>
+	            <p class="title">
+	                <span>民俗文化</span>
+	            </p>
+	            <p class="title">
+	                <span>名优特产</span>
+	            </p>
+            </c:if>
+             <c:if test="${ids == 2 }">
+	            <p class="title">
+	                <span>娄烦概况</span>
+	            </p>
+	            <p class="title">
+	                <span>娄烦旅游</span>
+	            </p>
+	            <p class="title active">
+	                <span>民俗文化</span>
+	            </p>
+	            <p class="title">
+	                <span>名优特产</span>
+	            </p>
+            </c:if>
+             <c:if test="${ids == 3 }">
+	            <p class="title">
+	                <span>娄烦概况</span>
+	            </p>
+	            <p class="title">
+	                <span>娄烦旅游</span>
+	            </p>
+	            <p class="title">
+	                <span>民俗文化</span>
+	            </p>
+	            <p class="title active">
+	                <span>名优特产</span>
+	            </p>
+            </c:if>
             <!-- 右边标题结束 -->
             <!-- 右边主体开始 -->
             <div id="content" class="main">
@@ -99,27 +162,93 @@
 
 <script>
 window.onload = function(){
-	$.ajax({
-	    type:"GET",
-	    url:'${pageContext.request.contextPath}/frontend/summarize/findAll',//请求地址
-	    dataType:'json',//省去了字符串转化json
-	    success:function(data){
-	       /*  fillloufangaikuang(data[0].louFanContent) */
-	        $("#content").html(data[0].louFanContent)
-	        /* mainwrap.html(data[0].louFanContent) */
-	    },
-	    error:function(data){
-	        if(data.status==404){
-	        
-	        }
-	    }
-	})
-}
-$(function(){
-    var currect=$('.asideNav ul li.current a').html().trim()
+	var ids = ${ids};
+	if(ids == 0){
+		console.log(ids);
+		$.ajax({
+		    type:"GET",
+		    url:'${pageContext.request.contextPath}/frontend/summarize/findAll',//请求地址
+		    dataType:'json',//省去了字符串转化json
+		    success:function(data){
+		       /*  fillloufangaikuang(data[0].louFanContent) */
+		        $("#content").html(data[0].louFanContent)
+		        /* mainwrap.html(data[0].louFanContent) */
+		    },
+		    error:function(data){
+		        if(data.status==404){
+		        
+		        }
+		    }
+		});
+	}else
+	if(ids == 1){
+		console.log(ids);
+		$.ajax({
+            type:"GET",
+            url:"${pageContext.request.contextPath}/frontend/travel/data",//请求地址
+            dataType:'json',//省去了字符串转化json
+            data:{current_page:1},
+            success:function(data){
+                if($('.asideNav ul li.current a').html().trim()!=='娄烦旅游'){
+                    return
+                }
+               /*  fillcard(data.rows,'travel') */
+               console.log(data.total);
+                 setpaging("${pageContext.request.contextPath}/frontend/travel/data",data.total,'travel') 
+            },
+            error:function(data){
+                if(data.status==404){
+
+                }
+            }
+        })
+	}else if(ids = 2){
+		console.log(ids);
+		 $.ajax({
+             type:"GET",
+             url:"${pageContext.request.contextPath}/frontend/culture/data",//请求地址
+             dataType:'json',//省去了字符串转化json
+             data:{current_page:1},
+             success:function(data){
+                 if($('.asideNav ul li.current a').html().trim()!=='民俗文化'){
+                     return
+                 }
+                 /* fillcard(data.rows,'culture') */
+                 console.log(data.total);
+                 setpaging("${pageContext.request.contextPath}/frontend/culture/data",data.total,'culture')
+             },
+             error:function(data){
+                 if(data.status==404){
+                    
+                 }
+             }
+         })
+	}else{
+		console.log(ids);
+		$.ajax({
+            type:"GET",
+            url:"${pageContext.request.contextPath}/frontend/specialty/data",//请求地址
+            dataType:'json',//省去了字符串转化json
+            data:{current_page:1},
+            success:function(data){
+                if($('.asideNav ul li.current a').html().trim()!=='名优特产'){
+                    return
+                }
+               /*  fillcard(data.rows,'specialty') */
+               console.log(data.total);
+                setpaging("${pageContext.request.contextPath}/frontend/specialty/data",data.total,'specialty')
+            },
+            error:function(data){
+                if(data.status==404){
+                    
+                }
+            }
+        })
+	}
     var mainwrap=$('.mainwrap >.right >.main');
     var urls=['${pageContext.request.contextPath}/frontend/summarize/findAll','${pageContext.request.contextPath}/frontend/travel/data','${pageContext.request.contextPath}/frontend/culture/data','${pageContext.request.contextPath}/frontend/specialty/data'];
     $('.asideNav ul li').on('click',function(){
+    var currect=$('.asideNav ul li.current a').html().trim()
         currect=$(this).find('a').html().trim()
         if(currect=="娄烦概况"){
         	$('.pagingwrap').empty();
@@ -258,5 +387,5 @@ $(function(){
             },//列表数据填充容器
         });
     }
-})
+}
 </script>

@@ -18,11 +18,8 @@ public class Proclamation extends AbstractModel implements Serializable {
 	// proclamationContent : 公告内容
 	private String proclamationContent;
 
-	// image : 图片
-	private String image;
-
-	// trade : 行业
-	private int trade;
+	// state : 状态
+	private int state;
 
 	public String getProclamationName() {
 		return proclamationName;
@@ -40,21 +37,13 @@ public class Proclamation extends AbstractModel implements Serializable {
 		this.proclamationContent = proclamationContent;
 	}
 
-	public String getImage() {
-		return image;
+	public int getState() {
+		return state;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setState(int state) {
+		this.state = state;
 	}
 
-	public int getTrade() {
-		return trade;
-	}
-
-	public void setTrade(int trade) {
-		this.trade = trade;
-	}
-	
 	
 }

@@ -32,12 +32,42 @@ public class IndexController {
 			if (!StringUtils.isEmpty(request.getParameter("id"))) {
 				mv.addObject("id", request.getParameter("id"));
 			}
+			if (!StringUtils.isEmpty(request.getParameter("type"))) {
+				mv.addObject("type", request.getParameter("type"));
+			}
 		} else {
 			mv = new ModelAndView("frontend/" + module + "/" + page);
 			mv.addObject("module", module);
+			if (!StringUtils.isEmpty(request.getParameter("ids"))) {
+				mv.addObject("ids", request.getParameter("ids"));
+			}
+			if (!StringUtils.isEmpty(request.getParameter("type"))) {
+				mv.addObject("type", request.getParameter("type"));
+			}
 		}
 		return mv;
 	}
+	
+	
+	/*@RequestMapping(value = "/{module}/{page}/ById")
+	public ModelAndView view(@PathVariable String module, @PathVariable String page, HttpServletRequest request) {	
+		ModelAndView mv;
+		if(page.equals("details")) {
+			mv = new ModelAndView("frontend/details/details");
+			mv.addObject("module", module);
+			if (!StringUtils.isEmpty(request.getParameter("id"))) {
+				mv.addObject("id", request.getParameter("id"));
+			}
+		} else {
+			mv = new ModelAndView("frontend/" + module + "/" + page);
+			mv.addObject("module", module);
+			if (!StringUtils.isEmpty(request.getParameter("ids"))) {
+				System.out.println("ids--------------------------------------"+request.getParameter("ids"));
+				mv.addObject("ids", request.getParameter("ids"));
+			}
+		}
+		return mv;
+	}*/
 	
 	@RequestMapping(value = "/index")
 	public ModelAndView list() {
