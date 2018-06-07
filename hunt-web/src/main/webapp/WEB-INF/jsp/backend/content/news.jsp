@@ -14,13 +14,13 @@
     <div class="easyui-linkbutton " id="role-delete-btn" data-options="iconCls:'icon-remove'" style="width:70px">删除
     </div>
 </div>
-<div id="role_grid" style="padding: 10px"></div>
+<div id="news_grid" style="padding: 10px"></div>
 
 <div class="pagewrap" >
 	<div class="rowz">
 		<div class="label">新闻名称：</div>
 		<div class="contentz">
-			<input type="text" class="colortitle">
+			<input type="text" class="colortitle" id="newsName" value="">
 			<div class="colorbtn">
 				<input type="color" onchange="setColor(this.value)">
 			</div>
@@ -31,7 +31,7 @@
 	<div class="rowz">
 		<div class="label">作者：</div>
 		<div class="contentz">
-			<input type="text">
+			<input type="text" id="author" value="">
 			<span>多关键词之间用空格或","隔开</span>
 		</div>
 	</div>
@@ -45,7 +45,7 @@
 	<div class="rowz">
 		<div class="label">&nbsp;</div>
 		<div class="contentz">
-			<div class="btn">
+			<div class="btn" id="submit">
 				提交
 			</div>
 		</div>
