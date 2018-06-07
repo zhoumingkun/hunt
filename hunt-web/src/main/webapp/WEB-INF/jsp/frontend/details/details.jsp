@@ -17,12 +17,21 @@
     <div class="breadcrumb">
         <p>
             <span class="breadcrumbIcon" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon.png);"></span>
-            <span>您当前所在位置:</span>
+            <span>您当前所在位置:${type }</span>
             <a href="../../index.html">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
             <a href="javascript:;" class="current">
               <c:choose>
-	             <c:when test="${module == 'summmarize' } && ${module == 'travel' } && ${module == 'culture' } && ${module == 'specialty' }">
+	             <c:when test="${module == 'specialty' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'culture' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'travel' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'summmarize' }">
 	             		走进娄烦
 	             </c:when>
 	             <c:when test="${module == 'policy' }">
@@ -33,6 +42,9 @@
 	             </c:when>
 	             <c:when test="${module == 'activity' }">
 	             		招商活动
+	             </c:when>
+	              <c:when test="${module == 'project' }">
+	             		招商项目
 	             </c:when>
 	             <c:when test="${module == 'enterprise' }">
 	             		企业展示
@@ -53,7 +65,16 @@
             <div class="asideNav">
                 <p class="title" style="background-image:url(${pageContext.request.contextPath}/static/image/all/asideNavtitle.png);">
                     <span><c:choose>
-	             <c:when test="${module == 'summmarize' } && ${module == 'travel' } && ${module == 'culture' } && ${module == 'specialty' }">
+	             <c:when test="${module == 'specialty' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'culture' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'travel' }">
+	             		走进娄烦
+	             </c:when>
+	             <c:when test="${module == 'summmarize' }">
 	             		走进娄烦
 	             </c:when>
 	             <c:when test="${module == 'policy' }">
@@ -64,6 +85,9 @@
 	             </c:when>
 	             <c:when test="${module == 'activity' }">
 	             		招商活动
+	             </c:when>
+	             <c:when test="${module == 'project' }">
+	             		招商项目
 	             </c:when>
 	             <c:when test="${module == 'enterprise' }">
 	             		企业展示
@@ -76,22 +100,22 @@
                 <ul>
                     <c:choose>
                        <c:when test="${module == 'travel' }">
-	                        <li><a href="common.html">娄烦概况</a></li>
-		                    <li class="current"><a href="common.html">娄烦旅游</a></li>
-		                    <li><a href="common.html">民俗文化</a></li>
-		                    <li><a href="common.html">名优特产 </a></li>
+	                        <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=0">娄烦概况</a></li>
+		                    <li class="current"><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=1">娄烦旅游</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=2">民俗文化</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=3">名优特产 </a></li>
                        </c:when>
                        <c:when test="${module == 'culture' }">
-	                        <li><a href="common.html">娄烦概况</a></li>
-		                    <li><a href="common.html">娄烦旅游</a></li>
-		                    <li class="current"><a href="common.html">民俗文化</a></li>
-		                    <li><a href="common.html">名优特产 </a></li>
+	                        <li><a href="${pageContext.request.contextPath}/frontend/summarize/commonids=0">娄烦概况</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=1">娄烦旅游</a></li>
+		                    <li class="current"><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=2">民俗文化</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=3">名优特产 </a></li>
                        </c:when>
                        <c:when test="${module == 'specialty' }">
-	                        <li><a href="common.html">娄烦概况</a></li>
-		                    <li><a href="common.html">娄烦旅游</a></li>
-		                    <li><a href="common.html">民俗文化</a></li>
-		                    <li class="current"><a href="common.html">名优特产 </a></li>
+	                        <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=0">娄烦概况</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=1">娄烦旅游</a></li>
+		                    <li><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=2">民俗文化</a></li>
+		                    <li class="current"><a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=3">名优特产 </a></li>
                        </c:when>
                        <c:when test="${module == 'news' }">
                        		<li class="current"><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
@@ -115,6 +139,56 @@
                     		<li class="current"><a href="${pageContext.request.contextPath}/frontend/guide/guide">投资指南</a></li>
                     		<li><a href="${pageContext.request.contextPath}/frontend/contactUs/contactUs">联系我们</a></li>
                        </c:when>
+                       <c:when test="${module == 'project' }">
+                        <c:if test="${type == 1 }">
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                       </c:if>
+                        <c:if test="${type == 2 }">
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                       </c:if>
+                        <c:if test="${type == 3 }">
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                       </c:if>
+                        <c:if test="${type == 4 }">
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                       </c:if>
+                        <c:if test="${type == 5 }">
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                       </c:if>
+                        <c:if test="${type == 6 }">
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=1">工业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=2">农业类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=3">商贸物流类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=4">文化旅游类</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/project/project?type=5">金融及交通类设施</a></li>
+                    		<li class="current"><a href="${pageContext.request.contextPath}/frontend/project/project?type=6">城市公用设施</a></li>
+                       </c:if>
+                       </c:when>
                     </c:choose>
                 </ul>
             </div>
@@ -132,7 +206,7 @@
             <!-- 右边标题开始 -->
             <c:choose>
               <c:when test="${module == 'policy' }">
-             		<p class="title"><span>政务法规</span>
+             		<p class="title"><span>招商政策</span>
 		            </p>
               </c:when>
               <c:when test="${module == 'activity' }">
@@ -144,8 +218,24 @@
 		            </p>
               </c:when>
               <c:when test="${module == 'project' }">
-             		<p class="title"><span>招商项目</span>
-		            </p>
+             		<c:if test="${type == 1 }">
+             		<p class="title"><span>工业类</span></p>
+             		</c:if>
+             		<c:if test="${type == 2 }">
+             		<p class="title"><span>农业类</span></p>
+             		</c:if>
+             		<c:if test="${type == 3 }">
+             		<p class="title"><span>商贸物流类</span></p>
+             		</c:if>
+             		<c:if test="${type == 4 }">
+             		<p class="title"><span>文化旅游类</span></p>
+             		</c:if>
+             		<c:if test="${type == 5 }">
+             		<p class="title"><span>金融及交通类设施</span></p>
+             		</c:if>
+             		<c:if test="${type == 6 }">
+             		<p class="title"><span>城市公用设施</span></p>
+             		</c:if>
               </c:when>
               <c:when test="${module == 'travel' }">
              		<p class="title"><span>娄烦旅游</span>

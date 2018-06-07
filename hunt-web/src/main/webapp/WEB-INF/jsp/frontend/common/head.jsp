@@ -74,13 +74,13 @@
                 <a href="${pageContext.request.contextPath}/frontend/index"><span>网站首页</span></a>
             </li>
             <li id="nav-summarize">
-                <a href="${pageContext.request.contextPath}/frontend/summarize/common"><span>走进娄烦</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/summarize/common?ids=0"><span>走进娄烦</span></a>
             </li>
             <li id="nav-policy">
                 <a href="${pageContext.request.contextPath}/frontend/policy/policy"><span>招商政策</span></a>
             </li>
             <li id="nav-project">
-                <a href="${pageContext.request.contextPath}/frontend/project/project"><span>招商项目</span></a>
+                <a href="${pageContext.request.contextPath}/frontend/project/project?type=1"><span>招商项目</span></a>
             </li>
             <li id="nav-activity">
                 <a href="${pageContext.request.contextPath}/frontend/activity/activity"><span>招商活动</span></a>
