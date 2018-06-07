@@ -1,6 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/content/prettify.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/content/news.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/content/activity.css" />
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/content/kindeditor-all.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/content/prettify.js"></script>
 	<script src="${pageContext.request.contextPath}/static/js/content/zh-CN.js"></script>
@@ -55,14 +55,13 @@
 	<div class="rowz">
 		<div class="label">&nbsp;</div>
 		<div class="contentz">
-			<div class="btn" id="submit">
+			<div class="btn" id="activitySubmit">
 				提交
 			</div>
 		</div>
 	</div>
 </div>
 <script>
-	console.log(KindEditor)
     window.editor = KindEditor.create('#editor_activity',{
         width : '100%',
         height : '400px'

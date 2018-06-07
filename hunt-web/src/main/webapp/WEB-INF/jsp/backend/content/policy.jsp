@@ -64,14 +64,13 @@
 	<div class="rowz">
 		<div class="label">&nbsp;</div>
 		<div class="contentz">
-			<div class="btn" id="submit">
+			<div class="btn" id="policySubmit">
 				提交
 			</div>
 		</div>
 	</div>
 </div>
 <script>
-	console.log(KindEditor)
     window.editor = KindEditor.create('#editor_policy',{
         width : '100%',
         height : '400px'

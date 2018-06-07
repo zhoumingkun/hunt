@@ -160,8 +160,7 @@ $(document).ready(function () {
         }
 
     });
-    $("#submit").click(function () {
-    	console.log("submit")
+    $("#activitySubmit").click(function () {
     	var id;
     	if ($("#activity_grid").datagrid("getChecked").length == 0) {
     		id = 0;

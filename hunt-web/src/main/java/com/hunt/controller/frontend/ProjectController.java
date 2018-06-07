@@ -76,7 +76,7 @@ public class ProjectController {
 	 }
 	 
 	 @ResponseBody
-	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
+	 @RequestMapping(value = "findAll", method = RequestMethod.POST)
 	 public List<Project> findAll() { 
 	        List<Project> list = projectService.findAll();
 	        return list;

@@ -1,17 +1,17 @@
-role_tool = {
+project_tool = {
     form_clear: function () {
-        $("#role_edit_form").form("clear");
-        $("#policy_grid").datagrid("uncheckAll");
+        $("#project_edit_form").form("clear");
+        $("#project_grid").datagrid("uncheckAll");
     },
     //初始化页面+加载数据
     init_main_view: function () {
-        $("#policy_grid").datagrid({
-            url: getRootPath() + "/frontend/policy/findAll",
+        $("#project_grid").datagrid({
+            url: getRootPath() + "/frontend/project/findAll",
             method: 'post',
             idField: "id",
             treeField: 'name',
             fitColumns: true,
-            toolbar: '#policy-tool-bar',
+            toolbar: '#project-tool-bar',
             rownumbers: true,
             animate: true,
             singleSelect: true,
@@ -25,15 +25,23 @@ role_tool = {
             pageList: [15, 30, 45, 60],
             columns: [[
                 {title: "选择", field: "ck", checkbox: true},
-                {title: "招商政策名称", field: "policyName", width: 300},
-                {title: "作者", field: "author", width: 400},
-                {title: "类型", field: "type", formatter: function(value) {
+                {title: "招商项目名称", field: "projectName", width: 300},
+                {title: "作者", field: "author", width: 200},
+                {title: "项目类型", field:"type",formatter: function(value) {
                 	if(value == 1) {
-                		return "政策法规";
+                		return "工业类";
                 	} else if(value == 2){
-                		return "区县政策";
+                		return "农业类";
+                	} else if(value == 3) {
+                		return "商贸物流类";
+                	} else if(value == 4) {
+                		return "文化旅游类";
+                	} else if(value == 5) {
+                		return "金融及交通类设施";
+                	} else if(value == 6) {
+                		return "城市公用设施";
                 	}
-                },width: 100},
+                },width:400},
                 {title: "状态", field:"state",formatter: function(value) {
                 	if(value == -1) {
                 		return "未发布";
@@ -41,6 +49,8 @@ role_tool = {
                 		return "已发布";
                 	} else if(value == 2) {
                 		return "推广";
+                	} else if(value == 3) {
+                		return "重点项目";
                 	}
                 },width:100},
                 {
@@ -57,62 +67,64 @@ role_tool = {
         });
     },
     delete: function () {
-        if ($("#policy_grid").datagrid("getChecked").length == 0) {
+        if ($("#project_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
         }
-        var policyId = $("#policy_grid").datagrid("getChecked")[0].id;
+        var projectId = $("#project_grid").datagrid("getChecked")[0].id;
         $.ajax({
             data: {
-                id: policyId,
+                id: projectId,
             },
             traditional: true,
             method: 'post',
-            url: getRootPath() + '/frontend/policy/delete',
+            url: getRootPath() + '/frontend/project/delete',
             async: false,
             dataType: 'json',
             success: function (result) {
                 if (result.code == 10000) {
-                    role_tool.init_main_view();
+                    project_tool.init_main_view();
                     common_tool.messager_show(result.msg);
                     return false;
                 }
                 else {
                     common_tool.messager_show(result.msg);
                 }
-                role_tool.form_clear();
-                role_tool.init_main_view();
+                project_tool.form_clear();
+                project_tool.init_main_view();
             },
         });
     },
     saveOrUpdate: function (id) {
-        if (!$("#policyName").val()) {
-            common_tool.messager_show("请输入招商政策名称");
+        if (!$("#projectName").val()) {
+            common_tool.messager_show("请输入招商活动名称");
         } else if (!$("#author").val()) {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
-            common_tool.messager_show("请输入招商政策内容");
+            common_tool.messager_show("请输入招商活动内容");
         } else {
-            var policyName = $("#policyName").val();
+            var projectName = $("#projectName").val();
             var author = $("#author").val();
-            var type = $("#type option:selected").val();
             var state = $("#state option:selected").val();
-            var policyContent = editor.html();
+            var type = $("#type option:selected").val();
+            var projectContent = editor.html();
             var data = {};
-            if(!id) {
-            	var url = getRootPath() + '/frontend/policy/save';
-            	data.policyName = policyName;
+            if(id == 0) {
+            	console.log("zengj ")
+            	var url = getRootPath() + '/frontend/project/save';
+            	data.projectName = projectName;
             	data.author = author;
-            	data.type = type;
             	data.state = state;
-            	data.policyContent = policyContent;
+            	data.type = type;
+            	data.projectContent = projectContent;
             } else {
-            	var url = getRootPath() + '/frontend/policy/update';
+            	console.log("编辑")
+            	var url = getRootPath() + '/frontend/project/update';
             	data.id = id;
-            	data.policyName = policyName;
+            	data.projectName = projectName;
             	data.author = author;
-            	data.type = type;
             	data.state = state;
-            	data.policyContent = policyContent;
+            	data.type = type;
+            	data.projectContent = projectContent;
             }
             $.ajax({
                 data: data,
@@ -122,79 +134,69 @@ role_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-//                    if (result.code == 10000) {
-//                        $("#role_edit_dialog").dialog("close");
-//                        role_tool.form_clear();
-//                        role_tool.init_main_view();
-//                        common_tool.messager_show(result.msg);
-//                        return false;
-//                    }
-//                    else {
-//                        common_tool.messager_show(result.msg);
-//                    }
-                	role_tool.form_clear();
-                    role_tool.init_main_view();
-                	$('.pagewrap').hide();
+//                	project_tool.form_clear();
+//                    project_tool.init_main_view();
+//                	$('.pagewrap').hide();
                 },
             });
         }
     },
 };
 $(document).ready(function () {
-    role_tool.init_main_view();
-    $("#policy-select-btn").click(function () {
-        role_tool.init_main_view();
+    project_tool.init_main_view();
+    $("#project-select-btn").click(function () {
+        project_tool.init_main_view();
         $('.pagewrap').hide();
     });
 
-    $("#policy-save-btn").click(function () {
-        /*role_tool.init_edit_view(1);*/
+    $("#project-save-btn").click(function () {
+        /*project_tool.init_edit_view(1);*/
         $('.pagewrap').show();
-        $("#policyName").val('');
-        $("#type").val(1);
+        $("#projectName").val('');
         $("#state").val(-1);
+        $("#type").val(1);
     	$("#author").val('');
     	editor.html('');
     });
 
-    $("#policy-update-btn").click(function () {
-        if ($("#policy_grid").datagrid("getChecked").length == 0) {
+    $("#project-update-btn").click(function () {
+        if ($("#project_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         } else {
         	$('.pagewrap').show();
-        	var data = $("#policy_grid").datagrid("getChecked")[0];
-        	$("#policyName").val(data.policyName);
+        	var data = $("#project_grid").datagrid("getChecked")[0];
+        	$("#projectName").val(data.projectName);
         	$("#author").val(data.author);
-        	$("#type").val(data.type);
         	$("#state").val(data.state);
-        	editor.html(data.policyContent);
+        	$("#type").val(data.type);
+        	editor.html(data.projectContent);
         }
 
     });
-    $("#policySubmit").click(function () {
+    $("#projectSubmit").click(function () {
     	var id;
-    	if ($("#policy_grid").datagrid("getChecked").length == 0) {
+    	if ($("#project_grid").datagrid("getChecked").length == 0) {
     		id = 0;
     	} else {
-    		id = $("#policy_grid").datagrid("getChecked")[0].id;
+    		id = $("#project_grid").datagrid("getChecked")[0].id;
     	}
-    	role_tool.saveOrUpdate(id);
+    	project_tool.saveOrUpdate(id);
     })
-    $("#policy-delete-btn").click(function () {
+    $("#project-delete-btn").click(function () {
         $('.pagewrap').hide();
-        if ($("#policy_grid").datagrid("getChecked").length == 0) {
+        if ($("#project_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         }
         $.messager.confirm('确认对话框', "您确认删除该条记录吗?", function (r) {
             if (r) {
-                role_tool.delete();
+                project_tool.delete();
             }
         });
     });
-    $("#policy-select-btn ").click(function () {
-        role_tool.form_clear();
-        role_tool.init_main_view();
+    $("#project-select-btn ").click(function () {
+        project_tool.form_clear();
+        project_tool.init_main_view();
     });
 })
