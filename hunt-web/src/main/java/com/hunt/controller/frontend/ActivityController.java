@@ -69,7 +69,7 @@ public class ActivityController {
 	 }
 	 
 	 @ResponseBody
-	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
+	 @RequestMapping(value = "findAll", method = RequestMethod.POST)
 	 public List<Activity> findAll() {
 	        List<Activity> list = activityService.findAll();
 	        return list;

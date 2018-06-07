@@ -18,8 +18,8 @@
 		update tbl_proclamation
 		<set>
 			<if test="author != null and author != ''">author = #{author},</if>
-			<if test="enterpriseName != null and enterpriseName != ''">proclamationName = #{proclamationName},</if>
-			<if test="enterpriseContent != null and enterpriseContent != ''">proclamationContent = #{proclamationContent},</if>
+			<if test="proclamationName != null and proclamationName != ''">proclamationName = #{proclamationName},</if>
+			<if test="proclamationName != null and proclamationName != ''">proclamationContent = #{proclamationContent},</if>
 			<if test="updateTime != null">updateTime = #{updateTime},</if>
 			<if test="state != null">state= #{state},</if>
 		</set>
