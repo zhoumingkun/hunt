@@ -330,7 +330,7 @@
 			  //娄烦旅游
 			  else if("${module}" == "travel"){
                   $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
 	                  $("#title").html("<span>"+data.travelName+"</span>");
 					  $("#content").html("<P>"+data.travelContent+"<P>");
 			    });
@@ -338,7 +338,7 @@
 			//民俗文化
 			 else if("${module}" == "culture"){
                   $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
 	                  $("#title").html("<span>"+data.cultureName+"</span>");
 					  $("#content").html("<P>"+data.cultureContent+"<P>");
 			    });
@@ -346,7 +346,7 @@
 			 //名优特产
 			 else if("${module}" == "specialty"){
                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
 	                  $("#title").html("<span>"+data.specialtyName+"</span>");
 					  $("#content").html("<P>"+data.specialtyContent+"<P>");
 			    });
@@ -354,7 +354,7 @@
 			//企业展示
 			 else if("${module}" == "enterprise"){
                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-	                  $("image").html('<img src="'+data.image+'" alt="">');
+	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
 	                  $("#title").html("<span>"+data.enterpriseName+"</span>");
 					  $("#content").html("<P>"+data.enterpriseContent+"<P>");
 			    });
