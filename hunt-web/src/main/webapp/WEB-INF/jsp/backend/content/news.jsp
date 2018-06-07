@@ -36,6 +36,16 @@
 		</div>
 	</div>
 	<div class="rowz">
+		<div class="label">状态：</div>
+		<div class="contentz">
+			<select id="state" style="height:24px;margin:6px 0;">
+				<option value="-1">未发布</option>
+				<option value="1">已发布</option>
+				<option value="2">推广</option>
+			</select>
+		</div>
+	</div>
+	<div class="rowz">
 		<div class="label">内容：</div>
 		<div class="contentz">
 			<textarea id="editor_id" name="content" style="width:100%;height:400px;"></textarea>

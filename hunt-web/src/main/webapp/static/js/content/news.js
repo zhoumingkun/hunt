@@ -85,11 +85,13 @@ role_tool = {
         } else {
             var newsName = $("#newsName").val();
             var author = $("#author").val();
+            var state = $("#state option:selected").val();
             var newsContent = editor.html();
             $.ajax({
                 data: {
                     newsName: newsName,
                     author: author,
+                    state: state,
                     newsContent: newsContent,
                 },
                 traditional: true,
@@ -126,13 +128,14 @@ role_tool = {
             var newsName = $("#newsName").val();
             var author = $("#author").val();
             var newsContent = editor.html();
-            
+            var state = $("#state option:selected").val();
             $.ajax({
                 data: {
                     id: id,
                     newsName: newsName,
                     author: author,
                     newsContent: newsContent,
+                    state: state
                 },
                 traditional: true,
                 method: 'post',
@@ -175,6 +178,7 @@ $(document).ready(function () {
         	var data = $("#news_grid").datagrid("getChecked")[0];
         	$("#newsName").val(data.newsName);
         	$("#author").val(data.author);
+        	$("#state").val(data.state);
         	editor.html(data.newsContent);
         }
         $("#submit").click(function () {
