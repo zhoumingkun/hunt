@@ -37,7 +37,7 @@
 		
 		
 		$("#search").on("click",function() {
-			var projectName = $("#content").val();
+			var projectName = $("#searchInput").val();
 				$.post("${pageContext.request.contextPath}/frontend/search/search",{"projectName" : projectName}, function(data) {
 
 				});
@@ -65,7 +65,7 @@
                     </p>
                 </div>
                 <div class="hearder_input_box">
-                    <input id="content" type="text"  placeholder="请输入项目名称" />
+                    <input id="searchInput" type="text"  placeholder="请输入项目名称" />
                     <p class="oth">
                  	<a href="javascript:;" id="search">搜索</a>
 					</p>
