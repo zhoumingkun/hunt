@@ -1,13 +1,13 @@
 role_tool = {
     form_clear: function () {
         $("#role_edit_form").form("clear");
-        $("#role_grid").datagrid("uncheckAll");
+        $("#news_grid").datagrid("uncheckAll");
     },
     //初始化页面+加载数据
     init_main_view: function () {
-        $("#role_grid").datagrid({
+        $("#news_grid").datagrid({
             url: getRootPath() + "/frontend/news/findAll",
-            method: 'get',
+            method: 'post',
             idField: "id",
             treeField: 'name',
             fitColumns: true,
@@ -27,6 +27,15 @@ role_tool = {
                 {title: "选择", field: "ck", checkbox: true},
                 {title: "新闻名称", field: "newsName", width: 300},
                 {title: "作者", field: "author", width: 400},
+                {title: "状态", field:"state",formatter: function(value) {
+                	if(value == -1) {
+                		return "未发布";
+                	} else if(value == 1){
+                		return "已发布";
+                	} else if(value == 2) {
+                		return "推广";
+                	}
+                },width:100},
                 {
                     title: "创建时间", field: "createTime", formatter: function (value, row, index) {
                     return common_tool.timestampToDateTime(value);
@@ -38,47 +47,20 @@ role_tool = {
                 }, width: 100
                 },
             ]],
-            onDblClickRow: function (index, row) {
-                var role = $("#role_grid").datagrid("getChecked")[0];
-                $("#role_edit_form").form('load', {
-                    id: role.id,
-                    name: role.name,
-                    description: role.description,
-                })
-                $("#role_edit_dialog").dialog({
-                    title: '新增新闻',
-                    iconCls: 'icon-save',
-                    closable: true,
-                    width: 900,
-                    height: 400,
-                    cache: false,
-                    modal: true,
-                    resizable: false,
-                    'onOpen': function () {
-                        var role = $("#role_grid").datagrid("getChecked")[0];
-                        for (var i = 0; i < role.sysPermissions.length; i++) {
-                            $("#role-permissions").datagrid("selectRecord", role.sysPermissions[i].id);
-                        }
-                    },
-                    'onClose': function () {
-                        role_tool.form_clear();
-                    }
-                });
-            },
         });
     },
     delete: function () {
-        if ($("#role_grid").datagrid("getChecked").length == 0) {
+        if ($("#news_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
         }
-        var roleId = $("#role_grid").datagrid("getChecked")[0].id;
+        var newsId = $("#news_grid").datagrid("getChecked")[0].id;
         $.ajax({
             data: {
-                id: roleId,
+                id: newsId,
             },
             traditional: true,
             method: 'post',
-            url: getRootPath() + '/role/delete',
+            url: getRootPath() + '/frontend/news/delete',
             async: false,
             dataType: 'json',
             success: function (result) {
@@ -94,143 +76,76 @@ role_tool = {
         });
     },
     save: function () {
-        if (!$("#role_edit_form input[id='name']").validatebox('isValid')) {
-            common_tool.messager_show("请输入角色名称");
-        } else if (!$("#role_edit_form input[id='description']").validatebox('isValid')) {
-            common_tool.messager_show("请输入角色描述");
-        } else if ($("#role_edit_form table[id='role-permissions']").datagrid("getChecked").length == 0) {
-            common_tool.messager_show("请为该角色选择权限");
+        if (!$("#newsName").val()) {
+            common_tool.messager_show("请输入新闻名称");
+        } else if (!$("#author").val()) {
+            common_tool.messager_show("请输入作者");
+        } else if (!editor.html()) {
+            common_tool.messager_show("请输入新闻内容");
         } else {
-            var name = $("#role_edit_form input[id='name']").val();
-            var description = $("#role_edit_form input[id='description']").val();
-            var permission_array = $("#role_edit_form table[id='role-permissions']").datagrid("getChecked");
-            var permission_ids = new Array();
-            for (var i = 0; i < permission_array.length; i++) {
-                permission_ids[i] = permission_array[i].id;
-            }
-
+            var newsName = $("#newsName").val();
+            var author = $("#author").val();
+            var newsContent = editor.html();
             $.ajax({
                 data: {
-                    name: name,
-                    description: description,
-                    permissionIds: permission_ids.toString(),
+                    newsName: newsName,
+                    author: author,
+                    newsContent: newsContent,
                 },
                 traditional: true,
                 method: 'post',
-                url: getRootPath() + '/role/insert',
+                url: getRootPath() + '/frontend/news/save',
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-                    if (result.code == 10000) {
-                        $("#role_edit_dialog").dialog("close");
-                        role_tool.form_clear();
-                        role_tool.init_main_view();
-                        common_tool.messager_show(result.msg);
-                        return false;
-                    }
-                    else {
-                        common_tool.messager_show(result.msg);
-                    }
+//                    if (result.code == 10000) {
+//                        $("#role_edit_dialog").dialog("close");
+//                        role_tool.form_clear();
+//                        role_tool.init_main_view();
+//                        common_tool.messager_show(result.msg);
+//                        return false;
+//                    }
+//                    else {
+//                        common_tool.messager_show(result.msg);
+//                    }
+                	role_tool.form_clear();
+                    role_tool.init_main_view();
+                	$('.pagewrap').hide();
                 },
             });
         }
     },
-    update: function () {
-        if (!$("#role_edit_form input[id='name']").validatebox('isValid')) {
-            common_tool.messager_show("请输入角色名称");
-        } else if (!$("#role_edit_form input[id='description']").validatebox('isValid')) {
-            common_tool.messager_show("请输入角色描述");
-        } else if ($("#role_edit_form table[id='role-permissions']").datagrid("getChecked").length == 0) {
-            common_tool.messager_show("请为该角色选择权限");
+    update: function (id) {
+    	if (!$("#newsName").val()) {
+            common_tool.messager_show("请输入新闻名称");
+        } else if (!$("#author").val()) {
+            common_tool.messager_show("请输入作者");
+        } else if (!editor.html()) {
+            common_tool.messager_show("请输入新闻内容");
         } else {
-            var id = $("#role_edit_form input[id='id']").val();
-            var name = $("#role_edit_form input[id='name']").val();
-            var description = $("#role_edit_form input[id='description']").val();
-            var permission_array = $("#role_edit_form table[id='role-permissions']").datagrid("getChecked");
-            var permission_ids = new Array();
-            for (var i = 0; i < permission_array.length; i++) {
-                permission_ids[i] = permission_array[i].id;
-            }
-
+            var newsName = $("#newsName").val();
+            var author = $("#author").val();
+            var newsContent = editor.html();
+            
             $.ajax({
                 data: {
                     id: id,
-                    name: name,
-                    description: description,
-                    permissionIds: permission_ids.toString(),
+                    newsName: newsName,
+                    author: author,
+                    newsContent: newsContent,
                 },
                 traditional: true,
                 method: 'post',
-                url: getRootPath() + '/role/update',
+                url: getRootPath() + '/frontend/news/update',
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-                    if (result.code == 10000) {
-                        $("#role_edit_dialog").dialog("close");
-                        role_tool.form_clear();
-                        role_tool.init_main_view();
-                        common_tool.messager_show(result.msg);
-                        return false;
-                    }
-                    else {
-                        common_tool.messager_show(result.msg);
-                    }
+                	role_tool.form_clear();
+                    role_tool.init_main_view();
+                	$('.pagewrap').hide();
                 },
             });
         }
-    },
-    init_edit_view: function (type) {
-        $("#role_edit_dialog").dialog({
-            title: '新增角色',
-            iconCls: 'icon-save',
-            closable: true,
-            width: 900,
-            height: 400,
-            cache: false,
-            modal: true,
-            resizable: false,
-            'onOpen': function () {
-
-                if (type == 2) {
-                    var role = $("#role_grid").datagrid("getChecked")[0];
-                    for (var i = 0; i < role.sysPermissions.length; i++) {
-                        $("#role-permissions").datagrid("selectRecord", role.sysPermissions[i].id);
-                    }
-                }
-            },
-            buttons: [
-                {
-                    text: '保存',
-                    width: 100,
-                    iconCls: 'icon-save',
-                    handler: function () {
-                        if (type == 1) {
-                            role_tool.save();
-                        }
-                        if (type == 2) {
-                            role_tool.update();
-                        }
-                    }
-                },
-                {
-                    text: '清除',
-                    width: 100,
-                    iconCls: 'icon-reload',
-                    handler: function () {
-                        role_tool.form_clear();
-                    }
-                },
-                {
-                    text: '取消',
-                    width: 100,
-                    iconCls: 'icon-add',
-                    handler: function () {
-                        $("#role_edit_dialog").dialog('close');
-                        role_tool.form_clear();
-                    }
-                }
-            ],
-        });
     }
 };
 $(document).ready(function () {
@@ -243,26 +158,33 @@ $(document).ready(function () {
     $("#role-save-btn").click(function () {
         /*role_tool.init_edit_view(1);*/
         $('.pagewrap').show();
+        $("#newsName").val('');
+    	$("#author").val('');
+    	editor.html('');
+    	$("#submit").click(function () {
+    		role_tool.save();
+    	})
     });
 
     $("#role-update-btn").click(function () {
-        $('.pagewrap').hide();
-        if ($("#role_grid").datagrid("getChecked").length == 0) {
+        if ($("#news_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
+        } else {
+        	$('.pagewrap').show();
+        	var data = $("#news_grid").datagrid("getChecked")[0];
+        	$("#newsName").val(data.newsName);
+        	$("#author").val(data.author);
+        	editor.html(data.newsContent);
         }
-        var role = $("#role_grid").datagrid("getChecked")[0];
-        $("#role_edit_form").form('load', {
-            id: role.id,
-            name: role.name,
-            description: role.description,
-        })
-        role_tool.init_edit_view(2);
+        $("#submit").click(function () {
+    		role_tool.update(data.id);
+    	})
 
     });
     $("#role-delete-btn").click(function () {
         $('.pagewrap').hide();
-        if ($("#role_grid").datagrid("getChecked").length == 0) {
+        if ($("#news_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         }
