@@ -174,7 +174,7 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/permission/permission">权限管理
+                                 href="${pageContext.request.contextPath}/content/culture">文化管理
                             </div>
                         </li>
                     </div>
@@ -183,7 +183,7 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/system/data">数据字典
+                                 href="${pageContext.request.contextPath}/content/specialty">特产管理
                             </div>
                         </li>
                     </div>
@@ -192,7 +192,7 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/system/online">在线状态
+                                 href="${pageContext.request.contextPath}/content/project">项目管理
                             </div>
                         </li>
                     </div>

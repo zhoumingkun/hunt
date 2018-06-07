@@ -1,17 +1,17 @@
-proclamation_tool = {
+specialty_tool = {
     form_clear: function () {
-        $("#proclamation_edit_form").form("clear");
-        $("#proclamation_grid").datagrid("uncheckAll");
+        $("#specialty_edit_form").form("clear");
+        $("#specialty_grid").datagrid("uncheckAll");
     },
     //初始化页面+加载数据
     init_main_view: function () {
-        $("#proclamation_grid").datagrid({
-            url: getRootPath() + "/frontend/proclamation/findAll",
+        $("#specialty_grid").datagrid({
+            url: getRootPath() + "/frontend/specialty/findAll",
             method: 'post',
             idField: "id",
             treeField: 'name',
             fitColumns: true,
-            toolbar: '#proclamation-tool-bar',
+            toolbar: '#specialty-tool-bar',
             rownumbers: true,
             animate: true,
             singleSelect: true,
@@ -25,17 +25,8 @@ proclamation_tool = {
             pageList: [15, 30, 45, 60],
             columns: [[
                 {title: "选择", field: "ck", checkbox: true},
-                {title: "公告名称", field: "proclamationName", width: 300},
+                {title: "特产名称", field: "specialtyName", width: 300},
                 {title: "作者", field: "author", width: 400},
-                {title: "状态", field:"state",formatter: function(value) {
-                	if(value == -1) {
-                		return "未发布";
-                	} else if(value == 1){
-                		return "已发布";
-                	} else if(value == 2) {
-                		return "推广";
-                	}
-                },width:100},
                 {
                     title: "创建时间", field: "createTime", formatter: function (value, row, index) {
                     return common_tool.timestampToDateTime(value);
@@ -50,59 +41,56 @@ proclamation_tool = {
         });
     },
     delete: function () {
-        if ($("#proclamation_grid").datagrid("getChecked").length == 0) {
+        if ($("#specialty_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
         }
-        var proclamationId = $("#proclamation_grid").datagrid("getChecked")[0].id;
+        var specialtyId = $("#specialty_grid").datagrid("getChecked")[0].id;
         $.ajax({
             data: {
-                id: proclamationId,
+                id: specialtyId,
             },
             traditional: true,
             method: 'post',
-            url: getRootPath() + '/frontend/proclamation/delete',
+            url: getRootPath() + '/frontend/specialty/delete',
             async: false,
             dataType: 'json',
             success: function (result) {
                 if (result.code == 10000) {
-                    proclamation_tool.init_main_view();
+                    specialty_tool.init_main_view();
                     common_tool.messager_show(result.msg);
                     return false;
                 }
                 else {
                     common_tool.messager_show(result.msg);
                 }
-                proclamation_tool.form_clear();
-                proclamation_tool.init_main_view();
+                specialty_tool.form_clear();
+                specialty_tool.init_main_view();
             },
         });
     },
     saveOrUpdate: function (id) {
-        if (!$("#proclamationName").val()) {
-            common_tool.messager_show("请输入招商活动名称");
+        if (!$("#specialtyName").val()) {
+            common_tool.messager_show("请输入特产名称");
         } else if (!$("#author").val()) {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
-            common_tool.messager_show("请输入招商活动内容");
+            common_tool.messager_show("请输入特产内容");
         } else {
-            var proclamationName = $("#proclamationName").val();
+            var specialtyName = $("#specialtyName").val();
             var author = $("#author").val();
-            var state = $("#state option:selected").val();
-            var proclamationContent = editor.html();
+            var specialtyContent = editor.html();
             var data = {};
             if(!id) {
-            	var url = getRootPath() + '/frontend/proclamation/save';
-            	data.proclamationName = proclamationName;
+            	var url = getRootPath() + '/frontend/specialty/save';
+            	data.specialtyName = specialtyName;
             	data.author = author;
-            	data.state = state;
-            	data.proclamationContent = proclamationContent;
+            	data.specialtyContent = specialtyContent;
             } else {
-            	var url = getRootPath() + '/frontend/proclamation/update';
+            	var url = getRootPath() + '/frontend/specialty/update';
             	data.id = id;
-            	data.proclamationName = proclamationName;
+            	data.specialtyName = specialtyName;
             	data.author = author;
-            	data.state = state;
-            	data.proclamationContent = proclamationContent;
+            	data.specialtyContent = specialtyContent;
             }
             $.ajax({
                 data: data,
@@ -112,8 +100,8 @@ proclamation_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-                	proclamation_tool.form_clear();
-                    proclamation_tool.init_main_view();
+                	specialty_tool.form_clear();
+                    specialty_tool.init_main_view();
                 	$('.pagewrap').hide();
                 },
             });
@@ -121,58 +109,57 @@ proclamation_tool = {
     },
 };
 $(document).ready(function () {
-    proclamation_tool.init_main_view();
-    $("#proclamation-select-btn").click(function () {
-        proclamation_tool.init_main_view();
+    specialty_tool.init_main_view();
+    $("#specialty-select-btn").click(function () {
+        specialty_tool.init_main_view();
         $('.pagewrap').hide();
     });
 
-    $("#proclamation-save-btn").click(function () {
-        /*proclamation_tool.init_edit_view(1);*/
+    $("#specialty-save-btn").click(function () {
+        /*specialty_tool.init_edit_view(1);*/
+    	console.log("LLLLLLLLLLLL")
         $('.pagewrap').show();
-        $("#proclamationName").val('');
-        $("#state").val(-1);
+        $("#specialtyName").val('');
     	$("#author").val('');
     	editor.html('');
     });
 
-    $("#proclamation-update-btn").click(function () {
-        if ($("#proclamation_grid").datagrid("getChecked").length == 0) {
+    $("#specialty-update-btn").click(function () {
+        if ($("#specialty_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         } else {
         	$('.pagewrap').show();
-        	var data = $("#proclamation_grid").datagrid("getChecked")[0];
-        	$("#proclamationName").val(data.proclamationName);
+        	var data = $("#specialty_grid").datagrid("getChecked")[0];
+        	$("#specialtyName").val(data.specialtyName);
         	$("#author").val(data.author);
-        	$("#state").val(data.state);
-        	editor.html(data.proclamationContent);
+        	editor.html(data.specialtyContent);
         }
 
     });
-    $("#proclamationSubmit").click(function () {
+    $("#specialtySubmit").click(function () {
     	var id;
-    	if ($("#proclamation_grid").datagrid("getChecked").length == 0) {
+    	if ($("#specialty_grid").datagrid("getChecked").length == 0) {
     		id = 0;
     	} else {
-    		id = $("#proclamation_grid").datagrid("getChecked")[0].id;
+    		id = $("#specialty_grid").datagrid("getChecked")[0].id;
     	}
-    	proclamation_tool.saveOrUpdate(id);
+    	specialty_tool.saveOrUpdate(id);
     })
-    $("#proclamation-delete-btn").click(function () {
+    $("#specialty-delete-btn").click(function () {
         $('.pagewrap').hide();
-        if ($("#proclamation_grid").datagrid("getChecked").length == 0) {
+        if ($("#specialty_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         }
         $.messager.confirm('确认对话框', "您确认删除该条记录吗?", function (r) {
             if (r) {
-                proclamation_tool.delete();
+                specialty_tool.delete();
             }
         });
     });
-    $("#proclamation-select-btn ").click(function () {
-        proclamation_tool.form_clear();
-        proclamation_tool.init_main_view();
+    $("#specialty-select-btn ").click(function () {
+        specialty_tool.form_clear();
+        specialty_tool.init_main_view();
     });
 })

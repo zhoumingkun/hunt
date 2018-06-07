@@ -149,7 +149,7 @@ $(document).ready(function () {
         }
     });
     
-    $("#submit").click(function () {
+    $("#newsSubmit").click(function () {
     	var id;
     	if ($("#news_grid").datagrid("getChecked").length == 0) {
     		id = 0;

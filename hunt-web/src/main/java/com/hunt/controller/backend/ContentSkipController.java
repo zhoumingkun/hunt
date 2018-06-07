@@ -63,4 +63,40 @@ public class ContentSkipController {
     public String proclamation() {
         return "backend/content/proclamation";
     }
+    
+    /**
+     * 文化管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至文化管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "culture", method = RequestMethod.GET)
+    public String culture() {
+        return "backend/content/culture";
+    }
+    
+    /**
+     * 特产管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至特产管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "specialty", method = RequestMethod.GET)
+    public String specialty() {
+        return "backend/content/specialty";
+    }
+    
+    /**
+     * 项目管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至项目管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "project", method = RequestMethod.GET)
+    public String project() {
+        return "backend/content/project";
+    }
 }
