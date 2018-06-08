@@ -55,19 +55,19 @@
             <div class="hearder_input">
                 <div class="hearder_input_font">
                     <p class="oth">
-                        <a href="">招商项目</a>
+                        <a href="${pageContext.request.contextPath}/frontend/project/project?type=1">招商项目</a>
                     </p>
                     <p class="oth">
-                        <a href="">招商政策</a>
+                        <a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a>
                     </p>
                     <p class="oth">
-                        <a href="">招商活动</a>
+                        <a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a>
                     </p>
                 </div>
                 <div class="hearder_input_box">
                     <input id="searchInput" type="text"  placeholder="请输入项目名称" />
-                    <p class="oth">
-                 	<a href="javascript:;" id="search">搜索</a>
+                    <p class="oth" id="search">
+                 	<a href="javascript:;">搜索</a>
 					</p>
                 </div>
             </div>
