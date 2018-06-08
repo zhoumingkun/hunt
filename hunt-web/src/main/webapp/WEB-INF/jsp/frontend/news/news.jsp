@@ -35,6 +35,23 @@
                     <span>新闻动态</span>
                 </p>
                 <ul>
+                   <c:choose>
+                       <c:when test="${ids == 4 }">
+	                        <li>
+	                        <a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a>
+		                    </li>
+		                    <li>
+		                        <a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a>
+		                    </li>
+		                    <li>
+		                        <a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a>
+		                    </li>
+		                    <li class="current">
+		                        <a id="AAA">网站公告</a>
+		                    </li>
+                       </c:when>
+                   
+                   <c:otherwise>
                     <li class="current">
                         <a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a>
                     </li>
@@ -44,6 +61,11 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a>
                     </li>
+                    <li>
+                        <a id="AAA">网站公告</a>
+                    </li>
+                   </c:otherwise>
+                   </c:choose>
                 </ul>
             </div>
                 <div class="phone" style="background-image:url(${pageContext.request.contextPath}/static/image/all/phone.png);">
@@ -86,7 +108,14 @@
         <div class="right">
     <!-- 右边标题开始 -->
             <p class="title">
-                <span>新闻动态</span>
+               <c:choose>
+                  <c:when test="${ids == 4 }">
+                      <span>网站公告</span>
+                  </c:when>
+                  <c:otherwise>
+               		 <span>新闻动态</span>
+                  </c:otherwise>
+               </c:choose>
             </p>
     <!-- 右边标题结束 -->
     <!-- 右边主体开始 -->
@@ -142,29 +171,78 @@
                 
             </div>
             <script>
-            $('.pagingwrap').lemonPaging({
-             'url':"${pageContext.request.contextPath}/frontend/news/data?state=2",//ajax请求地址为空时不发送ajax
-             /* 'total':217,//总数据条数*/
-             'page_size':10,//每页数据条数
-             'pages':7,//分页可显示页码数量 
-             'pre_next':'true',//默认显示上一页下一页
-             'searchable':'false',//默认带跳转输入框
-             'successcallback':function(data,current_page){
-                 console.log(data,current_page);
-                 var str = '';
-                 $("#content").empty();
-                 $.each(data.rows,function(i,news){
-                	 var path =  "${pageContext.request.contextPath}/frontend/news/details?id="+news.id;
-                	 str+='<li><a href="'+path+'">'+news.newsName+'</a><span class="updatatime">'+news.updateTime+'</span></li>';
-                 })
-                $("#content").html(str);
-             },//列表数据填充容器
-             'errorcallback':function(data,current_page){
-                 console.log(data,current_page);
-             },//列表数据填充容器
-            })
+            if(${ids == 4}){
+            	$('.pagingwrap').lemonPaging({
+                    'url':"${pageContext.request.contextPath}/frontend/proclamation/data?state=2",//ajax请求地址为空时不发送ajax
+                    /* 'total':217,//总数据条数*/
+                    'page_size':10,//每页数据条数
+                    'pages':7,//分页可显示页码数量 
+                    'pre_next':'true',//默认显示上一页下一页
+                    'searchable':'false',//默认带跳转输入框
+                    'successcallback':function(data,current_page){
+                        console.log(data,current_page);
+                        var str = '';
+                        $("#content").empty();
+                        $.each(data.rows,function(i,proclamation){
+                       	 var path =  "${pageContext.request.contextPath}/frontend/proclamation/details?id="+proclamation.id;
+                       	 str+='<li><a href="'+path+'">'+proclamation.proclamationName+'</a><span class="updatatime">'+proclamation.createTime+'</span></li>';
+                        })
+                       $("#content").html(str);
+                    },//列表数据填充容器
+                    'errorcallback':function(data,current_page){
+                        console.log(data,current_page);
+                    },//列表数据填充容器
+                   })
+            }else{
+	            $('.pagingwrap').lemonPaging({
+	             'url':"${pageContext.request.contextPath}/frontend/news/data?state=2",//ajax请求地址为空时不发送ajax
+	             /* 'total':217,//总数据条数*/
+	             'page_size':10,//每页数据条数
+	             'pages':7,//分页可显示页码数量 
+	             'pre_next':'true',//默认显示上一页下一页
+	             'searchable':'false',//默认带跳转输入框
+	             'successcallback':function(data,current_page){
+	                 console.log(data,current_page);
+	                 var str = '';
+	                 $("#content").empty();
+	                 $.each(data.rows,function(i,news){
+	                	 var path =  "${pageContext.request.contextPath}/frontend/news/details?id="+news.id;
+	                	 str+='<li><a href="'+path+'">'+news.newsName+'</a><span class="updatatime">'+news.createTime+'</span></li>';
+	                 })
+	                $("#content").html(str);
+	             },//列表数据填充容器
+	             'errorcallback':function(data,current_page){
+	                 console.log(data,current_page);
+	             },//列表数据填充容器
+	            })
+            }
         </script>
     <!-- 右边分页结束 -->
+    <script type="text/javascript">
+    $("#AAA").on("click",function() {
+   	 $('.pagingwrap').lemonPaging({
+            'url':"${pageContext.request.contextPath}/frontend/proclamation/data?state=2",//ajax请求地址为空时不发送ajax
+            /* 'total':217,//总数据条数*/
+            'page_size':10,//每页数据条数
+            'pages':7,//分页可显示页码数量 
+            'pre_next':'true',//默认显示上一页下一页
+            'searchable':'false',//默认带跳转输入框
+            'successcallback':function(data,current_page){
+                console.log(data,current_page);
+                var str = '';
+                $("#content").empty();
+                $.each(data.rows,function(i,proclamation){
+               	 var path =  "${pageContext.request.contextPath}/frontend/proclamation/details?id="+proclamation.id;
+               	 str+='<li><a href="'+path+'">'+proclamation.proclamationName+'</a><span class="updatatime">'+proclamation.createTime+'</span></li>';
+                })
+               $("#content").html(str);
+            },//列表数据填充容器
+            'errorcallback':function(data,current_page){
+                console.log(data,current_page);
+            },//列表数据填充容器
+           })
+    });
+    </script>
         </div>
     <!-- 右边结束 -->
     </div>

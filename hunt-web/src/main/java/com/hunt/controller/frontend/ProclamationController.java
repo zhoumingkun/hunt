@@ -2,13 +2,18 @@ package com.hunt.controller.frontend;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hunt.frontend.service.ProclamationService;
+import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Policy;
 import com.hunt.model.entity.Proclamation;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -89,5 +94,31 @@ public class ProclamationController{
 	@RequestMapping(value = "findAll", method = RequestMethod.POST)
 	public List<Proclamation> findAll() {
 		return proclamationService.findAll();
+	}
+	
+	/**
+	 * 分页查询 --前台
+	 * 
+	 * @param  page 当前页  state 状态
+	 * @return pageInfo
+	 */
+	@ResponseBody
+	@RequestMapping(value = "data", method = RequestMethod.GET)
+	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) {
+			PageInfo pageInfo = proclamationService.findPage(page,state);
+			return pageInfo;
+	}
+	
+	/**
+	 * 根据ID查询
+	 * 
+	 * @param List<Proclamation>
+	 * @return Result
+	 */
+	@ResponseBody
+	@RequestMapping(value = "findById", method = RequestMethod.POST)
+	public Proclamation findById(int id) {
+		Proclamation proclamation = proclamationService.findById(id);
+		return proclamation;
 	}
 }

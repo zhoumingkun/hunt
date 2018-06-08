@@ -40,6 +40,9 @@
 	             <c:when test="${module == 'news' }">
 	             		新闻动态
 	             </c:when>
+	             <c:when test="${module == 'proclamation' }">
+	             		新闻动态
+	             </c:when>
 	             <c:when test="${module == 'activity' }">
 	             		招商活动
 	             </c:when>
@@ -83,6 +86,9 @@
 	             <c:when test="${module == 'news' }">
 	             		新闻动态
 	             </c:when>
+	             <c:when test="${module == 'proclamation' }">
+	             		新闻动态
+	             </c:when>
 	             <c:when test="${module == 'activity' }">
 	             		招商活动
 	             </c:when>
@@ -121,6 +127,12 @@
                        		<li class="current"><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
                     		<li><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
                     		<li><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                       </c:when>
+                        <c:when test="${module == 'proclamation' }">
+                       		<li><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
+                    		<li><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                       		<li class="current"><a href="${pageContext.request.contextPath}/frontend/news/news?ids=4">网站公告</a></li>
                        </c:when>
                        <c:when test="${module == 'policy' }">
                        		<li><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
@@ -257,6 +269,10 @@
              		<p class="title"><span>投资指南</span>
 		            </p>
               </c:when>
+               <c:when test="${module == 'proclamation' }">
+             		<p class="title"><span>网站公告</span>
+		            </p>
+              </c:when>
             </c:choose>
             <!-- 右边标题结束 -->
             <!-- 右边主体开始 -->
@@ -365,6 +381,13 @@
 	                  $("image").html('<img src="'+data.image+'" alt="">');
 	                  $("#title").html("<span>"+data.guideName+"</span>");
 					  $("#content").html("<P>"+data.guideContent+"<P>");
+			    });
+		     }
+			//网站公告
+			 else if("${module}" == "proclamation"){
+                 $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
+	                  $("#title").html("<span>"+data.proclamationName+"</span>");
+					  $("#content").html("<P>"+data.proclamationContent+"<P>");
 			    });
 		     }
 	  }

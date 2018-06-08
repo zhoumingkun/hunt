@@ -121,8 +121,8 @@
 							ResultSet proclamation = st.executeQuery("SELECT * FROM tbl_proclamation where state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proclamation.next()) {
 						%>
-						<li><a href=""> <span>·</span>
-								<p class="oth"><%=proclamation.getString("proclamationName")%></p>
+						<li><a href="${pageContext.request.contextPath}/frontend/proclamation/details?id=<%=proclamation.getInt("id") %>"> 
+						<span>·</span><p class="oth"><%=proclamation.getString("proclamationName")%></p>
 						</a></li>
 						<%
 							}
