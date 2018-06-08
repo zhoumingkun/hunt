@@ -119,7 +119,7 @@
                      $("#content").empty();
                      $.each(data.rows,function(i,policy){
                     	 var path =  "${pageContext.request.contextPath}/frontend/policy/details?id="+policy.id;
-                    	 str+='<li><a href="'+path+'">'+policy.policyName+'</a><span class="updatatime">'+policy.updateTime+'</span></li>';
+                    	 str+='<li><a href="'+path+'">'+policy.policyName+'</a><span class="updatatime">'+policy.createTime+'</span></li>';
                      })
                     $("#content").html(str);
                  },//列表数据填充容器
