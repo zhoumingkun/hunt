@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>娄烦招商引资-招商政策</title>
+    <title>娄烦招商引资-搜索结果</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/newsInformation/newsInformation.css">
     <script src="${pageContext.request.contextPath}/static/js/jquery1.7/jQuery1.7.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/paging/paging.js"></script>
@@ -21,7 +21,7 @@
             <span>您当前所在位置:</span>        
             <a href="${pageContext.request.contextPath}/frontend/index">首页</a>
             <span class="breadcrumbIcon2" style="background-image:url(${pageContext.request.contextPath}/static/image/all/breadicon2.png);"></span>
-            <a href="${pageContext.request.contextPath}/frontend/policy/policy" class="current">搜索结果</a>
+            <a href="${pageContext.request.contextPath}/frontend/search/search" class="current">搜索结果</a>
         </p>
     </div>
     <!-- 面包屑结束 -->
@@ -31,7 +31,7 @@
         <div class="left">
     <!-- 左边侧导航开始 -->
             <div class="asideNav">
-                <p class="title"  style="background-image:url(../../assets/images/all/asideNavtitle.png);">
+                <p class="title"  style="background-image:url(../../image/all/asideNavtitle.png);">
                     <span>招商政策</span>
                 </p>
             </div>
@@ -47,26 +47,18 @@
                 <p class="title" style="background-image:url(${pageContext.request.contextPath}/static/image/all/asideNavtitle.png);">
                     <span>推荐项目</span>
                 </p>
-                <ul>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目具体实施细则</a>
-                    </li>
-                    <li>
-                        <a href="">小时贷关于近期平台系统充值</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                    <li>
-                        <a href="">娄烦县开通大厦写字楼招商项目</a>
-                    </li>
-                </ul>
+                <ul >
+    			<%
+ 						ResultSet rs = st
+ 								.executeQuery("SELECT * FROM tbl_project where state = 2 ORDER BY createTime DESC LIMIT 10");
+  						while (rs.next()) {
+  					%>
+
+				<li><a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=rs.getInt("id") %>&type=<%=rs.getInt("type") %>""><%=rs.getString("projectName")%></a></li>
+  					<%
+  						}
+  					%>
+								</ul>
             </div>
     <!-- 左边推荐结束 -->
         </div>
@@ -80,8 +72,8 @@
     <!-- 右边标题结束 -->
     <!-- 右边主体开始 -->
             <div class="main">
-                <ul id="content">
     <!-- 内容看着填吧 -->
+                <ul id="content">
                 </ul>
     <!-- 内容填充完毕 -->
             </div>
@@ -91,8 +83,9 @@
                 
             </div>
             <script>
+            	/* var projectName =${projectName}; */
             $('.pagingwrap').lemonPaging({
-                'url':"${pageContext.request.contextPath}/frontend/policy/data?state=2",//ajax请求地址为空时不发送ajax
+                'url':"${pageContext.request.contextPath}/frontend/project/findByName?state=2&projectName="+"222222",//ajax请求地址为空时不发送ajax
                 /* 'total':217,//总数据条数*/
                 'page_size':10,//每页数据条数
                 'pages':7,//分页可显示页码数量 
@@ -102,17 +95,20 @@
                     console.log(data,current_page);
                     var str = '';
                     $("#content").empty();
-                    $.each(data.rows,function(i,policy){
-                   	 var path =  "${pageContext.request.contextPath}/frontend/policy/details?id="+policy.id;
-                   	 str+='<li><a href="'+path+'">'+policy.policyName+'</a><span class="updatatime">'+policy.updateTime+'</span></li>';
+                    $.each(data.rows,function(i,project){
+                    	 console.log(data.rows);
+                   	 var path =  "${pageContext.request.contextPath}/frontend/project/details?id="+project.id+"&type="+project.type;
+                   	 str+='<li><a href="'+path+'">'+project.projectName+'</a><span class="updatatime">'+project.createTime+'</span></li>';
                     })
+                    console.log(str);
                    $("#content").html(str);
                 },//列表数据填充容器
                 'errorcallback':function(data,current_page){
                     console.log(data,current_page);
                 },//列表数据填充容器
                })
-            </script>
+               
+       </script>
    <!-- 右边分页结束 -->
         </div>
     <!-- 右边结束 -->

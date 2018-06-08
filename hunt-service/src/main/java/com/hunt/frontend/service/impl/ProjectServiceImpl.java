@@ -27,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public void save(Project project) {
 		// TODO Auto-generated method stub
-		projectMapper.update(project);
+		projectMapper.save(project);
 	}
 
 	@Override
@@ -61,5 +61,17 @@ public class ProjectServiceImpl implements ProjectService{
 		 List<Project> list = projectMapper.findAllByState(state,type);
 		return new PageInfo(count, list);
 	}
-	
+
+	@Override
+	public PageInfo findByName(int page, int state, String name) {
+		// TODO Auto-generated method stub 
+			 int count = projectMapper.findCountByName(state,name);
+			 PageHelper.startPage(page, 10);
+			 List<Project> list = projectMapper.findByName(state,name);
+			return  new PageInfo(count,list);
+	}
+
 }
+
+	
+

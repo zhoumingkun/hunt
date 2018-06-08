@@ -16,10 +16,6 @@
 		select * from tbl_project where id = #{id}
 	</select>
 	
-	<!-- 查询某个记录 根据项目名称-->
-	<select id="findByprojectName" parameterType="String" resultType="Project">
-		select * from tbl_project where projectName = #{projectName}
-	</select>
 	
 	<!-- 查询全部记录  -->
 	<select id="findAll" resultType="Project" parameterType="Map">
@@ -108,6 +104,31 @@
 		<if test="type != null">
 		 and type = #{type,jdbcType=INTEGER}
 		</if>
+	</select>
+	
+	
+	<!-- 根据项目名称查询数量 -->
+	<select id="findCountByName"  resultType="java.lang.Integer">
+		select count(*) from tbl_project where 1= 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		<if test="projectName != null and projectName != ''">
+		  and projectName like '${projectName}'
+		</if>
+	</select>
+	
+	
+	<!-- 查询所有根据项目名称和状态-->
+	<select id="findByName"  resultType="Project">
+		SELECT * FROM tbl_project where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		<if test="projectName != null and projectName != ''">
+		 and projectName like '${projectName}'
+		</if>
+		 order by createTime desc
 	</select>
 	
 	<!--查询全部根据状态与类型查询  -->

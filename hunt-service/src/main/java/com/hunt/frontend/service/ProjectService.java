@@ -32,5 +32,9 @@ public interface ProjectService {
 
 	    //前台分页查询
 		public PageInfo findPage(int page, int state, int type);
+		
+		
+		//通过projectName进行查询
+	    public PageInfo findByName(int page, int state, String name);
 
 }

@@ -44,6 +44,9 @@ public class IndexController {
 			if (!StringUtils.isEmpty(request.getParameter("type"))) {
 				mv.addObject("type", request.getParameter("type"));
 			}
+			if (!StringUtils.isEmpty(request.getParameter("projectName"))) {
+				mv.addObject("projectName", request.getParameter("projectName"));
+			}
 		}
 		return mv;
 	}

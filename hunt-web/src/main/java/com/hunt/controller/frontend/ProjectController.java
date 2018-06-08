@@ -3,17 +3,14 @@ package com.hunt.controller.frontend;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.hunt.frontend.service.ProjectService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Project;
@@ -92,8 +89,38 @@ public class ProjectController {
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
 	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "type") int type) {
+//		String projectName = request.getParameter("projectName");
+//		if(projectName!=null && !"".equals(projectName)){
+//			PageInfo pageInfo =projectService.findByName(page,state,projectName);
+//			   return pageInfo;
+//		}else{
 			PageInfo pageInfo = projectService.findPage(page,state,type);
 			return pageInfo;
-	}
+		}
+		
+//	}
+	
+	@ResponseBody
+	@RequestMapping(value = "findByName", method = RequestMethod.GET)
+	public PageInfo findByName(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state)  {
+		   String projectName = request.getParameter("projectName");
+		   if(projectName!=null && !"".equals(projectName)){
+			   PageInfo pageInfo = projectService.findByName(page,state,projectName);
+			   return pageInfo;
+		   }
+		   else{
+//			   projectName = URLDecoder.decode(projectName,"UTF-8");
+			   PageInfo pageInfo  = projectService.findByName(page,state,projectName);
+			   return pageInfo;
+				   
 
-}
+		   	}
+   }
+		
+		
+	}
+	
+
+
+
+
