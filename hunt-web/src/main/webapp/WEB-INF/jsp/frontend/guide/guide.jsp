@@ -113,7 +113,7 @@
                  $("#content").empty();
                  $.each(data.rows,function(i,guide){
                 	 var path =  "${pageContext.request.contextPath}/frontend/guide/details?id="+guide.id;
-                	 str+='<li><a href="'+path+'">'+guide.guideName+'</a><span class="updatatime">'+guide.updateTime+'</span></li>';
+                	 str+='<li><a href="'+path+'">'+guide.guideName+'</a><span class="updatatime">'+guide.createTime+'</span></li>';
                  })
                 $("#content").html(str);
              },//列表数据填充容器

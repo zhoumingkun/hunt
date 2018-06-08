@@ -29,4 +29,27 @@
 	<select id="findAll" resultType="Proclamation">
 		select * from tbl_proclamation
 	</select>
+	
+	<!-- 查询总数 -->
+	<select id="findCount" parameterType="int" resultType="java.lang.Integer">
+		select Count(*) from tbl_proclamation  where 1 = 1
+		<if test="state != null">
+		   and state = #{state}
+		</if>
+		order by createTime desc
+	</select>
+	
+	<!--查询全部根据状态与行业查询  -->
+	<select id="findAllByState" parameterType="int" resultType="Proclamation">
+		select * from tbl_proclamation where 1 = 1
+		<if test="state != null">
+		 and state = #{state}
+		</if>
+		order by createTime desc
+	</select>
+	
+	<!-- 根据ID查询 -->
+	<select id="findById" parameterType="int" resultType="Proclamation">
+		select * from tbl_proclamation  where id = #{id}
+	</select>
 </mapper>

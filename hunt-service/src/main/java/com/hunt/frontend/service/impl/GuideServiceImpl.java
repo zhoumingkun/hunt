@@ -27,7 +27,7 @@ public class GuideServiceImpl implements GuideService{
 	@Override
 	public void save(Guide guide) {
 		// TODO Auto-generated method stub
-		guideMapper.update(guide);
+		guideMapper.save(guide);
 	}
 
 	@Override

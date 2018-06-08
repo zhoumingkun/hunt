@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -75,13 +77,14 @@ public abstract class AbstractModel implements Serializable{
 		this.author = author;
 	}
 
-
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	public Date getCreateTime() {
 		return createTime;
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	public Date getUpdateTime() {
 		return updateTime;
 	}

@@ -2,6 +2,8 @@ package com.hunt.frontend.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hunt.model.entity.Proclamation;
 
 
@@ -22,4 +24,13 @@ public interface ProclamationMapper {
 
 	// 查询全部
 	public List<Proclamation> findAll();
+
+	//根据状态查询数量
+	public int findCount(@Param("state") int state);
+
+	//根据状态查询分页数据
+	public List<Proclamation> findAllByState(@Param("state") int state);
+
+	//根据ID查询
+	public Proclamation findById(int id);
 }

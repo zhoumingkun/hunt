@@ -1,27 +1,19 @@
 package com.hunt.model.entity;
 
 import java.util.Date;
+
+import com.hunt.model.AbstractModel;
 /**
  * 
  *招商项目实体类
  * @Author: zmk
  * @Date : 2018/5/30
  */
-public class Project {
-	private int id;                    //ID
+public class Project extends AbstractModel{
 	private String projectName;        //项目名称
 	private String projectContent;     //项目描述
-	private String author;             //作者
-	private Date createTime;           //创建时间
-	private Date updateTime;           //修改时间
 	private int type;                 //项目类型（工业类，农业类，商贸物流类，文化旅游类，金融及交通类设施，城市公用设施）
 	private int state;                 //状态（-1，未发布，1，已发布，2，推广 ，3，重点项目）
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getProjectName() {
 		return projectName;
 	}
@@ -34,25 +26,6 @@ public class Project {
 	public void setProjectContent(String projectContent) {
 		this.projectContent = projectContent;
 	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-	
 	public int getType() {
 		return type;
 	}

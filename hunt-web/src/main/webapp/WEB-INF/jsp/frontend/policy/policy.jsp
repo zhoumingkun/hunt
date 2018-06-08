@@ -45,6 +45,9 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a>
                     </li>
+                     <li>
+                        <a href="${pageContext.request.contextPath}/frontend/news/news?ids=4">招商活动</a>
+                    </li>
                 </ul>
             </div>
                 <div class="phone" style="background-image:url(${pageContext.request.contextPath}/static/image/all/phone.png);">
@@ -116,7 +119,7 @@
                      $("#content").empty();
                      $.each(data.rows,function(i,policy){
                     	 var path =  "${pageContext.request.contextPath}/frontend/policy/details?id="+policy.id;
-                    	 str+='<li><a href="'+path+'">'+policy.policyName+'</a><span class="updatatime">'+policy.updateTime+'</span></li>';
+                    	 str+='<li><a href="'+path+'">'+policy.policyName+'</a><span class="updatatime">'+policy.createTime+'</span></li>';
                      })
                     $("#content").html(str);
                  },//列表数据填充容器
