@@ -71,7 +71,7 @@ public class GuideController {
 	 }
 	 
 	 @ResponseBody
-	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
+	 @RequestMapping(value = "findAll", method = RequestMethod.POST)
 	 public List<Guide> findAll() {
 	        List<Guide> list = guideService.findAll();
 	        return list;

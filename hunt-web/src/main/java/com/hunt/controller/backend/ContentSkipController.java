@@ -99,4 +99,28 @@ public class ContentSkipController {
     public String project() {
         return "backend/content/project";
     }
+    
+    /**
+     * 企业管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至企业管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "enterprise", method = RequestMethod.GET)
+    public String enterprise() {
+        return "backend/content/enterprise";
+    }
+    
+    /**
+     * 指南管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至指南管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "guide", method = RequestMethod.GET)
+    public String guide() {
+        return "backend/content/guide";
+    }
 }

@@ -1,17 +1,17 @@
-project_tool = {
+enterprise_tool = {
     form_clear: function () {
-        $("#project_edit_form").form("clear");
-        $("#project_grid").datagrid("uncheckAll");
+        $("#enterprise_edit_form").form("clear");
+        $("#enterprise_grid").datagrid("uncheckAll");
     },
     //初始化页面+加载数据
     init_main_view: function () {
-        $("#project_grid").datagrid({
-            url: getRootPath() + "/frontend/project/findAll",
+        $("#enterprise_grid").datagrid({
+            url: getRootPath() + "/frontend/enterprise/findAll",
             method: 'post',
             idField: "id",
             treeField: 'name',
             fitColumns: true,
-            toolbar: '#project-tool-bar',
+            toolbar: '#enterprise-tool-bar',
             rownumbers: true,
             animate: true,
             singleSelect: true,
@@ -25,23 +25,8 @@ project_tool = {
             pageList: [15, 30, 45, 60],
             columns: [[
                 {title: "选择", field: "ck", checkbox: true},
-                {title: "招商项目名称", field: "projectName", width: 300},
-                {title: "作者", field: "author", width: 200},
-                {title: "项目类型", field:"type",formatter: function(value) {
-                	if(value == 1) {
-                		return "工业类";
-                	} else if(value == 2){
-                		return "农业类";
-                	} else if(value == 3) {
-                		return "商贸物流类";
-                	} else if(value == 4) {
-                		return "文化旅游类";
-                	} else if(value == 5) {
-                		return "金融及交通类设施";
-                	} else if(value == 6) {
-                		return "城市公用设施";
-                	}
-                },width:400},
+                {title: "企业名称", field: "enterpriseName", width: 300},
+                {title: "作者", field: "author", width: 400},
                 {title: "状态", field:"state",formatter: function(value) {
                 	if(value == -1) {
                 		return "未发布";
@@ -49,8 +34,6 @@ project_tool = {
                 		return "已发布";
                 	} else if(value == 2) {
                 		return "推广";
-                	} else if(value == 3) {
-                		return "重点项目";
                 	}
                 },width:100},
                 {
@@ -67,62 +50,62 @@ project_tool = {
         });
     },
     delete: function () {
-        if ($("#project_grid").datagrid("getChecked").length == 0) {
+        if ($("#enterprise_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
         }
-        var projectId = $("#project_grid").datagrid("getChecked")[0].id;
+        var enterpriseId = $("#enterprise_grid").datagrid("getChecked")[0].id;
         $.ajax({
             data: {
-                id: projectId,
+                id: enterpriseId,
             },
             traditional: true,
             method: 'post',
-            url: getRootPath() + '/frontend/project/delete',
+            url: getRootPath() + '/frontend/enterprise/delete',
             async: false,
             dataType: 'json',
             success: function (result) {
                 if (result.code == 10000) {
-                    project_tool.init_main_view();
+                    enterprise_tool.init_main_view();
                     common_tool.messager_show(result.msg);
                     return false;
                 }
                 else {
                     common_tool.messager_show(result.msg);
                 }
-                project_tool.form_clear();
-                project_tool.init_main_view();
+                enterprise_tool.form_clear();
+                enterprise_tool.init_main_view();
             },
         });
     },
     saveOrUpdate: function (id) {
-        if (!$("#projectName").val()) {
-            common_tool.messager_show("请输入招商活动名称");
+        if (!$("#enterpriseName").val()) {
+            common_tool.messager_show("请输入企业名称");
         } else if (!$("#author").val()) {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
-            common_tool.messager_show("请输入招商活动内容");
+            common_tool.messager_show("请输入企业内容");
         } else {
-            var projectName = $("#projectName").val();
+            var enterpriseName = $("#enterpriseName").val();
             var author = $("#author").val();
             var state = $("#state option:selected").val();
-            var type = $("#type option:selected").val();
-            var projectContent = editor.html();
+            var enterpriseContent = editor.html();
+            var trade = $("trade option:selected").val();
             var data = {};
-            if(id == 0) {
-            	var url = getRootPath() + '/frontend/project/save';
-            	data.projectName = projectName;
+            if(!id) {
+            	var url = getRootPath() + '/frontend/enterprise/save';
+            	data.enterpriseName = enterpriseName;
             	data.author = author;
             	data.state = state;
-            	data.type = type;
-            	data.projectContent = projectContent;
+            	data.enterpriseContent = enterpriseContent;
+            	data.trade = trade;
             } else {
-            	var url = getRootPath() + '/frontend/project/update';
+            	var url = getRootPath() + '/frontend/enterprise/update';
             	data.id = id;
-            	data.projectName = projectName;
+            	data.enterpriseName = enterpriseName;
             	data.author = author;
             	data.state = state;
-            	data.type = type;
-            	data.projectContent = projectContent;
+            	data.enterpriseContent = enterpriseContent;
+            	data.trade = trade;
             }
             $.ajax({
                 data: data,
@@ -132,8 +115,8 @@ project_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-                	project_tool.form_clear();
-                    project_tool.init_main_view();
+                	enterprise_tool.form_clear();
+                    enterprise_tool.init_main_view();
                 	$('.pagewrap').hide();
                 },
             });
@@ -141,60 +124,60 @@ project_tool = {
     },
 };
 $(document).ready(function () {
-    project_tool.init_main_view();
-    $("#project-select-btn").click(function () {
-        project_tool.init_main_view();
+    enterprise_tool.init_main_view();
+    $("#enterprise-select-btn").click(function () {
+        enterprise_tool.init_main_view();
         $('.pagewrap').hide();
     });
 
-    $("#project-save-btn").click(function () {
-        /*project_tool.init_edit_view(1);*/
+    $("#enterprise-save-btn").click(function () {
+        /*enterprise_tool.init_edit_view(1);*/
         $('.pagewrap').show();
-        $("#projectName").val('');
+        $("#enterpriseName").val('');
         $("#state").val(-1);
-        $("#type").val(1);
     	$("#author").val('');
+    	$("#trade").val("农、林、牧、渔业");
     	editor.html('');
     });
 
-    $("#project-update-btn").click(function () {
-        if ($("#project_grid").datagrid("getChecked").length == 0) {
+    $("#enterprise-update-btn").click(function () {
+        if ($("#enterprise_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         } else {
         	$('.pagewrap').show();
-        	var data = $("#project_grid").datagrid("getChecked")[0];
-        	$("#projectName").val(data.projectName);
+        	var data = $("#enterprise_grid").datagrid("getChecked")[0];
+        	$("#enterpriseName").val(data.enterpriseName);
         	$("#author").val(data.author);
         	$("#state").val(data.state);
-        	$("#type").val(data.type);
-        	editor.html(data.projectContent);
+        	$("#trade").val(data.trade);
+        	editor.html(data.enterpriseContent);
         }
 
     });
-    $("#projectSubmit").click(function () {
+    $("#enterpriseSubmit").click(function () {
     	var id;
-    	if ($("#project_grid").datagrid("getChecked").length == 0) {
+    	if ($("#enterprise_grid").datagrid("getChecked").length == 0) {
     		id = 0;
     	} else {
-    		id = $("#project_grid").datagrid("getChecked")[0].id;
+    		id = $("#enterprise_grid").datagrid("getChecked")[0].id;
     	}
-    	project_tool.saveOrUpdate(id);
+    	enterprise_tool.saveOrUpdate(id);
     })
-    $("#project-delete-btn").click(function () {
+    $("#enterprise-delete-btn").click(function () {
         $('.pagewrap').hide();
-        if ($("#project_grid").datagrid("getChecked").length == 0) {
+        if ($("#enterprise_grid").datagrid("getChecked").length == 0) {
             common_tool.messager_show("请选择一条记录");
             return false;
         }
         $.messager.confirm('确认对话框', "您确认删除该条记录吗?", function (r) {
             if (r) {
-                project_tool.delete();
+                enterprise_tool.delete();
             }
         });
     });
-    $("#project-select-btn ").click(function () {
-        project_tool.form_clear();
-        project_tool.init_main_view();
+    $("#enterprise-select-btn ").click(function () {
+        enterprise_tool.form_clear();
+        enterprise_tool.init_main_view();
     });
 })

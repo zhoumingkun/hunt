@@ -18,7 +18,7 @@
 
 <div class="pagewrap" >
 	<div class="rowz">
-		<div class="label">活动名称：</div>
+		<div class="label">项目名称：</div>
 		<div class="contentz">
 			<input type="text" class="colortitle" id="projectName" value="">
 			<div class="colorbtn">

@@ -27,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public void save(Project project) {
 		// TODO Auto-generated method stub
-		projectMapper.update(project);
+		projectMapper.save(project);
 	}
 
 	@Override

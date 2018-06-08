@@ -201,7 +201,7 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/system/log">系统日志
+                                 href="${pageContext.request.contextPath}/content/enterprise">企业管理
                             </div>
                         </li>
                     </div>
@@ -210,27 +210,11 @@
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">
                             <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/system/ip">IP访问限制
+                                 href="${pageContext.request.contextPath}/content/guide">指南管理
                             </div>
                         </li>
                     </div>
                 </shiro:hasPermission>
-                <shiro:hasPermission name="db:select">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/druid/index.html">数据库监控
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <div style="padding: 5px 10px;">
-                    <li class="nav-list">
-                        <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                             href="${pageContext.request.contextPath}/swagger-ui.html">接口文档
-                        </div>
-                    </li>
-                </div>
             </ul>
         </div>
     </div>
