@@ -45,6 +45,9 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a>
                     </li>
+                     <li>
+                        <a href="${pageContext.request.contextPath}/frontend/news/news?ids=4">招商活动</a>
+                    </li>
                 </ul>
             </div>
                 <div class="phone" style="background-image:url(${pageContext.request.contextPath}/static/image/all/phone.png);">
