@@ -53,8 +53,8 @@
 	<!-- 通用的设置条件的查询SQL语句 -->
 	<sql id="paramsSQL">
 		<where>
-		    <if test=" projectNameLike != null and activityNameLike != '' ">
-				and projectName like concat(concat('%', #{activityNameLike, jdbcType=VARCHAR}),'%') 
+		    <if test=" projectNameLike != null and projectNameLike != '' ">
+				and projectName like concat(concat('%', #{projectNameLike, jdbcType=VARCHAR}),'%') 
 			</if>
 			<if test="projectName != null and projectName != ''">
 				and projectName = #{projectName}

@@ -38,6 +38,10 @@
 		
 		$("#search").on("click",function() {
 			var projectName = $("#searchInput").val();
+			if(projectName == ""  ){
+			     alert("请输入搜索信息");
+			     return false;
+			   }
 			window.location.href = "${pageContext.request.contextPath}/frontend/search/search?projectName="+encodeURI(encodeURI(projectName));
 		});
 	});
