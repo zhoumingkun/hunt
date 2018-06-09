@@ -114,7 +114,7 @@
 		 and state = #{state}
 		</if>
 		<if test="projectName != null and projectName != ''">
-		  and projectName like '${projectName}'
+		  and projectName like '%${projectName}%'
 		</if>
 	</select>
 	
@@ -126,7 +126,7 @@
 		 and state = #{state}
 		</if>
 		<if test="projectName != null and projectName != ''">
-		 and projectName like '${projectName}'
+		 and projectName like '%${projectName}%'
 		</if>
 		 order by createTime desc
 	</select>

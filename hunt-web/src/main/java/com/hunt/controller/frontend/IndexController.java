@@ -1,5 +1,8 @@
 package com.hunt.controller.frontend;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
@@ -24,7 +27,7 @@ import io.swagger.annotations.ApiOperation;
 public class IndexController {
 	
 	@RequestMapping(value = "/{module}/{page}")
-	public ModelAndView page(@PathVariable String module, @PathVariable String page, HttpServletRequest request) {	
+	public ModelAndView page(@PathVariable String module, @PathVariable String page, HttpServletRequest request) throws UnsupportedEncodingException {	
 		ModelAndView mv;
 		if(page.equals("details")) {
 			mv = new ModelAndView("frontend/details/details");
@@ -45,7 +48,7 @@ public class IndexController {
 				mv.addObject("type", request.getParameter("type"));
 			}
 			if (!StringUtils.isEmpty(request.getParameter("projectName"))) {
-				mv.addObject("projectName", request.getParameter("projectName"));
+				mv.addObject("projectName", URLDecoder.decode(request.getParameter("projectName"),"UTF-8"));
 			}
 		}
 		return mv;

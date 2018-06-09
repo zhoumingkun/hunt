@@ -48,17 +48,18 @@
                     <span>推荐项目</span>
                 </p>
                 <ul >
-    			<%
+    				<%
  						ResultSet rs = st
  								.executeQuery("SELECT * FROM tbl_project where state = 2 ORDER BY createTime DESC LIMIT 10");
   						while (rs.next()) {
   					%>
-
-				<li><a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=rs.getInt("id") %>&type=<%=rs.getInt("type") %>""><%=rs.getString("projectName")%></a></li>
+						<li>
+						<a href="${pageContext.request.contextPath}/frontend/project/details?id=<%=rs.getInt("id") %>&type=<%=rs.getInt("type") %>""><%=rs.getString("projectName")%></a>
+						</li>
   					<%
   						}
   					%>
-								</ul>
+				</ul>
             </div>
     <!-- 左边推荐结束 -->
         </div>
@@ -83,9 +84,10 @@
                 
             </div>
             <script>
-            	/* var projectName =${projectName}; */
+           /*  console.log(${projectName}); */
+            var projectName ="${projectName}";
             $('.pagingwrap').lemonPaging({
-                'url':"${pageContext.request.contextPath}/frontend/project/findByName?state=2&projectName="+"222222",//ajax请求地址为空时不发送ajax
+                'url':"${pageContext.request.contextPath}/frontend/project/findByName?state=2&projectName="+encodeURI(encodeURI(projectName)),//ajax请求地址为空时不发送ajax
                 /* 'total':217,//总数据条数*/
                 'page_size':10,//每页数据条数
                 'pages':7,//分页可显示页码数量 
