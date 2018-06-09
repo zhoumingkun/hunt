@@ -30,11 +30,11 @@
     <!-- 左边开始 -->
         <div class="left">
     <!-- 左边侧导航开始 -->
-            <div class="asideNav">
+           <!--  <div class="asideNav">
                 <p class="title"  style="background-image:url(../../image/all/asideNavtitle.png);">
                     <span>招商政策</span>
                 </p>
-            </div>
+            </div> -->
                 <div class="phone" style="background-image:url(${pageContext.request.contextPath}/static/image/all/phone.png);">
                     <p>
                         <span class="text">招商联系电话</span>
