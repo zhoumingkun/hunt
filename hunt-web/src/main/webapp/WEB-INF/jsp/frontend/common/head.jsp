@@ -38,9 +38,7 @@
 		
 		$("#search").on("click",function() {
 			var projectName = $("#searchInput").val();
-				$.post("${pageContext.request.contextPath}/frontend/search/search",{"projectName" : projectName}, function(data) {
-
-				});
+			window.location.href = "${pageContext.request.contextPath}/frontend/search/search?projectName="+encodeURI(encodeURI(projectName));
 		});
 	});
 </script>
