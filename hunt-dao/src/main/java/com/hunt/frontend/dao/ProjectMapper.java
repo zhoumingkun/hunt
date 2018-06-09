@@ -37,7 +37,9 @@ public interface ProjectMapper {
 	//根据类型与状态查询
 	public List<Project> findAllByState(@Param("state") int state,@Param("type") int type);
     
-	
+	//根据名称与状态查询总数
 	public int findCountByName(@Param("state") int state,@Param("projectName") String projectName);
+	
+	//根据名称与状态查询（搜索）
 	public List<Project> findByName(@Param("state") int state,@Param("projectName") String projectName);
 }
