@@ -63,8 +63,8 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
+	//通过项目名称进行查询
 	public PageInfo findByName(int page, int state, String name) {
-		// TODO Auto-generated method stub 
 			 int count = projectMapper.findCountByName(state,name);
 			 PageHelper.startPage(page, 10);
 			 List<Project> list = projectMapper.findByName(state,name);

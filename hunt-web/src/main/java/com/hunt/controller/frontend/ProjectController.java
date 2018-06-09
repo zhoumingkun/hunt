@@ -16,23 +16,23 @@ import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Project;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
+
 /**
  * 
- *招商项目控制器
+ * 招商项目控制器
+ * 
  * @Author: zmk
  * @Date : 2018/5/30
  */
-
-
 
 @Controller
 @RequestMapping("frontend/project")
 public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
-	
+
 	@ResponseBody
-    @RequestMapping(value = "save", method = RequestMethod.POST)
+	@RequestMapping(value = "save", method = RequestMethod.POST)
 	public Result save(Project project) {
 		try {
 			projectService.save(project);
@@ -41,10 +41,11 @@ public class ProjectController {
 			e.printStackTrace();
 			return Result.error(ResponseCode.error.getMsg());
 		}
-	}	
+	}
+
 	@ResponseBody
-    @RequestMapping(value = "deleteById", method = RequestMethod.POST)
-    public Result deleteById(int id) {
+	@RequestMapping(value = "deleteById", method = RequestMethod.POST)
+	public Result deleteById(int id) {
 		try {
 			projectService.deleteById(id);
 			return Result.success();
@@ -52,11 +53,11 @@ public class ProjectController {
 			e.printStackTrace();
 			return Result.error(ResponseCode.error.getMsg());
 		}
-	}	
-	
+	}
+
 	@ResponseBody
-    @RequestMapping(value = "update", method = RequestMethod.POST)
-    public Result update(Project project) {
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public Result update(Project project) {
 		try {
 			projectService.update(project);
 			return Result.success();
@@ -64,63 +65,58 @@ public class ProjectController {
 			e.printStackTrace();
 			return Result.error(ResponseCode.error.getMsg());
 		}
-	}	
-	
-	 @ResponseBody
-	 @RequestMapping(value = "findById", method = RequestMethod.POST)
-	 public Project findById(int id) {
-		 return projectService.findById(id);
-	 }
-	 
-	 @ResponseBody
-	 @RequestMapping(value = "findAll", method = RequestMethod.POST)
-	 public List<Project> findAll() { 
-	        List<Project> list = projectService.findAll();
-	        return list;
-	    }
-	 
-	 
-	 /**
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "findById", method = RequestMethod.POST)
+	public Project findById(int id) {
+		return projectService.findById(id);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "findAll", method = RequestMethod.POST)
+	public List<Project> findAll() {
+		List<Project> list = projectService.findAll();
+		return list;
+	}
+
+	/**
 	 * 分页查询 --前台
 	 * 
-	 * @param  page 当前页  type 类型
+	 * @param page
+	 *            当前页 type 类型
 	 * @return pageInfo
 	 */
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
-	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "type") int type) {
-//		String projectName = request.getParameter("projectName");
-//		if(projectName!=null && !"".equals(projectName)){
-//			PageInfo pageInfo =projectService.findByName(page,state,projectName);
-//			   return pageInfo;
-//		}else{
-			PageInfo pageInfo = projectService.findPage(page,state,type);
-			return pageInfo;
-		}
-		
-//	}
-	
+	public PageInfo findPage(HttpServletRequest request, @RequestParam(value = "current_page") int page,
+			@RequestParam(value = "state") int state, @RequestParam(value = "type") int type) {
+		PageInfo pageInfo = projectService.findPage(page, state, type);
+		return pageInfo;
+	}
+
+	/**
+	 *  搜索查寻
+	 * @param request
+	 * @param page
+	 * @param state
+	 * @param projectName
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
 	@ResponseBody
 	@RequestMapping(value = "findByName", method = RequestMethod.GET)
-	public PageInfo findByName(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state)  {
-		   String projectName = request.getParameter("projectName");
-		   if(projectName!=null && !"".equals(projectName)){
-			   PageInfo pageInfo = projectService.findByName(page,state,projectName);
-			   return pageInfo;
-		   }
-		   else{
-//			   projectName = URLDecoder.decode(projectName,"UTF-8");
-			   PageInfo pageInfo  = projectService.findByName(page,state,projectName);
-			   return pageInfo;
-				   
-
-		   	}
-   }
-		
-		
+	public PageInfo findByName(HttpServletRequest request, @RequestParam(value = "current_page") int page,
+			@RequestParam(value = "state") int state) throws UnsupportedEncodingException {
+		String projectName = request.getParameter("projectName");
+		if (projectName != null && !"".equals(projectName)) {
+			projectName = URLDecoder.decode(projectName,"UTF-8");
+			PageInfo pageInfo = projectService.findByName(page, state, projectName);
+			return pageInfo;
+		} else {
+			PageInfo pageInfo = projectService.findByName(page, state, projectName);
+			return pageInfo;
+		}
 	}
-	
 
-
-
-
+}
