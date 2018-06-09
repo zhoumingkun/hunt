@@ -138,11 +138,13 @@
                        		<li><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
                     		<li class="current"><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
                     		<li><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                       		<li><a href="${pageContext.request.contextPath}/frontend/news/news?ids=4">网站公告</a></li>
                        </c:when>
                        <c:when test="${module == 'activity' }">
                        		<li><a href="${pageContext.request.contextPath}/frontend/news/news">新闻动态</a></li>
                     		<li><a href="${pageContext.request.contextPath}/frontend/policy/policy">招商政策</a></li>
                     		<li class="current"><a href="${pageContext.request.contextPath}/frontend/activity/activity">招商活动</a></li>
+                      		<li><a href="${pageContext.request.contextPath}/frontend/news/news?ids=4">网站公告</a></li>
                        </c:when>
                        <c:when test="${module == 'enterprise' }">
                     		<li class="current"><a href="${pageContext.request.contextPath}/frontend/enterprise/enterprise">企业展示</a></li>
