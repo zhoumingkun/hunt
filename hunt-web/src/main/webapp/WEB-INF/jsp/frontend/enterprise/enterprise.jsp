@@ -104,7 +104,7 @@
 	                 $("#content").empty();
 	                 $.each(data.rows,function(i,enterprise){
 	                	 var path =  "${pageContext.request.contextPath}/frontend/enterprise/details?id="+enterprise.id;
-						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(${pageContext.request.contextPath}'+enterprise.image+');"></div><div class="content">'+
+						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url('+enterprise.image+');"></div><div class="content">'+
 						 '<p class="title">'+enterprise.enterpriseName+'</p><p class="text">'+enterprise.enterpriseContent+'</p></div></a></li>'      
 	                 })
 	                $("#contents").html(str);
