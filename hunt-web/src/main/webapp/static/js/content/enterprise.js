@@ -89,7 +89,7 @@ enterprise_tool = {
             var author = $("#author").val();
             var state = $("#state option:selected").val();
             var enterpriseContent = editor.html();
-            var trade = $("trade option:selected").val();
+            var trade = $("#trade option:selected").val();
 //            var data = {};
             var file = document.getElementById("enterpriseImage");
             var image = file.files[0];
@@ -146,7 +146,7 @@ $(document).ready(function () {
         $("#state").val(-1);
     	$("#author").val('');
     	$("#trade").val("农、林、牧、渔业");
-    	$("#enterpriseImageUrl").val('');
+    	$("#upload_images").attr("src","");
     	editor.html('');
     });
 
@@ -161,7 +161,7 @@ $(document).ready(function () {
         	$("#author").val(data.author);
         	$("#state").val(data.state);
         	$("#trade").val(data.trade);
-        	$("#upload_images").attr("src","../"+data.image);
+        	$("#upload_images").attr("src","");
         	editor.html(data.enterpriseContent);
         }
 
