@@ -1,6 +1,9 @@
 package com.hunt.controller.frontend;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.hunt.controller.util.UploadUtil;
 import com.hunt.frontend.service.CultureService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Culture;
@@ -40,8 +45,24 @@ public class CultureController{
 	 */
 	@ResponseBody
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public Result save(Culture culture) {
+	public Result save(Culture culture,MultipartFile file,HttpSession session) {
 		try {
+			if (UploadUtil.isPicture(file.getOriginalFilename())) {
+				// 重命名文件
+				String newName = UploadUtil.rename(file.getOriginalFilename());
+				// 获取存储路径
+				String absolutePath = UploadUtil.getAbsolutePath("image/culture", session);
+				String relativePath = UploadUtil.getRelativePath("image/culture", session);
+				File uploadDir = new File(absolutePath);
+				if(!uploadDir.exists()) {
+					uploadDir.mkdirs();
+				}
+				// 先上传文件（绝对路径）
+				File targetFile = new File(absolutePath + "/" + newName);
+				file.transferTo(targetFile);
+				// 保留相对路径的文件信息
+				culture.setImage(relativePath + "/" + newName);
+			}
 			cultureService.save(culture);
 			return Result.success();
 		} catch (Exception e) {
@@ -76,8 +97,24 @@ public class CultureController{
 	 */
 	@ResponseBody
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Culture culture) {
+	public Result update(Culture culture,MultipartFile file,HttpSession session) {
 		try {
+			if (UploadUtil.isPicture(file.getOriginalFilename())) {
+				// 重命名文件
+				String newName = UploadUtil.rename(file.getOriginalFilename());
+				// 获取存储路径
+				String absolutePath = UploadUtil.getAbsolutePath("image/culture", session);
+				String relativePath = UploadUtil.getRelativePath("image/culture", session);
+				File uploadDir = new File(absolutePath);
+				if(!uploadDir.exists()) {
+					uploadDir.mkdirs();
+				}
+				// 先上传文件（绝对路径）
+				File targetFile = new File(absolutePath + "/" + newName);
+				file.transferTo(targetFile);
+				// 保留相对路径的文件信息
+				culture.setImage(relativePath + "/" + newName);
+			}
 			cultureService.update(culture);
 			return Result.success();
 		} catch (Exception e) {

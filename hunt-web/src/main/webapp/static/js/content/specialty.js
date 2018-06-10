@@ -75,35 +75,39 @@ specialty_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入特产内容");
-        }  else if (!$("#specialtyImageUrl").val()) {
-            common_tool.messager_show("请插入至少一张图片");
         } else {
             var specialtyName = $("#specialtyName").val();
             var author = $("#author").val();
-            var image = $("#specialtyImageUrl").val();
             var specialtyContent = editor.html();
-            var data = {};
+//            var data = {};
+            var file = document.getElementById("specialtyImage");
+            var image = file.files[0];
+            var formData = new FormData();
             if(!id) {
             	var url = getRootPath() + '/frontend/specialty/save';
-            	data.specialtyName = specialtyName;
-            	data.author = author;
-            	data.image = image;
-            	data.specialtyContent = specialtyContent;
+            	formData.append("file", image);
+                formData.append("specialtyName", specialtyName);
+                formData.append("author", author);
+                formData.append("specialtyContent",specialtyContent);
             } else {
             	var url = getRootPath() + '/frontend/specialty/update';
-            	data.id = id;
-            	data.specialtyName = specialtyName;
-            	data.author = author;
-            	data.image = image;
-            	data.specialtyContent = specialtyContent;
+            	formData.append("id",id);
+            	formData.append("file", image);
+                formData.append("specialtyName", specialtyName);
+                formData.append("author", author);
+                formData.append("specialtyContent",specialtyContent);
             }
             $.ajax({
-                data: data,
-                traditional: true,
-                method: 'post',
+            	cache: false,
+            	type: 'post',
+                data: formData,
+//              traditional: true,
+//              method: 'post',
                 url: url,
-                async: false,
-                dataType: 'json',
+//              async: false,
+//              dataType: 'json',
+                processData: false,
+                contentType: false,
                 success: function (result) {
                 	specialty_tool.form_clear();
                     specialty_tool.init_main_view();
@@ -138,6 +142,7 @@ $(document).ready(function () {
         	var data = $("#specialty_grid").datagrid("getChecked")[0];
         	$("#specialtyName").val(data.specialtyName);
         	$("#author").val(data.author);
+        	$("#upload_images").attr("src","../"+data.image);
         	editor.html(data.specialtyContent);
         }
 
@@ -168,3 +173,25 @@ $(document).ready(function () {
         specialty_tool.init_main_view();
     });
 })
+$('#specialtyImage').change(function () {
+	  previewImgEvents();
+	});
+
+	function previewImgEvents() {
+		var files = event.target.files, file;
+		if (files && files.length > 0) {
+		// 获取目前上传的文件
+		file = files[0];
+		if (file.size > 1024 * 1024) {
+		alert('图片大小不能超过 1MB!');
+		return false;
+		}
+		var URL = window.URL || window.webkitURL;
+		// 通过 file 生成目标 url
+		var imgURL = URL.createObjectURL(file);
+		// 用这个 URL 产生一个 <img> 将其显示出来
+		$('#upload_images').attr('src', imgURL);
+		// 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+		// URL.revokeObjectURL(imgURL);
+		}
+	}

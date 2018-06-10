@@ -36,6 +36,13 @@
 		</div>
 	</div>
 	<div class="rowz">
+		<div class="label">封面：</div>
+		<div class="cover">
+			<input type="file" id="cultureImage" name="cultureImage"><br>
+			<img id="upload_images" src="" width="200px;" height="138px;">
+		</div>
+	</div>
+	<div class="rowz">
 		<div class="label">内容：</div>
 		<div class="contentz">
 			<textarea id="editor_culture" name="content" style="width:100%;height:400px;"></textarea>
@@ -43,7 +50,7 @@
 		</div>
 	</div>
 	<!-- 存放图片路径 -->
-	<input type="hidden" value="" id="cultureImageUrl"/>
+	<!--<input type="hidden" value="" id="cultureImageUrl"/> -->
 	<div class="rowz">
 		<div class="label">&nbsp;</div>
 		<div class="contentz">
@@ -63,7 +70,7 @@
 		resizeType : 0,
         width : '100%',
         height : '400px',
-        afterCreate: function () {  
+        /*afterCreate: function () {  
 	        var self = this;  
 	        K.ctrl(document, 13, function () {  
 	            self.sync();  
@@ -83,7 +90,7 @@
 	    },  
 	    afterBlur: function () {  //同时设置这里   
 	        this.sync();  
-	    },  
+	    },*/
 });
     function setColor(color){
 		document.getElementsByClassName('colortitle')[0].style.color=color

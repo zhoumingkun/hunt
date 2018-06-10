@@ -84,41 +84,45 @@ enterprise_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入企业内容");
-        }  else if (!$("#enterpriseImageUrl").val()) {
-            common_tool.messager_show("请插入至少一张图片");
         } else {
             var enterpriseName = $("#enterpriseName").val();
             var author = $("#author").val();
             var state = $("#state option:selected").val();
             var enterpriseContent = editor.html();
             var trade = $("trade option:selected").val();
-            var image = $("#enterpriseImageUrl").val();
-            var data = {};
+//            var data = {};
+            var file = document.getElementById("enterpriseImage");
+            var image = file.files[0];
+            var formData = new FormData();
             if(!id) {
             	var url = getRootPath() + '/frontend/enterprise/save';
-            	data.enterpriseName = enterpriseName;
-            	data.author = author;
-            	data.state = state;
-            	data.enterpriseContent = enterpriseContent;
-            	data.image = image;
-            	data.trade = trade;
+            	formData.append("file", image);
+                formData.append("enterpriseName", enterpriseName);
+                formData.append("author", author);
+                formData.append("trade", trade);
+                formData.append("state", state);
+                formData.append("enterpriseContent",enterpriseContent);
             } else {
             	var url = getRootPath() + '/frontend/enterprise/update';
-            	data.id = id;
-            	data.enterpriseName = enterpriseName;
-            	data.author = author;
-            	data.state = state;
-            	data.enterpriseContent = enterpriseContent;
-            	data.trade = trade;
-            	data.image = image;
+            	formData.append("id",id);
+            	formData.append("file", image);
+                formData.append("enterpriseName", enterpriseName);
+                formData.append("author", author);
+                formData.append("trade", trade);
+                formData.append("state", state);
+                formData.append("enterpriseContent",enterpriseContent);
             }
             $.ajax({
-                data: data,
-                traditional: true,
-                method: 'post',
+            	cache: false,
+            	type: 'post',
+                data: formData,
+//              traditional: true,
+//              method: 'post',
                 url: url,
-                async: false,
-                dataType: 'json',
+//              async: false,
+//              dataType: 'json',
+                processData: false,
+                contentType: false,
                 success: function (result) {
                 	enterprise_tool.form_clear();
                     enterprise_tool.init_main_view();
@@ -157,6 +161,7 @@ $(document).ready(function () {
         	$("#author").val(data.author);
         	$("#state").val(data.state);
         	$("#trade").val(data.trade);
+        	$("#upload_images").attr("src","../"+data.image);
         	editor.html(data.enterpriseContent);
         }
 
@@ -187,3 +192,25 @@ $(document).ready(function () {
         enterprise_tool.init_main_view();
     });
 })
+$('#enterpriseImage').change(function () {
+	  previewImgEvents();
+	});
+
+	function previewImgEvents() {
+		var files = event.target.files, file;
+		if (files && files.length > 0) {
+		// 获取目前上传的文件
+		file = files[0];
+		if (file.size > 1024 * 1024) {
+		alert('图片大小不能超过 1MB!');
+		return false;
+		}
+		var URL = window.URL || window.webkitURL;
+		// 通过 file 生成目标 url
+		var imgURL = URL.createObjectURL(file);
+		// 用这个 URL 产生一个 <img> 将其显示出来
+		$('#upload_images').attr('src', imgURL);
+		// 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+		// URL.revokeObjectURL(imgURL);
+		}
+	}

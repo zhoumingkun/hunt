@@ -64,6 +64,13 @@
 		</div>
 	</div>
 	<div class="rowz">
+		<div class="label">封面：</div>
+		<div class="cover">
+			<input type="file" id="enterpriseImage" name="enterpriseImage"><br>
+			<img id="upload_images" src="" width="200px;" height="138px;">
+		</div>
+	</div>
+	<div class="rowz">
 		<div class="label">内容：</div>
 		<div class="contentz">
 			<textarea id="editor_enterprise" name="content" style="width:100%;height:400px;"></textarea>
@@ -91,7 +98,7 @@
 		resizeType : 0,
         width : '100%',
         height : '400px',
-		afterCreate: function () {  
+		/*afterCreate: function () {  
 	        var self = this;  
 	        K.ctrl(document, 13, function () {  
 	            self.sync();  
@@ -104,12 +111,12 @@
 	    },  
 	    //上传文件后执行的回调函数,获取上传图片的路径  
 	    afterUpload: function (url) {  
-	        /* var a = $("#specialtyImageUrl").val();  
+	        var a = $("#specialtyImageUrl").val();  
 	        if (a.length > 0) {  
 	     
 	        } else {  
 	            $("#specialtyImageUrl").val(url);  
-	        }  */
+	        }
 	        $("#enterpriseImageUrl").val(url);
 	    },  
 	    afterCreate: function () {  //要取值设置这里 这个函数就是同步KindEditor的值到textarea文本框  
@@ -117,7 +124,7 @@
 	    },  
 	    afterBlur: function () {  //同时设置这里   
 	        this.sync();  
-	    },  
+	    },*/
 	});
     function setColor(color){
 		document.getElementsByClassName('colortitle')[0].style.color=color

@@ -36,6 +36,13 @@
 		</div>
 	</div>
 	<div class="rowz">
+		<div class="label">封面：</div>
+		<div class="cover">
+			<input type="file" id="specialtyImage" name="specialtyImage"><br>
+			<img id="upload_images" src="" width="200px;" height="138px;">
+		</div>
+	</div>
+	<div class="rowz">
 		<div class="label">内容：</div>
 		<div class="contentz">
 			<textarea id="editor_specialty" name="content" style="width:100%;height:400px;"></textarea>
