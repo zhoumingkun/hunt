@@ -188,6 +188,15 @@
                         </li>
                     </div>
                 </shiro:hasPermission>
+                <shiro:hasPermission name="data:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/travel">旅游管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
                 <shiro:hasPermission name="user:loginStatu:list">
                     <div style="padding: 5px 10px;">
                         <li class="nav-list">

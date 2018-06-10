@@ -89,6 +89,18 @@ public class ContentSkipController {
     }
     
     /**
+     * 旅游管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至旅游管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "travel", method = RequestMethod.GET)
+    public String travel() {
+        return "backend/content/travel";
+    }
+    
+    /**
      * 项目管理页面跳转
      *
      * @return

@@ -78,7 +78,7 @@ public class TravelController {
 	 }
 	 
 	 @ResponseBody
-	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
+	 @RequestMapping(value = "findAll", method = RequestMethod.POST)
 	 public List<Travel> findAll() {
 	        List<Travel> list = travelService.findAll();
 	        return list;
