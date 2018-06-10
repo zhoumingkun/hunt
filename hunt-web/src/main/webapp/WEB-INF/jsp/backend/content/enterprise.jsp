@@ -70,6 +70,8 @@
 			
 		</div>
 	</div>
+	<!-- 存放图片路径 -->
+	<input type="hidden" value="" id="enterpriseImageUrl"/>
 	<div class="rowz">
 		<div class="label">&nbsp;</div>
 		<div class="contentz">
@@ -81,8 +83,41 @@
 </div>
 <script>
     window.editor = KindEditor.create('#editor_enterprise',{
+    	uploadJson : '${pageContext.request.contextPath}/static/js/content/jsp/upload_json.jsp',
+		fileManagerJson : '${pageContext.request.contextPath}/static/js/content/jsp/file_manager_json.jsp',
+		allowFileManager : false,
+		imageTabIndex : 1,
+		allowUpload : true, //允许上传图片 
+		resizeType : 0,
         width : '100%',
-        height : '400px'
+        height : '400px',
+		afterCreate: function () {  
+	        var self = this;  
+	        K.ctrl(document, 13, function () {  
+	            self.sync();  
+	            K('form[name=example]')[0].submit();  
+	        });  
+	        K.ctrl(self.edit.doc, 13, function () {  
+	            self.sync();  
+	            K('form[name=example]')[0].submit();  
+	        });  
+	    },  
+	    //上传文件后执行的回调函数,获取上传图片的路径  
+	    afterUpload: function (url) {  
+	        /* var a = $("#specialtyImageUrl").val();  
+	        if (a.length > 0) {  
+	     
+	        } else {  
+	            $("#specialtyImageUrl").val(url);  
+	        }  */
+	        $("#enterpriseImageUrl").val(url);
+	    },  
+	    afterCreate: function () {  //要取值设置这里 这个函数就是同步KindEditor的值到textarea文本框  
+	        this.sync();  
+	    },  
+	    afterBlur: function () {  //同时设置这里   
+	        this.sync();  
+	    },  
 	});
     function setColor(color){
 		document.getElementsByClassName('colortitle')[0].style.color=color

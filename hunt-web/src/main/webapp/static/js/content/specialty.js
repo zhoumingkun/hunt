@@ -75,21 +75,26 @@ specialty_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入特产内容");
+        }  else if (!$("#specialtyImageUrl").val()) {
+            common_tool.messager_show("请插入至少一张图片");
         } else {
             var specialtyName = $("#specialtyName").val();
             var author = $("#author").val();
+            var image = $("#specialtyImageUrl").val();
             var specialtyContent = editor.html();
             var data = {};
             if(!id) {
             	var url = getRootPath() + '/frontend/specialty/save';
             	data.specialtyName = specialtyName;
             	data.author = author;
+            	data.image = image;
             	data.specialtyContent = specialtyContent;
             } else {
             	var url = getRootPath() + '/frontend/specialty/update';
             	data.id = id;
             	data.specialtyName = specialtyName;
             	data.author = author;
+            	data.image = image;
             	data.specialtyContent = specialtyContent;
             }
             $.ajax({
@@ -117,10 +122,10 @@ $(document).ready(function () {
 
     $("#specialty-save-btn").click(function () {
         /*specialty_tool.init_edit_view(1);*/
-    	console.log("LLLLLLLLLLLL")
         $('.pagewrap').show();
         $("#specialtyName").val('');
     	$("#author").val('');
+    	$("#specialtyImageUrl").val('');
     	editor.html('');
     });
 

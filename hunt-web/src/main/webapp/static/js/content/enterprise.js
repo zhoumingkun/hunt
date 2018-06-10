@@ -84,12 +84,15 @@ enterprise_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入企业内容");
+        }  else if (!$("#enterpriseImageUrl").val()) {
+            common_tool.messager_show("请插入至少一张图片");
         } else {
             var enterpriseName = $("#enterpriseName").val();
             var author = $("#author").val();
             var state = $("#state option:selected").val();
             var enterpriseContent = editor.html();
             var trade = $("trade option:selected").val();
+            var image = $("#enterpriseImageUrl").val();
             var data = {};
             if(!id) {
             	var url = getRootPath() + '/frontend/enterprise/save';
@@ -97,6 +100,7 @@ enterprise_tool = {
             	data.author = author;
             	data.state = state;
             	data.enterpriseContent = enterpriseContent;
+            	data.image = image;
             	data.trade = trade;
             } else {
             	var url = getRootPath() + '/frontend/enterprise/update';
@@ -106,6 +110,7 @@ enterprise_tool = {
             	data.state = state;
             	data.enterpriseContent = enterpriseContent;
             	data.trade = trade;
+            	data.image = image;
             }
             $.ajax({
                 data: data,
@@ -137,6 +142,7 @@ $(document).ready(function () {
         $("#state").val(-1);
     	$("#author").val('');
     	$("#trade").val("农、林、牧、渔业");
+    	$("#enterpriseImageUrl").val('');
     	editor.html('');
     });
 

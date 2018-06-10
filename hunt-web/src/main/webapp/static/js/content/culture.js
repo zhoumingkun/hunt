@@ -75,21 +75,26 @@ culture_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入文化内容");
+        }  else if (!$("#cultureImageUrl").val()) {
+            common_tool.messager_show("请插入至少一张图片");
         } else {
             var cultureName = $("#cultureName").val();
             var author = $("#author").val();
+            var image = $("#cultureImageUrl").val();
             var cultureContent = editor.html();
             var data = {};
             if(!id) {
             	var url = getRootPath() + '/frontend/culture/save';
             	data.cultureName = cultureName;
             	data.author = author;
+            	data.image = image;
             	data.cultureContent = cultureContent;
             } else {
             	var url = getRootPath() + '/frontend/culture/update';
             	data.id = id;
             	data.cultureName = cultureName;
             	data.author = author;
+            	data.image = image;
             	data.cultureContent = cultureContent;
             }
             $.ajax({
@@ -100,16 +105,6 @@ culture_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-//                    if (result.code == 10000) {
-//                        $("#role_edit_dialog").dialog("close");
-//                        culture_tool.form_clear();
-//                        culture_tool.init_main_view();
-//                        common_tool.messager_show(result.msg);
-//                        return false;
-//                    }
-//                    else {
-//                        common_tool.messager_show(result.msg);
-//                    }
                 	culture_tool.form_clear();
                     culture_tool.init_main_view();
                 	$('.pagewrap').hide();
@@ -130,6 +125,7 @@ $(document).ready(function () {
         $('.pagewrap').show();
         $("#cultureName").val('');
     	$("#author").val('');
+    	$("#cultureImageUrl").val('');
     	editor.html('');
     });
 
