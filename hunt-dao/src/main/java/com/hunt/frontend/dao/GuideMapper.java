@@ -32,4 +32,7 @@ public interface GuideMapper {
 
     //根据状态查询数量
   	public int findCount();
+  	
+  	//微信查询全部
+  	public List<Guide> WX_findAll();
 }

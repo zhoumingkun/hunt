@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hunt.frontend.service.GuideService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Guide;
+import com.hunt.model.entity.Policy;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 /**
@@ -88,5 +89,19 @@ public class GuideController {
 	public PageInfo findPage(@RequestParam(value = "current_page") int page) {
 		PageInfo pageInfo = guideService.findPage(page);
 		return pageInfo;
+	}
+	
+	
+	/**
+	 * 微信查询全部
+	 * 
+	 *
+	 * 
+	 */
+	@ResponseBody
+	@RequestMapping(value = "WX_findAll", method = RequestMethod.GET)
+	public List<Guide> WX_findAll() {
+		List<Guide> list = guideService.WX_findAll();
+		return list;
 	}
 }

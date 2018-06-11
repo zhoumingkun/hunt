@@ -61,6 +61,12 @@ public class GuideServiceImpl implements GuideService{
 		 List<Guide> list = guideMapper.findAll();
 		return new PageInfo(count, list);
 	}
+
+	@Override
+	public List<Guide> WX_findAll() {
+		// TODO Auto-generated method stub
+		return guideMapper.findAll();
+	}
 	
 	
 

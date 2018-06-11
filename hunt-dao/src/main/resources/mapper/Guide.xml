@@ -83,5 +83,9 @@
 	<select id="findCount" parameterType="int" resultType="java.lang.Integer">
 		select Count(*) from tbl_guide 
 	</select>
-	
+	<!-- 微信查询全部记录  -->
+	<select id="WX_findAll" resultType="Guide" parameterType="Map">
+		select * from tbl_guide where state = 1 ORDER BY createTime DESC
+		
+	</select>
 </mapper>

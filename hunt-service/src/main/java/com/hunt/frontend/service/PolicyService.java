@@ -30,4 +30,7 @@ public interface PolicyService {
 
 	//分页查询
 	public PageInfo findPage(int page,int state);
+	
+	// 微信查询全部
+	public List<Policy> WX_findAll();
 }

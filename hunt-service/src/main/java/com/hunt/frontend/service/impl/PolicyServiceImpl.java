@@ -55,6 +55,12 @@ public class PolicyServiceImpl implements PolicyService{
 		 List<Policy> list = policyMapper.findAllByState(state);
 		return new PageInfo(count, list);
 	}
+
+	@Override
+	public List<Policy> WX_findAll() {
+		// TODO Auto-generated method stub
+		return policyMapper.findAll();
+	}
 	
 	
 }

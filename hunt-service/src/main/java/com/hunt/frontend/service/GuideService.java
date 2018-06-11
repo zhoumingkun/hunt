@@ -32,5 +32,8 @@ public interface GuideService {
 	    
 	    // 分页查询
 	 	public PageInfo findPage(int page);
+	 	
+	 	//微信查询全部
+	 	public List<Guide> WX_findAll();
 
 }

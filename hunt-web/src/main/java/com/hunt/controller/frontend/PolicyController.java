@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hunt.frontend.service.PolicyService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Policy;
+import com.hunt.model.entity.Project;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
@@ -121,5 +122,17 @@ public class PolicyController{
 	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) {
 		PageInfo pageInfo = policyService.findPage(page,state);
 		return pageInfo;
+	}
+	/**
+	 * 微信查询招商政策
+	 * 
+	 *
+	 * 
+	 */
+	@ResponseBody
+	@RequestMapping(value = "WX_findAll", method = RequestMethod.GET)
+	public List<Policy> WX_findAll() {
+		List<Policy> list = policyService.WX_findAll();
+		return list;
 	}
 }

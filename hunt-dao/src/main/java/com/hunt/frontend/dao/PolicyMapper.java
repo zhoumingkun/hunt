@@ -33,4 +33,7 @@ public interface PolicyMapper {
 	
 	//查询全部 根据状态查询
 	public List<Policy> findAllByState(@Param("state") int state);
+	
+	//微信查询全部
+	public List<Policy> WX_findAll();
 }

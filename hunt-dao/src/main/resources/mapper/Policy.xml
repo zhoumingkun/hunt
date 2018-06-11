@@ -52,4 +52,11 @@
 		</if>
 		order by createTime desc
 	</select>
+	
+	
+	<!-- 微信查询全部记录  -->
+	<select id="WX_findAll" resultType="Project" parameterType="Map">
+		select * from tbl_policy where state = 1 ORDER BY createTime DESC
+		<include refid="paramsSQL"/>
+	</select>
 </mapper>
