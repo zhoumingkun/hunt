@@ -103,14 +103,24 @@ enterprise_tool = {
                 formData.append("state", state);
                 formData.append("enterpriseContent",enterpriseContent);
             } else {
-            	var url = getRootPath() + '/frontend/enterprise/update';
-            	formData.append("id",id);
-            	formData.append("file", image);
-                formData.append("enterpriseName", enterpriseName);
-                formData.append("author", author);
-                formData.append("trade", trade);
-                formData.append("state", state);
-                formData.append("enterpriseContent",enterpriseContent);
+            	if(image) {
+                	var url = getRootPath() + '/frontend/enterprise/updateFile';
+                	formData.append("id",id);
+                	formData.append("file", image);
+                	formData.append("enterpriseName", enterpriseName);
+                	formData.append("author", author);
+                	formData.append("trade", trade);
+                	formData.append("state", state);
+                	formData.append("enterpriseContent",enterpriseContent);
+            	} else {
+            		var url = getRootPath() + '/frontend/enterprise/update';
+            		formData.append("id",id);
+            		formData.append("enterpriseName", enterpriseName);
+            		formData.append("author", author);
+            		formData.append("trade", trade);
+            		formData.append("state", state);
+            		formData.append("enterpriseContent",enterpriseContent);
+            	}
             }
             $.ajax({
             	cache: false,
@@ -124,9 +134,16 @@ enterprise_tool = {
                 processData: false,
                 contentType: false,
                 success: function (result) {
-                	enterprise_tool.form_clear();
-                    enterprise_tool.init_main_view();
-                	$('.pagewrap').hide();
+                	if (result.code == 10000) {
+                        enterprise_tool.form_clear();
+                        enterprise_tool.init_main_view();
+                        $('.pagewrap').hide();
+                        common_tool.messager_show(result.msg);
+                        return false;
+                    }
+                    else {
+                        common_tool.messager_show(result.msg);
+                    }
                 },
             });
         }

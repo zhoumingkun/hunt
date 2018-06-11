@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.hunt.controller.util.UploadUtil;
 import com.hunt.frontend.service.SpecialtyService;
 import com.hunt.model.dto.PageInfo;
+import com.hunt.model.entity.Enterprise;
 import com.hunt.model.entity.Specialty;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
@@ -85,7 +86,17 @@ public class SpecialtyController{
 			return Result.error(ResponseCode.error.getMsg());
 		}
 	}
-
+	@ResponseBody
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public Result update(Specialty specialty) {
+		try {
+			specialtyService.update(specialty);
+			return Result.success();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Result.error(ResponseCode.error.getMsg());
+		}
+	}
 	/**
 	 * 更新
 	 * 
@@ -93,8 +104,8 @@ public class SpecialtyController{
 	 * @return Result
 	 */
 	@ResponseBody
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Specialty specialty,MultipartFile file,HttpSession session) {
+	@RequestMapping(value = "updateFile", method = RequestMethod.POST)
+	public Result updateFile(Specialty specialty,MultipartFile file,HttpSession session) {
 		try {
 			if (UploadUtil.isPicture(file.getOriginalFilename())) {
 				// 重命名文件

@@ -76,7 +76,19 @@ public class TravelController {
 	
 	@ResponseBody
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public Result update(Travel travel,MultipartFile file,HttpSession session) {
+    public Result update(Travel travel) {
+		try {
+			travelService.update(travel);
+			return Result.success();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Result.error(ResponseCode.error.getMsg());
+		}
+	}
+	
+	@ResponseBody
+    @RequestMapping(value = "updateFile", method = RequestMethod.POST)
+    public Result updateFile(Travel travel,MultipartFile file,HttpSession session) {
 		try {
 			if (UploadUtil.isPicture(file.getOriginalFilename())) {
 				// 重命名文件

@@ -90,12 +90,21 @@ travel_tool = {
                 formData.append("author", author);
                 formData.append("travelContent",travelContent);
             } else {
-            	var url = getRootPath() + '/frontend/travel/update';
-            	formData.append("id",id);
-            	formData.append("file", image);
-                formData.append("travelName", travelName);
-                formData.append("author", author);
-                formData.append("travelContent",travelContent);
+            	if(image) {
+            		var url = getRootPath() + '/frontend/travel/updateFile';
+            		formData.append("id",id);
+            		formData.append("file", image);
+            		formData.append("travelName", travelName);
+            		formData.append("author", author);
+            		formData.append("travelContent",travelContent);
+            	} else {
+            		var url = getRootPath() + '/frontend/travel/update';
+            		formData.append("id",id);
+            		formData.append("travelName", travelName);
+            		formData.append("author", author);
+            		formData.append("travelContent",travelContent);
+            	}
+            	
             }
             $.ajax({
             	cache: false,
@@ -109,9 +118,17 @@ travel_tool = {
                 processData: false,
                 contentType: false,
                 success: function (result) {
-                	travel_tool.form_clear();
-                    travel_tool.init_main_view();
-                	$('.pagewrap').hide();
+                	if (result.code == 10000) {
+                		travel_tool.form_clear();
+                        travel_tool.init_main_view();
+                    	$('.pagewrap').hide();
+                        common_tool.messager_show(result.msg);
+                        return false;
+                    }
+                    else {
+                        common_tool.messager_show(result.msg);
+                    }
+                	
                 },
             });
         }
@@ -141,7 +158,7 @@ $(document).ready(function () {
         	var data = $("#travel_grid").datagrid("getChecked")[0];
         	$("#travelName").val(data.travelName);
         	$("#author").val(data.author);
-        	$("#upload_images").attr("src","../"+data.image);
+        	$("#upload_images").attr("src","");
         	editor.html(data.travelContent);
         }
 

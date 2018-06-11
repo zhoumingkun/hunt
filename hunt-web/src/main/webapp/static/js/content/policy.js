@@ -122,19 +122,16 @@ role_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-//                    if (result.code == 10000) {
-//                        $("#role_edit_dialog").dialog("close");
-//                        role_tool.form_clear();
-//                        role_tool.init_main_view();
-//                        common_tool.messager_show(result.msg);
-//                        return false;
-//                    }
-//                    else {
-//                        common_tool.messager_show(result.msg);
-//                    }
-                	role_tool.form_clear();
-                    role_tool.init_main_view();
-                	$('.pagewrap').hide();
+                    if (result.code == 10000) {
+                        role_tool.form_clear();
+                        role_tool.init_main_view();
+                        $('.pagewrap').hide();
+                        common_tool.messager_show(result.msg);
+                        return false;
+                    }
+                    else {
+                        common_tool.messager_show(result.msg);
+                    }
                 },
             });
         }

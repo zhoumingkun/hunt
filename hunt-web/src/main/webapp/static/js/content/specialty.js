@@ -90,12 +90,20 @@ specialty_tool = {
                 formData.append("author", author);
                 formData.append("specialtyContent",specialtyContent);
             } else {
-            	var url = getRootPath() + '/frontend/specialty/update';
-            	formData.append("id",id);
-            	formData.append("file", image);
-                formData.append("specialtyName", specialtyName);
-                formData.append("author", author);
-                formData.append("specialtyContent",specialtyContent);
+            	if(image) {
+            		var url = getRootPath() + '/frontend/specialty/updateFile';
+                	formData.append("id",id);
+                	formData.append("file", image);
+                    formData.append("specialtyName", specialtyName);
+                    formData.append("author", author);
+                    formData.append("specialtyContent",specialtyContent);
+            	} else {
+            		var url = getRootPath() + '/frontend/specialty/update';
+            		formData.append("id",id);
+            		formData.append("specialtyName", specialtyName);
+            		formData.append("author", author);
+            		formData.append("specialtyContent",specialtyContent);
+            	}
             }
             $.ajax({
             	cache: false,
@@ -109,9 +117,16 @@ specialty_tool = {
                 processData: false,
                 contentType: false,
                 success: function (result) {
-                	specialty_tool.form_clear();
-                    specialty_tool.init_main_view();
-                	$('.pagewrap').hide();
+                	if (result.code == 10000) {
+                        specialty_tool.form_clear();
+                        specialty_tool.init_main_view();
+                        $('.pagewrap').hide();
+                        common_tool.messager_show(result.msg);
+                        return false;
+                    }
+                    else {
+                        common_tool.messager_show(result.msg);
+                    }
                 },
             });
         }

@@ -112,9 +112,16 @@ proclamation_tool = {
                 async: false,
                 dataType: 'json',
                 success: function (result) {
-                	proclamation_tool.form_clear();
-                    proclamation_tool.init_main_view();
-                	$('.pagewrap').hide();
+                	if (result.code == 10000) {
+                        proclamation_tool.form_clear();
+                        proclamation_tool.init_main_view();
+                        $('.pagewrap').hide();
+                        common_tool.messager_show(result.msg);
+                        return false;
+                    }
+                    else {
+                        common_tool.messager_show(result.msg);
+                    }
                 },
             });
         }

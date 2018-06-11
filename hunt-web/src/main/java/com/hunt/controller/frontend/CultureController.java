@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,11 +17,8 @@ import com.hunt.controller.util.UploadUtil;
 import com.hunt.frontend.service.CultureService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Culture;
-import com.hunt.model.entity.Specialty;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
-
-import io.swagger.annotations.ApiOperation;
 
 /**
  * 文化控制器
@@ -88,7 +84,17 @@ public class CultureController{
 			return Result.error(ResponseCode.error.getMsg());
 		}
 	}
-
+	@ResponseBody
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public Result update(Culture culture) {
+		try {
+			cultureService.update(culture);
+			return Result.success();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Result.error(ResponseCode.error.getMsg());
+		}
+	}
 	/**
 	 * 更新
 	 * 
@@ -96,8 +102,8 @@ public class CultureController{
 	 * @return Result
 	 */
 	@ResponseBody
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public Result update(Culture culture,MultipartFile file,HttpSession session) {
+	@RequestMapping(value = "updateFile", method = RequestMethod.POST)
+	public Result updateFile(Culture culture,MultipartFile file,HttpSession session) {
 		try {
 			if (UploadUtil.isPicture(file.getOriginalFilename())) {
 				// 重命名文件

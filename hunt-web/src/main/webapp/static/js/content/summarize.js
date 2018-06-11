@@ -99,9 +99,16 @@ summarize_tool = {
                 processData: false,
                 contentType: false,
                 success: function (result) {
-                	summarize_tool.form_clear();
-                    summarize_tool.init_main_view();
-                	$('.pagewrap').hide();
+                	if (result.code == 10000) {
+                        summarize_tool.form_clear();
+                        summarize_tool.init_main_view();
+                        $('.pagewrap').hide();
+                        common_tool.messager_show(result.msg);
+                        return false;
+                    }
+                    else {
+                        common_tool.messager_show(result.msg);
+                    }
                 },
             });
         }
