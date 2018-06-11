@@ -42,4 +42,7 @@ public interface ProjectMapper {
 	
 	//根据名称与状态查询（搜索）
 	public List<Project> findByName(@Param("state") int state,@Param("projectName") String projectName);
+
+	//  //微信端-查询全部推广项目 根 时间排序
+	public List<Project> WX_findAll();
 }

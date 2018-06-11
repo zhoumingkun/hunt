@@ -118,5 +118,17 @@ public class ProjectController {
 			return pageInfo;
 		}
 	}
+	
+	
+	/**
+	 *  微信端-查询全部发布项目 根 时间排序
+	 * @return List<Project>
+	 */
+	@ResponseBody
+	@RequestMapping(value = "WX_findAll", method = RequestMethod.GET)
+	public List<Project> WX_findAll(){
+		List<Project> list = projectService.WX_findAll();
+		return list;
+	}
 
 }

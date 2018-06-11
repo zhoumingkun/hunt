@@ -53,4 +53,10 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 		return enterpriseMapper.findById(id);
 	}
 
+	@Override
+	public List<Enterprise> WX_findAll() {
+		// TODO Auto-generated method stub
+		return enterpriseMapper.WX_findAll();
+	}
+
 }

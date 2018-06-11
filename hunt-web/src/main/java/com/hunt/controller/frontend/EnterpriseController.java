@@ -21,6 +21,7 @@ import com.hunt.frontend.service.EnterpriseService;
 import com.hunt.model.dto.PageInfo;
 import com.hunt.model.entity.Culture;
 import com.hunt.model.entity.Enterprise;
+import com.hunt.model.entity.Project;
 import com.hunt.util.ResponseCode;
 import com.hunt.util.Result;
 
@@ -176,5 +177,16 @@ public class EnterpriseController {
 	@RequestMapping(value = "findById", method = RequestMethod.POST)
 	public Enterprise findById(int id) {
 		return enterpriseService.findById(id);
+	}
+	
+	/**
+	 *  微信端-查询全部发布企业 根 时间排序
+	 * @return List<Project>
+	 */
+	@ResponseBody
+	@RequestMapping(value = "WX_findAll", method = RequestMethod.GET)
+	public List<Enterprise> WX_findAll(){
+		List<Enterprise> list = enterpriseService.WX_findAll();
+		return list;
 	}
 }

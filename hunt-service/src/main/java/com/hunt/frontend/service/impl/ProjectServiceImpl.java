@@ -71,6 +71,12 @@ public class ProjectServiceImpl implements ProjectService{
 			return  new PageInfo(count,list);
 	}
 
+	@Override
+	public List<Project> WX_findAll() {
+		// TODO Auto-generated method stub
+	    return projectMapper.WX_findAll();
+	}
+
 }
 	
 

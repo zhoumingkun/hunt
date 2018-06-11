@@ -28,4 +28,7 @@ public interface EnterpriseService {
 
 	//根据ID查询
 	public Enterprise findById(int id);
+
+	//微信端-查询全部发布企业 根 时间排序
+	public List<Enterprise> WX_findAll();
 }
