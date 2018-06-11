@@ -74,7 +74,7 @@ public class SummarizeController {
 	 }
 	 
 	 @ResponseBody
-	 @RequestMapping(value = "findAll", method = RequestMethod.GET)
+	 @RequestMapping(value = "findAll", method = RequestMethod.POST)
 	 public List<Summarize> findAll() {
 	        List<Summarize> list = summarizeService.findAll();
 	        return list;

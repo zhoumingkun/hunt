@@ -35,6 +35,105 @@
 </div>
 <div data-options="region:'west',border:true,split:false" style="text-align: center;width:160px;">
     <div class="easyui-accordion" data-options="border:false,fit:true,">
+        <div title="内容管理" style="padding: 0 0 0 15px;">
+            <ul style="list-style: none;padding: 0 0 0 0 ;">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/news">新闻管理
+                            </div>
+                        </li>
+                    </div>
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0; "
+                                 href="${pageContext.request.contextPath}/content/policy">政策管理
+                            </div>
+                        </li>
+                    </div>
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/activity">活动管理
+                            </div>
+                        </li>
+                    </div>
+                <shiro:hasPermission name="role:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'"
+                                 style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/proclamation">公告管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="role:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'"
+                                 style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/summarize">概况管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="permission:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/culture">文化管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="data:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/specialty">特产管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="data:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/travel">旅游管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="user:loginStatu:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/project">项目管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="log:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/enterprise">企业管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="ip:list">
+                    <div style="padding: 5px 10px;">
+                        <li class="nav-list">
+                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
+                                 href="${pageContext.request.contextPath}/content/guide">指南管理
+                            </div>
+                        </li>
+                    </div>
+                </shiro:hasPermission>
+            </ul>
+        </div>
         <div title="系统管理" style="padding: 0 0 0 15px;">
             <ul style="list-style: none;padding: 0 0 0 0 ;">
                 <shiro:hasPermission name="user:list">
@@ -135,95 +234,6 @@
                         </div>
                     </li>
                 </div>
-            </ul>
-        </div>
-        <div title="内容管理" style="padding: 0 0 0 15px;">
-            <ul style="list-style: none;padding: 0 0 0 0 ;">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/news">新闻管理
-                            </div>
-                        </li>
-                    </div>
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0; "
-                                 href="${pageContext.request.contextPath}/content/policy">政策管理
-                            </div>
-                        </li>
-                    </div>
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/activity">活动管理
-                            </div>
-                        </li>
-                    </div>
-                <shiro:hasPermission name="role:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'"
-                                 style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/proclamation">公告管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="permission:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/culture">文化管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="data:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/specialty">特产管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="data:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/travel">旅游管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="user:loginStatu:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/project">项目管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="log:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/enterprise">企业管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
-                <shiro:hasPermission name="ip:list">
-                    <div style="padding: 5px 10px;">
-                        <li class="nav-list">
-                            <div class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="border: 0;"
-                                 href="${pageContext.request.contextPath}/content/guide">指南管理
-                            </div>
-                        </li>
-                    </div>
-                </shiro:hasPermission>
             </ul>
         </div>
     </div>

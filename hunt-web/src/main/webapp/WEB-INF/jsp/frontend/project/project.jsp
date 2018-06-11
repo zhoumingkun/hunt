@@ -134,7 +134,7 @@
             <script>
             window.onload = function(){
 	                var type = ${type };
-	                var path = "${pageContext.request.contextPath}/frontend/project/data?state=2&type="+type;
+	                var path = "${pageContext.request.contextPath}/frontend/project/data?state=1&type="+type;
 	                $('.pagingwrap').lemonPaging({
 	                    'url': path,//ajax请求地址
 	                    /* 'total': 217,//总数据条数 */
@@ -146,7 +146,7 @@
 	                        var str ='';
 	                        $.each(data.rows,function(i,project){
 	                         var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id+"&type="+project.type;
-	                         str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
+	                         str+='<li><a href="'+path+'">'+project.projectName+'</a></li>'
 	                        });
 	                        $("#content").html(str);
 	                    },//列表数据填充容器
@@ -179,7 +179,7 @@
             			A = 6;
             		}
             		$('.pagingwrap').lemonPaging({
-                        'url': "${pageContext.request.contextPath}/frontend/project/data?state=2&type="+A,//ajax请求地址
+                        'url': "${pageContext.request.contextPath}/frontend/project/data?state=1&type="+A,//ajax请求地址
                         /* 'total': 217,//总数据条数 */
                         'page_size': 10,//每页数据条数
                         'pages': 7,//分页可显示页码数量
@@ -189,7 +189,7 @@
                             var str ='';
                             $.each(data.rows,function(i,project){
                              var path = "${pageContext.request.contextPath}/frontend/project/details?id="+project.id+"&type="+project.type;
-                             str+='<li><a href="'+path+'">'+project.projectContent+'</a></li>'
+                             str+='<li><a href="'+path+'">'+project.projectName+'</a></li>'
                             });
                             $("#content").html(str);
                             console.log(64654)

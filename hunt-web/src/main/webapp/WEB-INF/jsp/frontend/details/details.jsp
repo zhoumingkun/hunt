@@ -320,28 +320,24 @@
 			  //招商政策详情
 			  if("${module}" == "policy"){
 				  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-					  $("#title").html("<span>"+data.policyName+"</span>");
 					  $("#content").html("<P>"+data.policyContent+"<P>");
 				  });
 			  }
 			  //新闻动态详情
 			  else if("${module}" == "news"){
 	              $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-					  $("#title").html("<span>"+data.newsName+"</span>");
 					  $("#content").html("<P>"+data.newsContent+"<P>");
 				  });
 			  }
 			  //招商项目详情
 			  else if("${module}" == "project"){
 	              $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-					  $("#title").html("<span>"+data.projectName+"</span>");
 					  $("#content").html("<P>"+data.projectContent+"<P>");
 				  });
 			  }
 			  //招商活动详情
 			  else if("${module}" == "activity"){
 	              $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-					  $("#title").html("<span>"+data.activityName+"</span>");
 					  $("#content").html("<P>"+data.activityContent+"<P>");
 				  });
 			  }
@@ -349,7 +345,6 @@
 			  else if("${module}" == "travel"){
                   $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
-	                  $("#title").html("<span>"+data.travelName+"</span>");
 					  $("#content").html("<P>"+data.travelContent+"<P>");
 			    });
 		     }
@@ -357,7 +352,6 @@
 			 else if("${module}" == "culture"){
                   $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
-	                  $("#title").html("<span>"+data.cultureName+"</span>");
 					  $("#content").html("<P>"+data.cultureContent+"<P>");
 			    });
 		     }
@@ -365,7 +359,6 @@
 			 else if("${module}" == "specialty"){
                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
-	                  $("#title").html("<span>"+data.specialtyName+"</span>");
 					  $("#content").html("<P>"+data.specialtyContent+"<P>");
 			    });
 		     }
@@ -373,7 +366,6 @@
 			 else if("${module}" == "enterprise"){
                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 	                  $("image").html('<img src="${pageContext.request.contextPath}'+data.image+'" alt="">');
-	                  $("#title").html("<span>"+data.enterpriseName+"</span>");
 					  $("#content").html("<P>"+data.enterpriseContent+"<P>");
 			    });
 		     }
@@ -381,14 +373,12 @@
 			 else if("${module}" == "guide"){
                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
 	                  $("image").html('<img src="'+data.image+'" alt="">');
-	                  $("#title").html("<span>"+data.guideName+"</span>");
 					  $("#content").html("<P>"+data.guideContent+"<P>");
 			    });
 		     }
 			//网站公告
 			 else if("${module}" == "proclamation"){
                  $.post("${pageContext.request.contextPath}/frontend/${module}/findById",{id:"${id}"},function(data){
-	                  $("#title").html("<span>"+data.proclamationName+"</span>");
 					  $("#content").html("<P>"+data.proclamationContent+"<P>");
 			    });
 		     }

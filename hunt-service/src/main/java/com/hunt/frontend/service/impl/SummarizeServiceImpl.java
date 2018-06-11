@@ -23,7 +23,7 @@ public class SummarizeServiceImpl implements SummarizeService{
 	@Override
 	public void save( Summarize  summarize) {
 		// TODO Auto-generated method stub
-		summarizeMapper.update(summarize);
+		summarizeMapper.save(summarize);
 	}
 
 	@Override

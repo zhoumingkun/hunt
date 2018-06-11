@@ -166,7 +166,7 @@ window.onload = function(){
 	if(ids == 0){
 		console.log(ids);
 		$.ajax({
-		    type:"GET",
+		    type:"POST",
 		    url:'${pageContext.request.contextPath}/frontend/summarize/findAll',//请求地址
 		    dataType:'json',//省去了字符串转化json
 		    success:function(data){
@@ -254,7 +254,7 @@ window.onload = function(){
         	$('.pagingwrap').empty();
             url=urls[0];
             $.ajax({
-                type:"GET",
+                type:"POST",
                 url:url,//请求地址
                 dataType:'json',//省去了字符串转化json
                 success:function(data){

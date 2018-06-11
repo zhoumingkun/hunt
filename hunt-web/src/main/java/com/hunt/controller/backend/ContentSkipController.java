@@ -65,6 +65,18 @@ public class ContentSkipController {
     }
     
     /**
+     * 概况管理页面跳转
+     *
+     * @return
+     */
+    @ApiOperation(value = "跳转至概况管理模块", httpMethod = "GET", produces = "text/html")
+//    @RequiresPermissions("news:list")
+    @RequestMapping(value = "summarize", method = RequestMethod.GET)
+    public String summarize() {
+        return "backend/content/summarize";
+    }
+    
+    /**
      * 文化管理页面跳转
      *
      * @return
