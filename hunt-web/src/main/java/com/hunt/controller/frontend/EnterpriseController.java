@@ -181,7 +181,7 @@ public class EnterpriseController {
 	
 	/**
 	 *  微信端-查询全部发布企业 根 时间排序
-	 * @return List<Project>
+	 * @return List<Enterprise>
 	 */
 	@ResponseBody
 	@RequestMapping(value = "WX_findAll", method = RequestMethod.GET)
