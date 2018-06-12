@@ -20,6 +20,9 @@ public class Specialty extends AbstractModel implements Serializable {
 
 	// image : 图片
 	private String image;
+	
+	//specialtytext : 特产摘要
+	private String specialtyText;
 
 	public String getSpecialtyName() {
 		return specialtyName;
@@ -43,6 +46,14 @@ public class Specialty extends AbstractModel implements Serializable {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getSpecialtyText() {
+		return specialtyText;
+	}
+
+	public void setSpecialtyText(String specialtyText) {
+		this.specialtyText = specialtyText;
 	}
 	
 	

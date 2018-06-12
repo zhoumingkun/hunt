@@ -29,6 +29,9 @@ public class Enterprise extends  AbstractModel implements Serializable {
 	// state : (-1,未发布；1,已发布；2,推广)
 	private int state;
 
+	//enterpriseText : 企业摘要
+	private String enterpriseText;
+	
 	public String getEnterpriseName() {
 		return enterpriseName;
 	}
@@ -67,6 +70,14 @@ public class Enterprise extends  AbstractModel implements Serializable {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public String getEnterpriseText() {
+		return enterpriseText;
+	}
+
+	public void setEnterpriseText(String enterpriseText) {
+		this.enterpriseText = enterpriseText;
 	}
 
 

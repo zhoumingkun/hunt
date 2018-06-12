@@ -79,6 +79,7 @@ travel_tool = {
             var travelName = $("#travelName").val();
             var author = $("#author").val();
             var travelContent = editor.html();
+            var travelText = $("#travelText").val();
 //            var data = {};
             var file = document.getElementById("travelImage");
             var image = file.files[0];
@@ -89,6 +90,7 @@ travel_tool = {
                 formData.append("travelName", travelName);
                 formData.append("author", author);
                 formData.append("travelContent",travelContent);
+                formData.append("travelText",travelText);
             } else {
             	if(image) {
             		var url = getRootPath() + '/frontend/travel/updateFile';
@@ -97,12 +99,14 @@ travel_tool = {
             		formData.append("travelName", travelName);
             		formData.append("author", author);
             		formData.append("travelContent",travelContent);
+            		formData.append("travelText",travelText);
             	} else {
             		var url = getRootPath() + '/frontend/travel/update';
             		formData.append("id",id);
             		formData.append("travelName", travelName);
             		formData.append("author", author);
             		formData.append("travelContent",travelContent);
+            		formData.append("travelText",travelText);
             	}
             	
             }
@@ -146,6 +150,7 @@ $(document).ready(function () {
         $('.pagewrap').show();
         $("#travelName").val('');
     	$("#author").val('');
+    	$("#travelText").val('');
     	editor.html('');
     });
 
@@ -159,6 +164,7 @@ $(document).ready(function () {
         	$("#travelName").val(data.travelName);
         	$("#author").val(data.author);
         	$("#upload_images").attr("src","");
+        	$("#travelText").val(data.travelText);
         	editor.html(data.travelContent);
         }
 

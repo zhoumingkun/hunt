@@ -84,12 +84,15 @@ enterprise_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入企业内容");
+        } else if (!$("#enterpriseText").val()) {
+            common_tool.messager_show("请输入企业摘要");
         } else {
             var enterpriseName = $("#enterpriseName").val();
             var author = $("#author").val();
             var state = $("#state option:selected").val();
             var enterpriseContent = editor.html();
             var trade = $("#trade option:selected").val();
+            var enterpriseText = $("#enterpriseText").val();
 //            var data = {};
             var file = document.getElementById("enterpriseImage");
             var image = file.files[0];
@@ -102,6 +105,7 @@ enterprise_tool = {
                 formData.append("trade", trade);
                 formData.append("state", state);
                 formData.append("enterpriseContent",enterpriseContent);
+                formData.append("enterpriseText",enterpriseText);
             } else {
             	if(image) {
                 	var url = getRootPath() + '/frontend/enterprise/updateFile';
@@ -112,6 +116,7 @@ enterprise_tool = {
                 	formData.append("trade", trade);
                 	formData.append("state", state);
                 	formData.append("enterpriseContent",enterpriseContent);
+                	formData.append("enterpriseText",enterpriseText);
             	} else {
             		var url = getRootPath() + '/frontend/enterprise/update';
             		formData.append("id",id);
@@ -120,6 +125,7 @@ enterprise_tool = {
             		formData.append("trade", trade);
             		formData.append("state", state);
             		formData.append("enterpriseContent",enterpriseContent);
+            		formData.append("enterpriseText",enterpriseText);
             	}
             }
             $.ajax({
@@ -164,6 +170,7 @@ $(document).ready(function () {
     	$("#author").val('');
     	$("#trade").val("农、林、牧、渔业");
     	$("#upload_images").attr("src","");
+    	$("#enterpriseText").val('');
     	editor.html('');
     });
 
@@ -179,6 +186,7 @@ $(document).ready(function () {
         	$("#state").val(data.state);
         	$("#trade").val(data.trade);
         	$("#upload_images").attr("src","");
+        	$("#enterpriseText").val(data.enterpriseText);
         	editor.html(data.enterpriseContent);
         }
 

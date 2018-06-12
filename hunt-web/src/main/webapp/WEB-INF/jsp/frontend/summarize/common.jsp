@@ -342,15 +342,15 @@ window.onload = function(){
         var str='<ul class="common_content">';
         if(titel == 'travel'){
 	        $.each(array,function(i,n){
-	            str+='<li><a href="'+'hfgkjh'+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.travelName+'</p></div><div class="main_font_content"><p>'+n.travelContent+'</p></div></div></a></li>'
+	            str+='<li><a href="'+'hfgkjh'+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.travelName+'</p></div><div class="main_font_content"><p>'+n.travelText+'</p></div></div></a></li>'
 	        })
         }else if(titel == 'culture'){
         	 $.each(array,function(i,n){
- 	            str+='<li><a href="'+n.link+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.cultureName+'</p></div><div class="main_font_content"><p>'+n.cultureName+'</p></div></div></a></li>'
+ 	            str+='<li><a href="'+n.link+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.cultureName+'</p></div><div class="main_font_content"><p>'+n.cultureText+'</p></div></div></a></li>'
  	        })
         }else{
         	 $.each(array,function(i,n){
-  	            str+='<li><a href="'+n.link+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.specialtyName+'</p></div><div class="main_font_content"><p>'+n.specialtyContent+'</p></div></div></a></li>'
+  	            str+='<li><a href="'+n.link+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.specialtyName+'</p></div><div class="main_font_content"><p>'+n.specialtyText+'</p></div></div></a></li>'
   	        })
         }
         str+='</ul>'	
@@ -368,15 +368,15 @@ window.onload = function(){
                 var str='<ul class="common_content">';
                 if(titel == 'travel'){
         	        $.each(data.rows,function(i,n){
-        	            str+='<li><a href="'+'${pageContext.request.contextPath}/frontend/travel/details?id='+n.id+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.travelName+'</p></div><div class="main_font_content"><p>'+n.travelContent+'</p></div></div></a></li>'
+        	            str+='<li><a href="'+'${pageContext.request.contextPath}/frontend/travel/details?id='+n.id+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.travelName+'</p></div><div class="main_font_content"><p>'+n.travelText+'</p></div></div></a></li>'
         	        })
                 }else if(titel == 'culture'){
                 	 $.each(data.rows,function(i,n){
-         	            str+='<li><a href="'+'${pageContext.request.contextPath}/frontend/culture/details?id='+n.id+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.cultureName+'</p></div><div class="main_font_content"><p>'+n.cultureContent+'</p></div></div></a></li>'
+         	            str+='<li><a href="'+'${pageContext.request.contextPath}/frontend/culture/details?id='+n.id+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.cultureName+'</p></div><div class="main_font_content"><p>'+n.cultureText+'</p></div></div></a></li>'
          	        })
                 }else{
                 	 $.each(data.rows,function(i,n){
-          	            str+='<li><a href="'+'${pageContext.request.contextPath}/frontend/specialty/details?id='+n.id+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.specialtyName+'</p></div><div class="main_font_content"><p>'+n.specialtyContent+'</p></div></div></a></li>'
+          	            str+='<li><a href="'+'${pageContext.request.contextPath}/frontend/specialty/details?id='+n.id+'"><img src="../../'+n.image+'" alt="" /><div class="main_font"><div class="main_title"><p>'+n.specialtyName+'</p></div><div class="main_font_content"><p>'+n.specialtyText+'</p></div></div></a></li>'
           	        })
                 }
                 str+='</ul>'	

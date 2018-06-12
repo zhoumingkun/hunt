@@ -13,6 +13,7 @@ public class Travel extends AbstractModel{
 	private String travelName;           //旅游名称
 	private String travelContent;        //旅游内容
 	private String image;                //图片
+	private String travelText;           //旅游摘要
 	public String getTravelName() {
 		return travelName;
 	}
@@ -30,6 +31,13 @@ public class Travel extends AbstractModel{
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	
+	public String getTravelText() {
+		return travelText;
+	}
+	public void setTravelText(String travelText) {
+		this.travelText = travelText;
 	}
 	@Override
 	public String toString() {

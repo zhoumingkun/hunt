@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hunt.frontend.dao.TravelMapper">
     <insert id="save" parameterType="Travel" keyProperty="id" useGeneratedKeys="true">
-		insert into tbl_travel (id, travelName,travelContent,author,createTime,updateTime,image) 
-		values ( #{id}, #{travelName},#{travelContent},#{author},#{createTime},#{updateTime},#{image})
+		insert into tbl_travel (id, travelName,travelContent,author,createTime,updateTime,image,travelText) 
+		values ( #{id}, #{travelName},#{travelContent},#{author},#{createTime},#{updateTime},#{image},#{travelText})
 	</insert>
 	
 	<!-- 删除某个记录 -->
@@ -43,6 +43,7 @@
 			<if test="author != null and author != ''">author = #{author},</if>
 			<if test="image != null and image != ''">image = #{image},</if>
 			<if test="updateTime != null ">updateTime = #{updateTime},</if>	
+			<if test="travelText != null and travelText != ''">travelText = #{travelText},</if>
 			
 		</set>
 		where id = #{id}

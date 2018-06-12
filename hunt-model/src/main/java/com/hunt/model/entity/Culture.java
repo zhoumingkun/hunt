@@ -22,6 +22,9 @@ public class Culture extends AbstractModel implements Serializable {
 
 	// image : 图片
 	private String image;
+	
+	//cultureText : 文化摘要
+	private String cultureText;
 
 	public String getCultureName() {
 		return cultureName;
@@ -46,5 +49,15 @@ public class Culture extends AbstractModel implements Serializable {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public String getCultureText() {
+		return cultureText;
+	}
+
+	public void setCultureText(String cultureText) {
+		this.cultureText = cultureText;
+	}
+	
+	
 
 }

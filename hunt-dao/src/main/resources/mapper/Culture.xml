@@ -5,9 +5,9 @@
 	<insert id="save" parameterType="Culture" keyProperty="id"
 		useGeneratedKeys="true">
 		insert into tbl_culture (id,
-		createTime,updateTime,author,cultureName, cultureContent,image)
+		createTime,updateTime,author,cultureName, cultureContent,image,cultureText)
 		values (#{id}, #{createTime},#{updateTime},#{author},#{cultureName},
-		#{cultureContent},#{image})
+		#{cultureContent},#{image},#{cultureText})
 	</insert>
 	
 	<delete id="delete" parameterType="int">
@@ -22,6 +22,7 @@
 			<if test="cultureContent != null and cultureContent != ''">cultureContent = #{cultureContent},</if>
 			<if test="updateTime != null">updateTime = #{updateTime},</if>
 			<if test="image != null and image != ''">image= #{image},</if>
+			<if test="cultureText != null and cultureText != ''">cultureText= #{cultureText},</if>
 		</set>
 		where id = #{id}
 	</update>

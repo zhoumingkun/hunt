@@ -36,6 +36,12 @@
 		</div>
 	</div>
 	<div class="rowz">
+		<div class="label">摘要：</div>
+		<div class="contentz">
+			<input type="text" id="travelText" value="" maxlength="50">
+		</div>
+	</div>
+	<div class="rowz">
 		<div class="label">封面：</div>
 		<div class="cover">
 			<input type="file" id="travelImage" name="travelImage"><br>

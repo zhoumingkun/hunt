@@ -75,10 +75,13 @@ culture_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入文化内容");
+        } else if (!$("#cultureText").val()) {
+            common_tool.messager_show("请输入文化摘要");
         } else {
             var cultureName = $("#cultureName").val();
             var author = $("#author").val();
             var cultureContent = editor.html();
+            var cultureText = $("#cultureText").val();
             var file = document.getElementById("cultureImage");
             var image = file.files[0];
             var formData = new FormData();
@@ -88,6 +91,7 @@ culture_tool = {
                 formData.append("cultureName", cultureName);
                 formData.append("author", author);
                 formData.append("cultureContent",cultureContent);
+                formData.append("cultureText",cultureText);
             } else {
             	if(image) {
             		var url = getRootPath() + '/frontend/culture/updateFile';
@@ -96,12 +100,14 @@ culture_tool = {
                     formData.append("cultureName", cultureName);
                     formData.append("author", author);
                     formData.append("cultureContent",cultureContent);
+                    formData.append("cultureText",cultureText);
             	} else {
             		var url = getRootPath() + '/frontend/culture/update';
             		formData.append("id",id);
             		formData.append("cultureName", cultureName);
             		formData.append("author", author);
             		formData.append("cultureContent",cultureContent);
+            		formData.append("cultureText",cultureText);
             	}
             }
 
@@ -145,6 +151,7 @@ $(document).ready(function () {
         $('.pagewrap').show();
         $("#cultureName").val('');
     	$("#author").val('');
+    	$("#cultureText").val('');
     	editor.html('');
     });
 
@@ -158,6 +165,7 @@ $(document).ready(function () {
         	$("#cultureName").val(data.cultureName);
         	$("#author").val(data.author);
         	$("#upload_images").attr("src","../"+data.image);
+        	$("#cultureText").val(data.cultureText);
         	editor.html(data.cultureContent);
         }
 

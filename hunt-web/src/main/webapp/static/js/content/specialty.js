@@ -75,10 +75,13 @@ specialty_tool = {
             common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入特产内容");
+        } else if ($("#specialtyText")) {
+            common_tool.messager_show("请输入特产摘要");
         } else {
             var specialtyName = $("#specialtyName").val();
             var author = $("#author").val();
             var specialtyContent = editor.html();
+            var specialtyText = $("#specialtyText").val();
 //            var data = {};
             var file = document.getElementById("specialtyImage");
             var image = file.files[0];
@@ -89,6 +92,7 @@ specialty_tool = {
                 formData.append("specialtyName", specialtyName);
                 formData.append("author", author);
                 formData.append("specialtyContent",specialtyContent);
+                formData.append("specialtyText",specialtyText);
             } else {
             	if(image) {
             		var url = getRootPath() + '/frontend/specialty/updateFile';
@@ -97,12 +101,14 @@ specialty_tool = {
                     formData.append("specialtyName", specialtyName);
                     formData.append("author", author);
                     formData.append("specialtyContent",specialtyContent);
+                    formData.append("specialtyText",specialtyText);
             	} else {
             		var url = getRootPath() + '/frontend/specialty/update';
             		formData.append("id",id);
             		formData.append("specialtyName", specialtyName);
             		formData.append("author", author);
             		formData.append("specialtyContent",specialtyContent);
+            		formData.append("specialtyText",specialtyText);
             	}
             }
             $.ajax({
@@ -145,6 +151,7 @@ $(document).ready(function () {
         $("#specialtyName").val('');
     	$("#author").val('');
     	$("#specialtyImageUrl").val('');
+    	$("#specialtyText").val('');
     	editor.html('');
     });
 
@@ -158,6 +165,7 @@ $(document).ready(function () {
         	$("#specialtyName").val(data.specialtyName);
         	$("#author").val(data.author);
         	$("#upload_images").attr("src","../"+data.image);
+        	$("#specialtyText").val(data.specialtyText);
         	editor.html(data.specialtyContent);
         }
 
