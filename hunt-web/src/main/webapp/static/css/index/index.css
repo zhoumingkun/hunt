@@ -430,12 +430,13 @@ body {
       line-height: 0;
       content: "";
       display: inline-block; }
-    .investment .investment_list li {
+    .investment .investment_list >li {
       width: 3.93rem;
       height: 2.02rem;
       display: inline-block;
+      vertical-align:top;
       border: 1px solid #d7d7d7; }
-      .investment .investment_list li:first-child {
+      .investment .investment_list >li:first-child {
         margin-bottom: 0.1rem; }
       .investment .investment_list li .common_title {
         width: 100%;

@@ -42,6 +42,7 @@
 				<option value="-1">未发布</option>
 				<option value="1">已发布</option>
 				<option value="2">推广</option>
+				<option value="3">重点项目</option>
 			</select>
 		</div>
 	</div>
