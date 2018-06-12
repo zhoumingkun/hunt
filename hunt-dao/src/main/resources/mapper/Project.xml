@@ -101,6 +101,9 @@
 		<if test="state != null">
 		 and state = #{state}
 		</if>
+		<if test="state2 != null">
+		 or state = #{state2}
+		</if>
 		<if test="type != null">
 		 and type = #{type,jdbcType=INTEGER}
 		</if>
@@ -136,6 +139,9 @@
 		select * from tbl_project where 1 = 1
 		<if test="state != null">
 		 and state = #{state}
+		</if>
+		<if test="state2 != null">
+		 or state = #{state2}
 		</if>
 		<if test="type != null ">
 		 and type = #{type,jdbcType=INTEGER}

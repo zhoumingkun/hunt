@@ -57,10 +57,10 @@ public class ActivityServiceImpl implements ActivityService{
 	}
 
 	@Override
-	public PageInfo findPage(int page, int state) {
-		 int count = activityMapper.findCount(state);
+	public PageInfo findPage(int page, int state,int state2) {
+		 int count = activityMapper.findCount(state,state2);
 		 PageHelper.startPage(page, 10);
-		 List<Activity> list = activityMapper.findAllByState(state);
+		 List<Activity> list = activityMapper.findAllByState(state,state2);
 		return new PageInfo(count, list);
 	}
 

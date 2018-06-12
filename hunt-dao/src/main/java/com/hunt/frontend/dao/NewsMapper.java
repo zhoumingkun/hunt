@@ -29,8 +29,8 @@ public interface NewsMapper {
 	public News findById(int id);
 	
 	//根据状态查询数量
-	public int findCount(@Param("state") int state);
+	public int findCount(@Param("state") int state,@Param("state2") int state2);
 
 	//查询全部 根据状态查询
-	public List<News> findAllByState(@Param("state") int state);
+	public List<News> findAllByState(@Param("state") int state,@Param("state2") int state2);
 }

@@ -154,15 +154,15 @@ public class EnterpriseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
-	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) throws UnsupportedEncodingException{
+	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "state2") int state2) throws UnsupportedEncodingException{
 		String trade = request.getParameter("trade");
 		if(trade.equals("") && trade.equals("全部")){
 			trade = "";
-			PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
+			PageInfo pageInfo = enterpriseService.findPage(page,state,trade,state2);
 			return pageInfo;
 		}else{
 			trade = URLDecoder.decode(trade,"UTF-8");
-			PageInfo pageInfo = enterpriseService.findPage(page,state,trade);
+			PageInfo pageInfo = enterpriseService.findPage(page,state,trade,state2);
 			return pageInfo;
 		}
 	}

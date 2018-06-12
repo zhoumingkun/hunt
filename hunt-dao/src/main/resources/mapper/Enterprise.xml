@@ -40,6 +40,9 @@
 		<if test="state != null">
 		 and state = #{state}
 		</if>
+		<if test="state2 != null">
+		 or state = #{state2}
+		</if>
 		<if test="trade != null and trade != ''">
 		 and trade = #{trade,jdbcType=VARCHAR}
 		</if>
@@ -53,6 +56,9 @@
 		</if>
 		<if test="trade != null and trade != ''">
 		 and trade = #{trade,jdbcType=VARCHAR}
+		</if>
+		<if test="state2 != null">
+		 or state = #{state2}
 		</if>
 		order by createTime desc
 	</select>

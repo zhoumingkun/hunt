@@ -29,6 +29,6 @@ public interface ActivityService {
 	    public void deleteById(int id);
 
 	    //分页查询
-		public PageInfo findPage(int page, int state);
+		public PageInfo findPage(int page, int state, int state2);
 
 }

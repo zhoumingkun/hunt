@@ -40,10 +40,10 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 	}
 	
 	@Override
-	public PageInfo findPage(int page,int state,String trade) {
-		 int count = enterpriseMapper.findCount(state,trade);
+	public PageInfo findPage(int page,int state,String trade,int state2) {
+		 int count = enterpriseMapper.findCount(state,state2,trade);
 		 PageHelper.startPage(page, 10);
-		 List<Enterprise> list = enterpriseMapper.findAllByState(state,trade);
+		 List<Enterprise> list = enterpriseMapper.findAllByState(state,state2,trade);
 		return new PageInfo(count, list);
 	}
 

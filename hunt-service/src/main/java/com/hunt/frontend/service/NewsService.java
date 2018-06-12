@@ -27,5 +27,5 @@ public interface NewsService {
 	//根据ID查询
 	public News findById(int id);
     // 分页查询
-	PageInfo findPage(int page, int state);
+	PageInfo findPage(int page, int state,int state2);
 }

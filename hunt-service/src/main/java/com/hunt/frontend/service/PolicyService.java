@@ -29,7 +29,7 @@ public interface PolicyService {
 	public Policy findById(int id);
 
 	//分页查询
-	public PageInfo findPage(int page,int state);
+	public PageInfo findPage(int page,int state,int state2);
 	
 	// 微信查询全部
 	public List<Policy> WX_findAll();

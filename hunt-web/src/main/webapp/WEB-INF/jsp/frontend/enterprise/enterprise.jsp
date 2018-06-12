@@ -93,7 +93,7 @@
              <script>
              window.onload = function(){
 	            $('.pagingwrap').lemonPaging({
-	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=1&trade="+"",//ajax请求地址为空时不发送ajax
+	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=1&state2=2&trade="+"",//ajax请求地址为空时不发送ajax
 	             /* 'total':217,//总数据条数*/
 	             'page_size':10,//每页数据条数
 	             'pages':7,//分页可显示页码数量 
@@ -118,7 +118,7 @@
             	$('.option div a').on('click',function(){
             		var trade = $(this).html().trim().toString();
             		$('.pagingwrap').lemonPaging({
-       	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=2&trade="+encodeURI(encodeURI(trade))+"",//ajax请求地址为空时不发送ajax
+       	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=1&state2=2&trade="+encodeURI(encodeURI(trade))+"",//ajax请求地址为空时不发送ajax
        	             /* 'total':217,//总数据条数*/
        	             'page_size':10,//每页数据条数
        	             'pages':7,//分页可显示页码数量 

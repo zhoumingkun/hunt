@@ -90,8 +90,8 @@ public class ProjectController {
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
 	public PageInfo findPage(HttpServletRequest request, @RequestParam(value = "current_page") int page,
-			@RequestParam(value = "state") int state, @RequestParam(value = "type") int type) {
-		PageInfo pageInfo = projectService.findPage(page, state, type);
+			@RequestParam(value = "state") int state,@RequestParam(value = "state2") int state2, @RequestParam(value = "type") int type) {
+		PageInfo pageInfo = projectService.findPage(page, state, state2,type);
 		return pageInfo;
 	}
 

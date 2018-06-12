@@ -50,10 +50,10 @@ public class NewsServiceImpl implements NewsService{
 	
 	
 	@Override
-	public PageInfo findPage(int page, int state) {
-		 int count = newsMapper.findCount(state);
+	public PageInfo findPage(int page, int state,int state2) {
+		 int count = newsMapper.findCount(state,state2);
 		 PageHelper.startPage(page, 10);
-		 List<News> list = newsMapper.findAllByState(state);
+		 List<News> list = newsMapper.findAllByState(state,state2);
 		return new PageInfo(count, list);
 	}
 	

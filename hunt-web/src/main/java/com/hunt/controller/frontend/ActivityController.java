@@ -83,8 +83,8 @@ public class ActivityController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
-	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) {
-		PageInfo pageInfo = activityService.findPage(page,state);
+	public PageInfo findPage(@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "state2") int state2) {
+		PageInfo pageInfo = activityService.findPage(page,state,state2);
 		return pageInfo;
 	}
 }
