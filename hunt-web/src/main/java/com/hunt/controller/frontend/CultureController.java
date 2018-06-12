@@ -87,6 +87,9 @@ public class CultureController{
 	@ResponseBody
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public Result update(Culture culture) {
+		System.out.println("--------------------------------------------");
+		System.out.println(culture.getCultureText());
+		System.out.println("--------------------------------------------");
 		try {
 			cultureService.update(culture);
 			return Result.success();

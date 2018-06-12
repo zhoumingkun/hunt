@@ -38,7 +38,7 @@
 	<div class="rowz">
 		<div class="label">摘要：</div>
 		<div class="contentz">
-			<input type="text" id="cultureText" value="">
+			<input type="text" id="cultureText" value="" maxlength="80">
 		</div>
 	</div>
 	<div class="rowz">

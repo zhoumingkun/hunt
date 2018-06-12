@@ -82,6 +82,7 @@ culture_tool = {
             var author = $("#author").val();
             var cultureContent = editor.html();
             var cultureText = $("#cultureText").val();
+            console.log(cultureText);
             var file = document.getElementById("cultureImage");
             var image = file.files[0];
             var formData = new FormData();
