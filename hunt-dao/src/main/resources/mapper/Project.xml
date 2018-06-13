@@ -151,7 +151,7 @@
 	
 	<!--微信端-查询全部发布企业 根 时间排序  -->
 	<select id="WX_findAll"  resultType="Project">
-		select * from tbl_project where  and state = 1
+		select * from tbl_project where  state = 1 or state = 2
 		order by createTime desc
 	</select>
 </mapper>
