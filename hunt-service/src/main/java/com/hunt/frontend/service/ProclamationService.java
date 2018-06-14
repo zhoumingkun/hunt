@@ -25,7 +25,7 @@ public interface ProclamationService {
 	public List<Proclamation> findAll();
 
 	//分页查询 -前台
-	public PageInfo findPage(int page, int state);
+	public PageInfo findPage(int page, int state,int state2);
 
 	//根据ID查询
 	public Proclamation findById(int id);

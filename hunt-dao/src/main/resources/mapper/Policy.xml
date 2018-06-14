@@ -62,6 +62,6 @@
 	
 	<!-- 微信查询全部记录  -->
 	<select id="WX_findAll" resultType="Project" parameterType="Map">
-		select * from tbl_policy where state = 1 ORDER BY createTime DESC
+		select * from tbl_policy where state = 1 or state = 2 ORDER BY createTime DESC
 	</select>
 </mapper>
