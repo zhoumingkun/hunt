@@ -1,4 +1,4 @@
-﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+﻿﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
 
@@ -130,7 +130,7 @@
        	                 $("#content").empty();
        	                 $.each(data.rows,function(i,enterprise){
        	                	 var path =  "${pageContext.request.contextPath}/frontend/enterprise/details?id="+enterprise.id;
-       						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(${pageContext.request.contextPath}'+enterprise.image+');"></div><div class="content">'+
+       						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(../../'+enterprise.image+');"></div><div class="content">'+
        						 '<p class="title">'+enterprise.enterpriseName+'</p><p class="text">'+enterprise.enterpriseText+'</p></div></a></li>'      
        	                 })
        	                $("#contents").html(str);

@@ -64,10 +64,10 @@ public class ProjectServiceImpl implements ProjectService{
 
 	@Override
 	//通过项目名称进行查询(搜索)
-	public PageInfo findByName(int page, int state, String name) {
-			 int count = projectMapper.findCountByName(state,name);
+	public PageInfo findByName(int page, int state,int state2, String name) {
+			 int count = projectMapper.findCountByName(state,state2,name);
 			 PageHelper.startPage(page, 10);
-			 List<Project> list = projectMapper.findByName(state,name);
+			 List<Project> list = projectMapper.findByName(state,state2,name);
 			return  new PageInfo(count,list);
 	}
 

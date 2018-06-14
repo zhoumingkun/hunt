@@ -167,8 +167,7 @@
             </div>
     <!-- 右边主体结束 -->
     <!-- 右边分页开始 -->
-            <div class="pagingwrap">
-                
+            <div class="pagingwrap"> 
             </div>
             <script>
             if(${ids == 4}){
@@ -241,7 +240,7 @@
                 console.log(data,current_page);
             },//列表数据填充容器
            })
-    });
+    })
     </script>
         </div>
     <!-- 右边结束 -->

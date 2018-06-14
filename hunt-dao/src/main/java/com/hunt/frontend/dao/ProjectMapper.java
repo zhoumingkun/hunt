@@ -38,10 +38,10 @@ public interface ProjectMapper {
 	public List<Project> findAllByState(@Param("state") int state,@Param("state2") int state2,@Param("type") int type);
     
 	//根据名称与状态查询总数
-	public int findCountByName(@Param("state") int state,@Param("projectName") String projectName);
+	public int findCountByName(@Param("state") int state,@Param("state2") int state2,@Param("projectName") String projectName);
 	
 	//根据名称与状态查询（搜索）
-	public List<Project> findByName(@Param("state") int state,@Param("projectName") String projectName);
+	public List<Project> findByName(@Param("state") int state,@Param("state2") int state2,@Param("projectName") String projectName);
 
 	//微信端-查询全部推广项目 根 时间排序
 	public List<Project> WX_findAll();
