@@ -40,6 +40,9 @@
 		<if test="state != null">
 		 and state = #{state}
 		</if>
+		<if test="state2 != null">
+		 or state = #{state2}
+		</if>
 		<if test="trade != null and trade != ''">
 		 and trade = #{trade,jdbcType=VARCHAR}
 		</if>
@@ -54,6 +57,9 @@
 		<if test="trade != null and trade != ''">
 		 and trade = #{trade,jdbcType=VARCHAR}
 		</if>
+		<if test="state2 != null">
+		 or state = #{state2}
+		</if>
 		order by createTime desc
 	</select>
 	
@@ -64,7 +70,7 @@
 	
 	<!--微信端-查询全部发布企业 根 时间排序  -->
 	<select id="WX_findAll"  resultType="Enterprise">
-		select * from tbl_enterprise where  and state = 1
+		select * from tbl_enterprise where  state = 1 or state = 2
 		order by createTime desc
 	</select>
 </mapper>

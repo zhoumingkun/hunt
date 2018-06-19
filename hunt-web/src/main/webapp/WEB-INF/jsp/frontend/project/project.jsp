@@ -134,7 +134,7 @@
             <script>
             window.onload = function(){
 	                var type = ${type };
-	                var path = "${pageContext.request.contextPath}/frontend/project/data?state=1&type="+type;
+	                var path = "${pageContext.request.contextPath}/frontend/project/data?state=1&state2=2&type="+type;
 	                $('.pagingwrap').lemonPaging({
 	                    'url': path,//ajax请求地址
 	                    /* 'total': 217,//总数据条数 */
@@ -179,7 +179,7 @@
             			A = 6;
             		}
             		$('.pagingwrap').lemonPaging({
-                        'url': "${pageContext.request.contextPath}/frontend/project/data?state=1&type="+A,//ajax请求地址
+                        'url': "${pageContext.request.contextPath}/frontend/project/data?state=1&state2=2&type="+A,//ajax请求地址
                         /* 'total': 217,//总数据条数 */
                         'page_size': 10,//每页数据条数
                         'pages': 7,//分页可显示页码数量

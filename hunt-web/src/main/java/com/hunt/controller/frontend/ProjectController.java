@@ -90,8 +90,8 @@ public class ProjectController {
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
 	public PageInfo findPage(HttpServletRequest request, @RequestParam(value = "current_page") int page,
-			@RequestParam(value = "state") int state, @RequestParam(value = "type") int type) {
-		PageInfo pageInfo = projectService.findPage(page, state, type);
+			@RequestParam(value = "state") int state,@RequestParam(value = "state2") int state2, @RequestParam(value = "type") int type) {
+		PageInfo pageInfo = projectService.findPage(page, state, state2,type);
 		return pageInfo;
 	}
 
@@ -107,14 +107,14 @@ public class ProjectController {
 	@ResponseBody
 	@RequestMapping(value = "findByName", method = RequestMethod.GET)
 	public PageInfo findByName(HttpServletRequest request, @RequestParam(value = "current_page") int page,
-			@RequestParam(value = "state") int state) throws UnsupportedEncodingException {
+			@RequestParam(value = "state") int state,@RequestParam(value = "state2") int state2) throws UnsupportedEncodingException {
 		String projectName = request.getParameter("projectName");
 		if (projectName != null && !"".equals(projectName)) {
 			projectName = URLDecoder.decode(projectName,"UTF-8");
-			PageInfo pageInfo = projectService.findByName(page, state, projectName);
+			PageInfo pageInfo = projectService.findByName(page, state,state2, projectName);
 			return pageInfo;
 		} else {
-			PageInfo pageInfo = projectService.findByName(page, state, projectName);
+			PageInfo pageInfo = projectService.findByName(page, state,state2, projectName);
 			return pageInfo;
 		}
 	}

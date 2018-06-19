@@ -85,7 +85,7 @@
 	</select>
 	<!-- 微信查询全部记录  -->
 	<select id="WX_findAll" resultType="Guide" parameterType="Map">
-		select * from tbl_guide where state = 1 ORDER BY createTime DESC
+		select * from tbl_guide where state = 1 or state = 2 ORDER BY createTime DESC
 		
 	</select>
 </mapper>

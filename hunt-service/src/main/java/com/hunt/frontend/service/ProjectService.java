@@ -31,11 +31,11 @@ public interface ProjectService {
 	    public void deleteById(int id);
 
 	    //前台分页查询
-		public PageInfo findPage(int page, int state, int type);
+		public PageInfo findPage(int page, int state,int state2, int type);
 		
 		
-		//通过项目名称进行查询
-	    public PageInfo findByName(int page, int state, String name);
+		//通过项目名称进行查询（搜索）
+	    public PageInfo findByName(int page, int state,int state2, String name);
 
 	    //微信端-查询全部推广项目 根 时间排序
 		public List<Project> WX_findAll();

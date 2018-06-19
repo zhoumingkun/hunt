@@ -104,8 +104,8 @@ public class ProclamationController{
 	 */
 	@ResponseBody
 	@RequestMapping(value = "data", method = RequestMethod.GET)
-	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state) {
-			PageInfo pageInfo = proclamationService.findPage(page,state);
+	public PageInfo findPage(HttpServletRequest request,@RequestParam(value = "current_page") int page ,@RequestParam(value = "state") int state,@RequestParam(value = "state2") int state2) {
+			PageInfo pageInfo = proclamationService.findPage(page,state,state2);
 			return pageInfo;
 	}
 	

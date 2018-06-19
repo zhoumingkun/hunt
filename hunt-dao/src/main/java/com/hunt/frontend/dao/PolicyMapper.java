@@ -29,10 +29,10 @@ public interface PolicyMapper {
 	public Policy findById(int id);
 
 	//根据状态查询数量
-	public int findCount(@Param("state") int state);
+	public int findCount(@Param("state") int state,@Param("state2") int state2);
 	
 	//查询全部 根据状态查询
-	public List<Policy> findAllByState(@Param("state") int state);
+	public List<Policy> findAllByState(@Param("state") int state,@Param("state2") int state2);
 	
 	//微信查询全部
 	public List<Policy> WX_findAll();

@@ -1,4 +1,4 @@
-﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+﻿﻿﻿<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
 
@@ -93,7 +93,7 @@
              <script>
              window.onload = function(){
 	            $('.pagingwrap').lemonPaging({
-	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=1&trade="+"",//ajax请求地址为空时不发送ajax
+	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=1&state2=2&trade="+"",//ajax请求地址为空时不发送ajax
 	             /* 'total':217,//总数据条数*/
 	             'page_size':10,//每页数据条数
 	             'pages':7,//分页可显示页码数量 
@@ -118,7 +118,7 @@
             	$('.option div a').on('click',function(){
             		var trade = $(this).html().trim().toString();
             		$('.pagingwrap').lemonPaging({
-       	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=2&trade="+encodeURI(encodeURI(trade))+"",//ajax请求地址为空时不发送ajax
+       	             'url':"${pageContext.request.contextPath}/frontend/enterprise/data?state=1&state2=2&trade="+encodeURI(encodeURI(trade))+"",//ajax请求地址为空时不发送ajax
        	             /* 'total':217,//总数据条数*/
        	             'page_size':10,//每页数据条数
        	             'pages':7,//分页可显示页码数量 
@@ -130,7 +130,7 @@
        	                 $("#content").empty();
        	                 $.each(data.rows,function(i,enterprise){
        	                	 var path =  "${pageContext.request.contextPath}/frontend/enterprise/details?id="+enterprise.id;
-       						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(${pageContext.request.contextPath}'+enterprise.image+');"></div><div class="content">'+
+       						 str+='<li><a href="'+path+'"> <div class="img" style="background-image:url(../../'+enterprise.image+');"></div><div class="content">'+
        						 '<p class="title">'+enterprise.enterpriseName+'</p><p class="text">'+enterprise.enterpriseText+'</p></div></a></li>'      
        	                 })
        	                $("#contents").html(str);

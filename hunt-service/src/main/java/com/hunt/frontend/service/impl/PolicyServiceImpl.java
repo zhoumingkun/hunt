@@ -49,10 +49,10 @@ public class PolicyServiceImpl implements PolicyService{
 	}
 
 	@Override
-	public PageInfo findPage(int page,int state) {
-		 int count = policyMapper.findCount(state);
+	public PageInfo findPage(int page,int state,int state2) {
+		 int count = policyMapper.findCount(state,state2);
 		 PageHelper.startPage(page, 10);
-		 List<Policy> list = policyMapper.findAllByState(state);
+		 List<Policy> list = policyMapper.findAllByState(state,state2);
 		return new PageInfo(count, list);
 	}
 

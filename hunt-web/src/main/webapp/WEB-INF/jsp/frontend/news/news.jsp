@@ -167,13 +167,12 @@
             </div>
     <!-- 右边主体结束 -->
     <!-- 右边分页开始 -->
-            <div class="pagingwrap">
-                
+            <div class="pagingwrap"> 
             </div>
             <script>
             if(${ids == 4}){
             	$('.pagingwrap').lemonPaging({
-                    'url':"${pageContext.request.contextPath}/frontend/proclamation/data?state=1",//ajax请求地址为空时不发送ajax
+                    'url':"${pageContext.request.contextPath}/frontend/proclamation/data?state=1&state2=2",//ajax请求地址为空时不发送ajax
                     /* 'total':217,//总数据条数*/
                     'page_size':10,//每页数据条数
                     'pages':7,//分页可显示页码数量 
@@ -195,7 +194,7 @@
                    })
             }else{
 	            $('.pagingwrap').lemonPaging({
-	             'url':"${pageContext.request.contextPath}/frontend/news/data?state=1",//ajax请求地址为空时不发送ajax
+	             'url':"${pageContext.request.contextPath}/frontend/news/data?state=1&state2=2",//ajax请求地址为空时不发送ajax
 	             /* 'total':217,//总数据条数*/
 	             'page_size':10,//每页数据条数
 	             'pages':7,//分页可显示页码数量 
@@ -221,7 +220,7 @@
     <script type="text/javascript">
     $("#AAA").on("click",function() {
    	 $('.pagingwrap').lemonPaging({
-            'url':"${pageContext.request.contextPath}/frontend/proclamation/data?state=1",//ajax请求地址为空时不发送ajax
+            'url':"${pageContext.request.contextPath}/frontend/proclamation/data?state=1&state2=2",//ajax请求地址为空时不发送ajax
             /* 'total':217,//总数据条数*/
             'page_size':10,//每页数据条数
             'pages':7,//分页可显示页码数量 
@@ -241,7 +240,7 @@
                 console.log(data,current_page);
             },//列表数据填充容器
            })
-    });
+    })
     </script>
         </div>
     <!-- 右边结束 -->

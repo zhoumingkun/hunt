@@ -55,19 +55,19 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public PageInfo findPage(int page, int state, int type) {
-		 int count = projectMapper.findCount(state,type);
+	public PageInfo findPage(int page, int state, int state2,int type) {
+		 int count = projectMapper.findCount(state,state2,type);
 		 PageHelper.startPage(page, 10);
-		 List<Project> list = projectMapper.findAllByState(state,type);
+		 List<Project> list = projectMapper.findAllByState(state,state2,type);
 		return new PageInfo(count, list);
 	}
 
 	@Override
-	//通过项目名称进行查询
-	public PageInfo findByName(int page, int state, String name) {
-			 int count = projectMapper.findCountByName(state,name);
+	//通过项目名称进行查询(搜索)
+	public PageInfo findByName(int page, int state,int state2, String name) {
+			 int count = projectMapper.findCountByName(state,state2,name);
 			 PageHelper.startPage(page, 10);
-			 List<Project> list = projectMapper.findByName(state,name);
+			 List<Project> list = projectMapper.findByName(state,state2,name);
 			return  new PageInfo(count,list);
 	}
 

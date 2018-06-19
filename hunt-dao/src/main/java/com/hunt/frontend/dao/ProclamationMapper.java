@@ -26,10 +26,10 @@ public interface ProclamationMapper {
 	public List<Proclamation> findAll();
 
 	//根据状态查询数量
-	public int findCount(@Param("state") int state);
+	public int findCount(@Param("state") int state,@Param("state2") int state2);
 
 	//根据状态查询分页数据
-	public List<Proclamation> findAllByState(@Param("state") int state);
+	public List<Proclamation> findAllByState(@Param("state") int state,@Param("state2") int state2);
 
 	//根据ID查询
 	public Proclamation findById(int id);

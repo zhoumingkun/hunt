@@ -107,7 +107,7 @@
             </div>
             <script>
                 $('.pagingwrap').lemonPaging({
-                 'url':"${pageContext.request.contextPath}/frontend/policy/data?state=2",//ajax请求地址为空时不发送ajax
+                 'url':"${pageContext.request.contextPath}/frontend/policy/data?state=1&state2=2",//ajax请求地址为空时不发送ajax
                  /* 'total':217,//总数据条数*/
                  'page_size':10,//每页数据条数
                  'pages':7,//分页可显示页码数量 

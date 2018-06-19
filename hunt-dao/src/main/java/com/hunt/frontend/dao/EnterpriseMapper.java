@@ -26,10 +26,10 @@ public interface EnterpriseMapper {
 	public List<Enterprise> findAll();
 	
 	//根据状态查询数量
-	public int findCount(@Param("state") int state,@Param("trade") String trade);
+	public int findCount(@Param("state") int state,@Param("state2") int state2,@Param("trade") String trade);
 
 	//查询全部 根据状态查询
-	public List<Enterprise> findAllByState(@Param("state") int state,@Param("trade") String trade);
+	public List<Enterprise> findAllByState(@Param("state") int state,@Param("state2") int state2,@Param("trade") String trade);
 
 	//根据ID查询
 	public Enterprise findById(int id);

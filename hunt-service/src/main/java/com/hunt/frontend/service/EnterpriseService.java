@@ -24,7 +24,7 @@ public interface EnterpriseService {
 	public List<Enterprise> findAll();
 
 	// 分页查询
-	PageInfo findPage(int page, int state, String trade);
+	PageInfo findPage(int page, int state, String trade,int state2);
 
 	//根据ID查询
 	public Enterprise findById(int id);

@@ -43,10 +43,10 @@ public class ProclamationServiceImpl implements ProclamationService{
 	}
 
 	@Override
-	public PageInfo findPage(int page, int state) {
-		int count = proclamationMapper.findCount(state);
+	public PageInfo findPage(int page, int state,int state2) {
+		int count = proclamationMapper.findCount(state,state2);
 		 PageHelper.startPage(page, 10);
-		 List<Proclamation> list = proclamationMapper.findAllByState(state);
+		 List<Proclamation> list = proclamationMapper.findAllByState(state,state2);
 		return new PageInfo(count,list);
 	}
 
