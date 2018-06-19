@@ -11,6 +11,8 @@
 	src="${pageContext.request.contextPath}/static/js/jquery1.7/jQuery1.7.1.min.js"></script>
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/static/js/swiper/swiper-3.4.2.min.css" />
+	<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/static/css/index/customerService.css" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/swiper/swiper-3.4.2.jquery.min.js"></script>
 <script type="text/javascript"
@@ -26,12 +28,14 @@
 	<div class="news_content">
 		<div class="news">
 			<div class="news_only">
-				<div class="left_news">
-					<div class="left_news_back">
-						<img
-							src="${pageContext.request.contextPath}/static/image/index/news.png"
-							alt="">
-					</div>
+				<div class="swiper-container left_news ">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide left_news_back">
+							<img
+								src="${pageContext.request.contextPath}/static/image/index/news.png"
+								alt="">
+						</div>
+					</div>			
 				</div>
 				<div class="right_news">
 					<ul class="select_button">
@@ -116,18 +120,20 @@
 					<span><a href=""></a></span>
 				</div>
 				<div class="notice_list">
-					<ul>
+					<div class="swiper-container">
+					<ul class="swiper-wrapper">
 						<%
 							ResultSet proclamation = st.executeQuery("SELECT * FROM tbl_proclamation where state = 2 ORDER BY createTime DESC LIMIT 9");
 							while (proclamation.next()) {
 						%>
-						<li><a href="${pageContext.request.contextPath}/frontend/proclamation/details?id=<%=proclamation.getInt("id") %>"> 
+						<li class="swiper-slide"><a href="${pageContext.request.contextPath}/frontend/proclamation/details?id=<%=proclamation.getInt("id") %>"> 
 						<span>·</span><p class="oth"><%=proclamation.getString("proclamationName")%></p>
 						</a></li>
 						<%
 							}
 						%>
 					</ul>
+					</div>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -538,6 +544,27 @@
 	<!--脚开始-->
 	<%@ include file="common/foot.jsp"%>
 	<!--脚结束-->
+	 <!-- 右边客服开始 -->
+    <div class="customerService">
+        <div class="title">
+            <p class="text">
+                <img src="${pageContext.request.contextPath}/static/image/all/kefuicon.png" alt="">
+                电话咨询
+            </p>
+            <p class="number">0351-5326498</p>
+        </div>
+        <div class="btns">
+            <a href="">在线咨询</a>
+            <a href="">招商咨询</a>
+            <a href="" class="nolink">
+            微信公众号
+            <img class="ercode" src="${pageContext.request.contextPath}/static/image/all/kefucode.png" alt="">
+            </a>
+        </div>
+        
+    </div>
+
+    <!-- 右边客服结束 -->
 	<%
 		rs.close();
 		conn.close();
