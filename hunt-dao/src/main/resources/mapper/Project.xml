@@ -101,10 +101,10 @@
 		 and state = #{state}
 		</if>
 		<if test="state2 != null">
-		 or state = #{state2}
+		 or (state = #{state2}
 		</if>
 		<if test="state3 != null">
-		 or state = #{state3}
+		 or state = #{state3})
 		</if>
 		<if test="type != null">
 		 and type = #{type,jdbcType=INTEGER}
@@ -119,10 +119,10 @@
 		 and state = #{state}
 		</if>
 		<if test="state2 != null">
-		 or state = #{state2}
+		 or (state = #{state2}
 		</if>
 		<if test="state3 != null">
-		 or state = #{state3}
+		 or state = #{state3})
 		</if>
 		<if test="projectName != null and projectName != ''">
 		  and projectName like '%${projectName}%'
@@ -137,10 +137,10 @@
 		 and state = #{state}
 		</if>
 		<if test="state2 != null">
-		 or state = #{state2}
+		 or (state = #{state2}
 		</if>
 		<if test="state3 != null">
-		 or state = #{state3}
+		 or state = #{state3})
 		</if>
 		<if test="projectName != null and projectName != ''">
 		 and projectName like '%${projectName}%'
@@ -155,10 +155,10 @@
 		 and state = #{state}
 		</if>
 		<if test="state2 != null">
-		 or state = #{state2}
+		 or (state = #{state2}
 		</if>
 		<if test="state3 != null">
-		 or state = #{state3}
+		 or state = #{state3})
 		</if>
 		<if test="type != null ">
 		 and type = #{type,jdbcType=INTEGER}
