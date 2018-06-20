@@ -133,6 +133,7 @@ $(document).ready(function () {
     });
 
     $("#proclamation-save-btn").click(function () {
+    	$("#proclamation_grid").datagrid("clearSelections");
         /*proclamation_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#proclamationName").val('');

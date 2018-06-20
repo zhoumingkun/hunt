@@ -121,6 +121,7 @@ $(document).ready(function () {
     });
 
     $("#guide-save-btn").click(function () {
+    	$("#guide_grid").datagrid("clearSelections");
         /*guide_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#guideName").val('');

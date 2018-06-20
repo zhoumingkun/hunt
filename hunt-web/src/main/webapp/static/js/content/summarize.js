@@ -122,6 +122,7 @@ $(document).ready(function () {
     });
 
     $("#summarize-save-btn").click(function () {
+    	$("#summarize_grid").datagrid("clearSelections");
         /*summarize_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#summarizeName").val('');

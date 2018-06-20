@@ -143,6 +143,7 @@ $(document).ready(function () {
     });
 
     $("#policy-save-btn").click(function () {
+    	$("#policy_grid").datagrid("clearSelections");
         /*role_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#policyName").val('');

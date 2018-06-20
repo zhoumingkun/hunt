@@ -144,6 +144,7 @@ $(document).ready(function () {
     });
 
     $("#travel-save-btn").click(function () {
+    	$("#travel_grid").datagrid("clearSelections");
         /*travel_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#travelName").val('');

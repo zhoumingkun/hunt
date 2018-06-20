@@ -144,6 +144,7 @@ $(document).ready(function () {
     });
 
     $("#specialty-save-btn").click(function () {
+    	$("#specialty_grid").datagrid("clearSelections");
         /*specialty_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#specialtyName").val('');

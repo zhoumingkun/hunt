@@ -133,6 +133,7 @@ $(document).ready(function () {
     });
 
     $("#activity-save-btn").click(function () {
+    	$("#activity_grid").datagrid("clearSelections");
         /*activity_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#activityName").val('');

@@ -146,6 +146,7 @@ $(document).ready(function () {
     });
 
     $("#culture-save-btn").click(function () {
+    	$("#culture_grid").datagrid("clearSelections");
         /*culture_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#cultureName").val('');

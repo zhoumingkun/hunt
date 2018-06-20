@@ -153,13 +153,14 @@ $(document).ready(function () {
     });
 
     $("#project-save-btn").click(function () {
-        /*project_tool.init_edit_view(1);*/
-        $('.pagewrap').show();
-        $("#projectName").val('');
-        $("#state").val(-1);
-        $("#type").val(1);
-    	$("#author").val('');
-    	editor.html('');
+    	   $("#project_grid").datagrid("clearSelections");
+            /*project_tool.init_edit_view(1);*/
+            $('.pagewrap').show();
+            $("#projectName").val('');
+            $("#state").val(-1);
+            $("#type").val(1);
+            $("#author").val('');
+            editor.html('');
     });
 
     $("#project-update-btn").click(function () {

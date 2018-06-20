@@ -161,6 +161,7 @@ $(document).ready(function () {
     });
 
     $("#enterprise-save-btn").click(function () {
+    	$("#enterprise_grid").datagrid("clearSelections");
         /*enterprise_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#enterpriseName").val('');

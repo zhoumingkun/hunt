@@ -131,6 +131,7 @@ $(document).ready(function () {
     });
 
     $("#role-save-btn").click(function () {
+    	$("#news_grid").datagrid("clearSelections");
         /*role_tool.init_edit_view(1);*/
         $('.pagewrap').show();
         $("#newsName").val('');
