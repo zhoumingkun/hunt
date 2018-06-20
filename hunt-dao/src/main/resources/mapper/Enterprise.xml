@@ -30,7 +30,7 @@
 	</update>
 	
 	<select id="findAll" resultType="Enterprise">
-		select * from tbl_enterprise
+		select * from tbl_enterprise ORDER BY createTime desc
 	</select>
 	
 	

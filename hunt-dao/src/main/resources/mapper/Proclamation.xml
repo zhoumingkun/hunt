@@ -27,7 +27,7 @@
 	</update>
 	
 	<select id="findAll" resultType="Proclamation">
-		select * from tbl_proclamation
+		select * from tbl_proclamation ORDER BY createTime desc
 	</select>
 	
 	<!-- 查询总数 -->

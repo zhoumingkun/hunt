@@ -34,8 +34,7 @@
 	
 	<!-- 查询全部 -->
 	<select id="findAll"  resultType="Specialty">
-		select * from tbl_specialty 
-		order by createTime desc
+		select * from tbl_specialty ORDER BY createTime desc
 	</select>
 	
 	<!-- 根据ID查询 -->

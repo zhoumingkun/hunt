@@ -18,8 +18,7 @@
 	
 	<!-- 查询全部记录  -->
 	<select id="findAll" resultType="Summarize" parameterType="Map">
-		select * from tbl_summarize
-		<include refid="paramsSQL"/>
+		select * from tbl_summarize ORDER BY createTime desc
 	</select>
 	
 	<!-- 分页查询交接单  -->

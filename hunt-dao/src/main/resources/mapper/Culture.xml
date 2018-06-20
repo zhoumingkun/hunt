@@ -28,7 +28,7 @@
 	</update>
 	
 	<select id="findAll" resultType="Culture">
-		select * from tbl_culture order by createTime desc
+		select * from tbl_culture ORDER BY createTime desc
 	</select>
 	
 	<!-- 查询总数 -->

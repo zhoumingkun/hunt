@@ -28,7 +28,7 @@
 	</update>
 	
 	<select id="findAll" resultType="Policy">
-		select * from tbl_policy 
+		select * from tbl_policy ORDER BY createTime desc
 	</select>
 	
 	<!-- 根据ID查询 -->

@@ -27,7 +27,7 @@
 	</update>
 	
 	<select id="findAll" resultType="News">
-		select * from tbl_news
+		select * from tbl_news ORDER BY createTime desc
 	</select>
 	
 	<!-- 根据ID查询 -->
