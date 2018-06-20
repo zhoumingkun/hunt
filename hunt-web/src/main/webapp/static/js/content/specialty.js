@@ -71,8 +71,6 @@ specialty_tool = {
     saveOrUpdate: function (id) {
         if (!$("#specialtyName").val()) {
             common_tool.messager_show("请输入特产名称");
-        } else if (!$("#author").val()) {
-            common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入特产内容");
         } else if (!$("#specialtyText").val()) {

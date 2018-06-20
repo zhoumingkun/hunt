@@ -71,8 +71,6 @@ culture_tool = {
     saveOrUpdate: function (id) {
         if (!$("#cultureName").val()) {
             common_tool.messager_show("请输入文化名称");
-        } else if (!$("#author").val()) {
-            common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入文化内容");
         } else if (!$("#cultureText").val()) {

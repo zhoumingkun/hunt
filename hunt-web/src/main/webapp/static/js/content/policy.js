@@ -87,15 +87,13 @@ role_tool = {
     saveOrUpdate: function (id) {
         if (!$("#policyName").val()) {
             common_tool.messager_show("请输入招商政策名称");
-        } else if (!$("#author").val()) {
-            common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入招商政策内容");
         } else {
             var policyName = $("#policyName").val();
             var author = $("#author").val();
             var type = $("#type option:selected").val();
-            var state = $("#state option:selected").val();
+            var state = $("#policyState option:selected").val();
             var policyContent = editor.html();
             var data = {};
             if(!id) {
@@ -149,7 +147,7 @@ $(document).ready(function () {
         $('.pagewrap').show();
         $("#policyName").val('');
         $("#type").val(1);
-        $("#state").val(-1);
+        $("#policyState").val(-1);
     	$("#author").val('');
     	editor.html('');
     });
@@ -164,7 +162,7 @@ $(document).ready(function () {
         	$("#policyName").val(data.policyName);
         	$("#author").val(data.author);
         	$("#type").val(data.type);
-        	$("#state").val(data.state);
+        	$("#policyState").val(data.state);
         	editor.html(data.policyContent);
         }
 

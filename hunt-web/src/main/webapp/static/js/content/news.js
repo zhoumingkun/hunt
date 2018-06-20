@@ -78,8 +78,6 @@ role_tool = {
     saveOrUpdate: function (id) {
         if (!$("#newsName").val()) {
             common_tool.messager_show("请输入新闻名称");
-        } else if (!$("#author").val()) {
-            common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入新闻内容");
         } else {

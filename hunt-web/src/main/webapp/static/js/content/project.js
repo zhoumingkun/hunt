@@ -77,7 +77,7 @@ project_tool = {
             },
             traditional: true,
             method: 'post',
-            url: getRootPath() + '/frontend/project/delete',
+            url: getRootPath() + '/frontend/project/deleteById',
             async: false,
             dataType: 'json',
             success: function (result) {
@@ -97,8 +97,6 @@ project_tool = {
     saveOrUpdate: function (id) {
         if (!$("#projectName").val()) {
             common_tool.messager_show("请输入招商活动名称");
-        } else if (!$("#author").val()) {
-            common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入招商活动内容");
         } else {

@@ -202,7 +202,7 @@ window.onload = function(){
                 }
             }
         })
-	}else if(ids = 2){
+	}else if(ids == 2){
 		console.log(ids);
 		 $.ajax({
              type:"GET",
@@ -223,7 +223,7 @@ window.onload = function(){
                  }
              }
          })
-	}else{
+	}else if(ids == 3){
 		console.log(ids);
 		$.ajax({
             type:"GET",

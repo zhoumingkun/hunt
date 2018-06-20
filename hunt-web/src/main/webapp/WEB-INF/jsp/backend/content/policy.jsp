@@ -38,7 +38,7 @@
 	<div class="rowz">
 		<div class="label">状态：</div>
 		<div class="contentz">
-			<select id="state" style="height:24px;margin:6px 0;">
+			<select id="policyState" style="height:24px;margin:6px 0;">
 				<option value="-1">未发布</option>
 				<option value="1">已发布</option>
 				<option value="2">推广</option>

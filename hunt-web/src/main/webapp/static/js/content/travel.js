@@ -71,8 +71,6 @@ travel_tool = {
     saveOrUpdate: function (id) {
         if (!$("#travelName").val()) {
             common_tool.messager_show("请输入旅游名称");
-        } else if (!$("#author").val()) {
-            common_tool.messager_show("请输入作者");
         } else if (!editor.html()) {
             common_tool.messager_show("请输入旅游内容");
         } else {
