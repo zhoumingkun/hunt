@@ -35,6 +35,11 @@
 								src="${pageContext.request.contextPath}/static/image/index/news.png"
 								alt="">
 						</div>
+						<div class="swiper-slide left_news_back">
+							<img
+								src="${pageContext.request.contextPath}/static/image/index/new.png"
+								alt="">
+						</div>
 					</div>			
 				</div>
 				<div class="right_news">
